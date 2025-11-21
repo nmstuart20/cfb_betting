@@ -158,7 +158,7 @@ impl PredictionTrackerScraper {
             * 100.0; // Convert from decimal to percentage
 
         // Validate that win probability is reasonable
-        if home_win_prob < 0.0 || home_win_prob > 100.0 {
+        if !(0.0..=100.0).contains(&home_win_prob) {
             return None;
         }
 
