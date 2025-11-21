@@ -35,14 +35,3 @@ pub struct BettingOdds {
     pub moneyline: Vec<MoneylineOdds>,
     pub spreads: Vec<SpreadOdds>,
 }
-
-/// Prediction from a model (ESPN FPI, Sagarin, etc.)
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Prediction {
-    pub game_id: String,
-    pub model_name: String,
-    pub home_team: String,
-    pub away_team: String,
-    pub home_win_prob: f64, // Probability between 0 and 1
-    pub away_win_prob: f64, // Probability between 0 and 1
-}

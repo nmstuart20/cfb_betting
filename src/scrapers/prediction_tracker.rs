@@ -1,15 +1,16 @@
-use crate::models::Prediction;
 use anyhow::{Context, Result};
 use scraper::{Html, Selector};
+use serde::{Deserialize, Serialize};
 
 const PREDICTION_TRACKER_URL: &str = "https://www.thepredictiontracker.com/predncaa.html";
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct GamePrediction {
     pub home_team: String,
     pub away_team: String,
     pub spread: f64,
     pub home_win_prob: f64,
+    pub away_win_prob: f64,
     pub _prediction_avg: f64,
 }
 
@@ -27,20 +28,6 @@ impl PredictionTrackerScraper {
         }
     }
 
-    /// Scrape predictions from The Prediction Tracker
-    pub async fn fetch_predictions(&self) -> Result<Vec<Prediction>> {
-        let html = self
-            .client
-            .get(PREDICTION_TRACKER_URL)
-            .send()
-            .await
-            .context("Failed to fetch Prediction Tracker page")?
-            .text()
-            .await?;
-
-        self.parse_html(&html)
-    }
-
     /// Scrape game predictions (with spread data) from The Prediction Tracker
     pub async fn fetch_game_predictions(&self) -> Result<Vec<GamePrediction>> {
         let html = self
@@ -53,46 +40,6 @@ impl PredictionTrackerScraper {
             .await?;
 
         self.parse_html_to_game_predictions(&html)
-    }
-
-    fn parse_html(&self, html: &str) -> Result<Vec<Prediction>> {
-        let document = Html::parse_document(html);
-        let mut predictions = Vec::new();
-
-        // The Prediction Tracker uses plain text tables within <pre> tags
-        let pre_selector = Selector::parse("pre")
-            .ok()
-            .context("Invalid pre selector")?;
-
-        for pre_elem in document.select(&pre_selector) {
-            let text = pre_elem.text().collect::<String>();
-
-            // Parse the plain text table
-            for line in text.lines() {
-                if let Some(game) = self.parse_text_line(line) {
-                    let game_id = format!(
-                        "{}_{}",
-                        normalize_team_name(&game.home_team),
-                        normalize_team_name(&game.away_team)
-                    );
-
-                    predictions.push(Prediction {
-                        game_id,
-                        model_name: "Prediction Tracker".to_string(),
-                        home_team: game.home_team.clone(),
-                        away_team: game.away_team.clone(),
-                        home_win_prob: game.home_win_prob / 100.0, // Convert percentage to decimal
-                        away_win_prob: (100.0 - game.home_win_prob) / 100.0,
-                    });
-
-                    // Store the game prediction for spread calculations
-                    // This will be accessible through a separate interface
-                    // For now, we don't modify the Prediction struct
-                }
-            }
-        }
-
-        Ok(predictions)
     }
 
     fn parse_html_to_game_predictions(&self, html: &str) -> Result<Vec<GamePrediction>> {
@@ -147,38 +94,8 @@ impl PredictionTrackerScraper {
             return None;
         }
 
-        let mut home_team = team_parts[0].trim().replace(".", "").to_string();
-        if home_team.contains("Troy") {
-            home_team = "troy".to_string();
-        }
-        if home_team.contains("Louisiana-Monroe") {
-            home_team = "ul".to_string();
-        }
-        if home_team.contains("Texas-San Antonio") {
-            home_team = "utsa".to_string();
-        }
-        if home_team.contains("Central Florida") {
-            home_team = "ucf".to_string();
-        }
-        if home_team.contains("East Carolina") {
-            home_team = "east".to_string();
-        }
-        let mut away_team = team_parts[1].trim().replace(".", "").to_string();
-        if away_team.contains("Troy") {
-            away_team = "troy".to_string();
-        }
-        if away_team.contains("Louisiana-Monroe") {
-            away_team = "ul".to_string();
-        }
-        if away_team.contains("Texas-San Antonio") {
-            away_team = "utsa".to_string();
-        }
-        if away_team.contains("Central Florida") {
-            away_team = "ucf".to_string();
-        }
-        if away_team.contains("East Carolina") {
-            away_team = "east".to_string();
-        }
+        let home_team = team_parts[0].trim().replace(".", "").to_string();
+        let away_team = team_parts[1].trim().replace(".", "").to_string();
         // Extract numeric values
         let numeric_str = line[numeric_start..].trim();
         let numeric_parts: Vec<&str> = numeric_str.split_whitespace().collect();
@@ -194,11 +111,10 @@ impl PredictionTrackerScraper {
         let home_win_prob = numeric_parts
             .get(numeric_parts.len() - 2)? // Second to last is win probability
             .parse::<f64>()
-            .ok()?
-            * 100.0; // Convert from decimal to percentage
+            .ok()?;
 
         // Validate that win probability is reasonable
-        if !(0.0..=100.0).contains(&home_win_prob) {
+        if !(0.0..=1.0).contains(&home_win_prob) {
             return None;
         }
 
@@ -206,7 +122,8 @@ impl PredictionTrackerScraper {
             home_team,
             away_team,
             spread,
-            home_win_prob,
+            home_win_prob: home_win_prob, // Convert percentage to decimal
+            away_win_prob: 1.0 - home_win_prob,
             _prediction_avg: prediction_avg,
         })
     }
@@ -241,17 +158,18 @@ mod tests {
     #[tokio::test]
     async fn test_fetch_predictions() {
         let scraper = PredictionTrackerScraper::new();
-        let result = scraper.fetch_predictions().await;
+        let result = scraper.fetch_game_predictions().await;
         assert!(result.is_ok());
 
         if let Ok(predictions) = result {
             println!("Found {} predictions", predictions.len());
             for pred in predictions.iter().take(5) {
                 println!(
-                    "{} vs {} - Home win prob: {:.2}%",
+                    "{} vs {} - Home win prob: {:.2}%, Away win prob: {:.2}%",
                     pred.home_team,
                     pred.away_team,
-                    pred.home_win_prob * 100.0
+                    pred.home_win_prob * 100.0,
+                    pred.away_win_prob * 100.0,
                 );
             }
         }

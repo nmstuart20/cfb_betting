@@ -1,28 +1,61 @@
 use crate::models::{BettingOdds, Game};
-use crate::scrapers::prediction_tracker::{
-    normalize_team_name, GamePrediction, PredictionTrackerScraper,
-};
+use crate::scrapers::prediction_tracker::{normalize_team_name, GamePrediction};
 use crate::utils::ev_calculator::{
     american_odds_to_probability, calculate_expected_value, calculate_spread_cover_probability,
 };
-use anyhow::{Context, Result};
+use anyhow::Result;
 use std::collections::HashMap;
 
 /// Extract the primary school name from a full team name
 /// "Iowa Hawkeyes" -> "iowa"
-/// "Ohio State Buckeyes" -> "ohio_st" (keeping common abbreviations)
+/// "Ohio State Buckeyes" -> "ohio_st"
+/// "San Diego State Aztecs" -> "san_diego_st"
 fn extract_school_name(team_name: &str) -> String {
+    // Apply special mappings first (matching what the scraper does)
+    if team_name.contains("East Carolina") {
+        return "east".to_string();
+    }
+    if team_name.contains("Central Florida") || team_name.contains("UCF") {
+        return "ucf".to_string();
+    }
+    if team_name.contains("Louisiana-Monroe") || team_name.contains("UL Monroe") {
+        return "ul".to_string();
+    }
+    if team_name.contains("Texas-San Antonio") || team_name.contains("UTSA") {
+        return "utsa".to_string();
+    }
+
     let normalized = normalize_team_name(team_name);
 
-    // Split by underscore and take the first part (or first two if it's a state school)
+    // Split by underscore
     let parts: Vec<&str> = normalized.split('_').collect();
 
     if parts.len() >= 2 {
-        // Check for common patterns like "ohio_st", "michigan_st", etc.
-        if parts.len() >= 2 && (parts[1] == "st" || parts[1] == "state" || parts[1] == "dame") {
+        // Check for "X State" or "X St" patterns (where X can be multiple words)
+        // Find if "st" appears in the parts (state gets converted to st by normalize_team_name)
+        let state_index = parts.iter().position(|&p| p == "st");
+
+        if let Some(idx) = state_index {
+            // Include everything up to and including "st"
+            // e.g., "san_diego_st" for San Diego State
+            parts[..=idx].join("_")
+        } else if parts.len() >= 2 && parts[1] == "dame" {
+            // Handle "Notre Dame"
             format!("{}_{}", parts[0], parts[1])
-        } else if parts.len() >= 3 && parts[1] == "aandm" {
+        } else if parts.len() >= 2 && parts[1] == "aandm" {
             // Handle "Texas A&M" -> "texas_aandm"
+            format!("{}_{}", parts[0], parts[1])
+        } else if parts.len() >= 2
+            && (parts[1] == "forest"
+                || parts[1] == "texas"
+                || parts[1] == "force"
+                || parts[1] == "mexico"
+                || parts[1] == "kentucky"
+                || parts[1] == "virginia"
+                || parts[1] == "michigan")
+        {
+            // Handle two-word schools: Wake Forest, North Texas, Air Force, New Mexico,
+            // Western Kentucky, West Virginia, Western Michigan, etc.
             format!("{}_{}", parts[0], parts[1])
         } else {
             // Just use the first word (e.g., "iowa" from "iowa_hawkeyes")
@@ -36,15 +69,9 @@ fn extract_school_name(team_name: &str) -> String {
 /// Analyze all available games and return the top N EV bets
 pub async fn find_top_ev_bets(
     games_with_odds: &Vec<(Game, Vec<BettingOdds>)>,
-    prediction_scraper: &PredictionTrackerScraper,
+    predictions: &Vec<GamePrediction>,
     top_n: usize,
 ) -> Result<Vec<EvBetRecommendation>> {
-    // Fetch predictions from Prediction Tracker
-    let predictions = prediction_scraper
-        .fetch_predictions()
-        .await
-        .context("Failed to fetch predictions")?;
-
     // Create a lookup map for predictions by team names
     // Use extract_school_name to match with Odds API which has full names
     let mut prediction_map: HashMap<String, HashMap<String, f64>> = HashMap::new();
@@ -195,26 +222,20 @@ impl SpreadEvBetRecommendation {
 /// Analyze all available games and return the top N spread EV bets
 pub async fn find_top_spread_ev_bets(
     games_with_odds: &Vec<(Game, Vec<BettingOdds>)>,
-    prediction_scraper: &PredictionTrackerScraper,
+    game_predictions: &Vec<GamePrediction>,
     top_n: usize,
 ) -> Result<Vec<SpreadEvBetRecommendation>> {
     // Standard deviation for college football score predictions (typically 10-14 points)
     const STD_DEV: f64 = 12.0;
 
-    // Fetch game predictions from Prediction Tracker (includes spread data)
-    let game_predictions = prediction_scraper
-        .fetch_game_predictions()
-        .await
-        .context("Failed to fetch game predictions")?;
-
     // Create a lookup map for game predictions
-    let mut prediction_map: HashMap<String, GamePrediction> = HashMap::new();
+    let mut prediction_map: HashMap<String, &GamePrediction> = HashMap::new();
     for pred in game_predictions {
         let home_key = extract_school_name(&pred.home_team);
         let away_key = extract_school_name(&pred.away_team);
 
         let game_key = format!("{}_{}", home_key, away_key);
-        prediction_map.insert(game_key.clone(), pred.clone());
+        prediction_map.insert(game_key.clone(), pred);
 
         // Also store reverse key
         let reverse_key = format!("{}_{}", away_key, home_key);
@@ -250,18 +271,8 @@ pub async fn find_top_spread_ev_bets(
                 let is_home_team = team_key == home_key;
 
                 // The model_spread is from the home team's perspective (positive = home wins by that much)
-                // The spread_odds.point is from the team's perspective in the bet
-
-                // Calculate the probability this specific bet covers
-                // We always work in terms of the home team's margin
-                //
-                // If betting on home with -12.5: home needs to win by MORE than 12.5
-                // If betting on away with +12.5: home needs to win by LESS than 12.5 (or away loses by less than 12.5)
-                //
-                // So the bet spread represents different conditions:
-                // - Home team bet: need home_margin > abs(bet_spread)
-                // - Away team bet: need home_margin < abs(bet_spread)
-
+                // The spread_odds.point is from the team's perspective in the bet and using normal betting lines
+                // such as negative = spread_odds.team wins
                 let cover_prob = if is_home_team {
                     // Betting on home team: use spread as-is
                     calculate_spread_cover_probability(model_spread, spread_odds.point, STD_DEV)
@@ -270,10 +281,7 @@ pub async fn find_top_spread_ev_bets(
                     // If away has +12.5, they cover when home_margin < 12.5
                     calculate_spread_cover_probability(-model_spread, spread_odds.point, STD_DEV)
                 };
-                println!(
-                    "Model Home Team: {}, Model Spread: {}, Spread Team: {}, Spread Odds: {}, Cover Prob: {}",
-                    home_key, model_spread, team_key, spread_odds.point, cover_prob
-                );
+
                 let implied_prob = american_odds_to_probability(spread_odds.price);
                 let ev = calculate_expected_value(cover_prob, spread_odds.price);
                 let edge = cover_prob - implied_prob;
