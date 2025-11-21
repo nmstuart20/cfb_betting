@@ -3,9 +3,11 @@ mod models;
 mod scrapers;
 mod utils;
 
-use anyhow::Result;
+use anyhow::{Context, Result};
 use api::odds_api::OddsApiClient;
+use models::{BettingOdds, Game};
 use scrapers::prediction_tracker::PredictionTrackerScraper;
+use std::path::Path;
 use utils::ev_analysis::{find_top_ev_bets, find_top_spread_ev_bets};
 
 #[tokio::main]
@@ -26,9 +28,30 @@ async fn main() -> Result<()> {
     let odds_client = OddsApiClient::new(api_key);
     let prediction_scraper = PredictionTrackerScraper::new();
 
+    // Check if we should use cached odds data
+    let cache_file = "odds_cache.json";
+    let use_cache = std::env::var("USE_CACHE").unwrap_or_default() == "1";
+
+    let games_with_odds = if use_cache && Path::new(cache_file).exists() {
+        println!("Loading odds from cache file: {}\n", cache_file);
+        load_odds_from_cache(cache_file)?
+    } else {
+        // Fetch odds from The Odds API
+        let games_with_odds = odds_client
+            .fetch_games()
+            .await
+            .context("Failed to fetch odds")?;
+
+        // Save to cache file
+        save_odds_to_cache(&games_with_odds, cache_file)?;
+        println!("Saved odds to cache file: {}\n", cache_file);
+
+        games_with_odds
+    };
+
     // Find top moneyline EV bets
     println!("MONEYLINE BETS\n");
-    match find_top_ev_bets(&odds_client, &prediction_scraper, 30).await {
+    match find_top_ev_bets(&games_with_odds, &prediction_scraper, 30).await {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV moneyline bets found.");
@@ -47,7 +70,7 @@ async fn main() -> Result<()> {
 
     // Find top spread EV bets
     println!("\nSPREAD BETS\n");
-    match find_top_spread_ev_bets(&odds_client, &prediction_scraper, 30).await {
+    match find_top_spread_ev_bets(&games_with_odds, &prediction_scraper, 30).await {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV spread bets found.");
@@ -69,4 +92,23 @@ async fn main() -> Result<()> {
     odds_client.check_usage().await?;
 
     Ok(())
+}
+
+/// Save odds data to a JSON cache file
+fn save_odds_to_cache(
+    games_with_odds: &[(Game, Vec<BettingOdds>)],
+    cache_file: &str,
+) -> Result<()> {
+    let json =
+        serde_json::to_string_pretty(games_with_odds).context("Failed to serialize odds data")?;
+    std::fs::write(cache_file, json).context("Failed to write cache file")?;
+    Ok(())
+}
+
+/// Load odds data from a JSON cache file
+fn load_odds_from_cache(cache_file: &str) -> Result<Vec<(Game, Vec<BettingOdds>)>> {
+    let json = std::fs::read_to_string(cache_file).context("Failed to read cache file")?;
+    let games_with_odds: Vec<(Game, Vec<BettingOdds>)> =
+        serde_json::from_str(&json).context("Failed to deserialize odds data")?;
+    Ok(games_with_odds)
 }

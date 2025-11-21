@@ -1,4 +1,4 @@
-use crate::api::odds_api::OddsApiClient;
+use crate::models::{BettingOdds, Game};
 use crate::scrapers::prediction_tracker::{
     normalize_team_name, GamePrediction, PredictionTrackerScraper,
 };
@@ -35,16 +35,10 @@ fn extract_school_name(team_name: &str) -> String {
 
 /// Analyze all available games and return the top N EV bets
 pub async fn find_top_ev_bets(
-    odds_client: &OddsApiClient,
+    games_with_odds: &Vec<(Game, Vec<BettingOdds>)>,
     prediction_scraper: &PredictionTrackerScraper,
     top_n: usize,
 ) -> Result<Vec<EvBetRecommendation>> {
-    // Fetch odds from The Odds API
-    let games_with_odds = odds_client
-        .fetch_games()
-        .await
-        .context("Failed to fetch odds")?;
-
     // Fetch predictions from Prediction Tracker
     let predictions = prediction_scraper
         .fetch_predictions()
@@ -200,18 +194,12 @@ impl SpreadEvBetRecommendation {
 
 /// Analyze all available games and return the top N spread EV bets
 pub async fn find_top_spread_ev_bets(
-    odds_client: &OddsApiClient,
+    games_with_odds: &Vec<(Game, Vec<BettingOdds>)>,
     prediction_scraper: &PredictionTrackerScraper,
     top_n: usize,
 ) -> Result<Vec<SpreadEvBetRecommendation>> {
     // Standard deviation for college football score predictions (typically 10-14 points)
     const STD_DEV: f64 = 12.0;
-
-    // Fetch odds from The Odds API
-    let games_with_odds = odds_client
-        .fetch_games()
-        .await
-        .context("Failed to fetch odds")?;
 
     // Fetch game predictions from Prediction Tracker (includes spread data)
     let game_predictions = prediction_scraper
@@ -276,6 +264,10 @@ pub async fn find_top_spread_ev_bets(
                 let implied_prob = american_odds_to_probability(spread_odds.price);
                 let ev = calculate_expected_value(cover_prob, spread_odds.price);
                 let edge = cover_prob - implied_prob;
+
+                if ev > 0.0 {
+                    println!("Home Team: {}, Away Team: {}, Cover Prob: {}, Implied Prob: {}, EV: {}, Edge: {}", game.home_team, game.away_team, cover_prob, implied_prob, ev, edge);
+                }
 
                 all_bets.push(SpreadEvBetRecommendation {
                     home_team: game.home_team.clone(),

@@ -73,6 +73,8 @@ impl OddsApiClient {
             .await
             .context("Failed to fetch odds from The Odds API")?;
 
+        println!("Fetching from Odds API");
+
         if !response.status().is_success() {
             anyhow::bail!("Odds API returned error: {}", response.status());
         }
