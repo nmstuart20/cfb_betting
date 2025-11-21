@@ -12,9 +12,6 @@ use std::collections::HashMap;
 /// "San Diego State Aztecs" -> "san_diego_st"
 fn extract_school_name(team_name: &str) -> String {
     // Apply special mappings first (matching what the scraper does)
-    if team_name.contains("East Carolina") {
-        return "east".to_string();
-    }
     if team_name.contains("Central Florida") || team_name.contains("UCF") {
         return "ucf".to_string();
     }
@@ -23,6 +20,12 @@ fn extract_school_name(team_name: &str) -> String {
     }
     if team_name.contains("Texas-San Antonio") || team_name.contains("UTSA") {
         return "utsa".to_string();
+    }
+    if team_name.contains("Troy") {
+        return "troy".to_string();
+    }
+    if team_name.contains("Connecticut") {
+        return "uconn".to_string();
     }
 
     let normalized = normalize_team_name(team_name);
@@ -52,7 +55,10 @@ fn extract_school_name(team_name: &str) -> String {
                 || parts[1] == "mexico"
                 || parts[1] == "kentucky"
                 || parts[1] == "virginia"
-                || parts[1] == "michigan")
+                || parts[1] == "michigan"
+                || parts[1] == "illinois"
+                || parts[1] == "tech"
+                || parts[1] == "carolina")
         {
             // Handle two-word schools: Wake Forest, North Texas, Air Force, New Mexico,
             // Western Kentucky, West Virginia, Western Michigan, etc.
