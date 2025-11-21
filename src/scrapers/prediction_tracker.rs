@@ -101,7 +101,6 @@ impl PredictionTrackerScraper {
             .split("  ") // Split on 2+ spaces
             .filter(|s| !s.trim().is_empty())
             .collect();
-        println!("Team Parts: {:?}", team_parts);
 
         if team_parts.len() < 2 {
             return None;

@@ -20,7 +20,7 @@ struct OddsApiGame {
 /// Bookmaker data from The Odds API
 #[derive(Debug, Deserialize)]
 struct OddsApiBookmaker {
-    _key: String,
+    key: String,
     title: String,
     last_update: DateTime<Utc>,
     markets: Vec<OddsApiMarket>,
