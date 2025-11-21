@@ -1,4 +1,4 @@
-use crate::models::{BettingOdds, Game, MoneylineOdds};
+use crate::models::{BettingOdds, Game, MoneylineOdds, SpreadOdds};
 use anyhow::{Context, Result};
 use chrono::{DateTime, Utc};
 use serde::Deserialize;
@@ -38,6 +38,8 @@ struct OddsApiMarket {
 struct OddsApiOutcome {
     name: String,
     price: f64,
+    #[serde(default)]
+    point: Option<f64>,
 }
 
 pub struct OddsApiClient {
@@ -64,7 +66,7 @@ impl OddsApiClient {
             .query(&[
                 ("apiKey", self.api_key.as_str()),
                 ("regions", "us"),
-                ("markets", "h2h"), // h2h = head-to-head (moneyline)
+                ("markets", "h2h,spreads"), // h2h = head-to-head (moneyline), spreads = point spreads
                 ("oddsFormat", "american"),
             ])
             .send()
@@ -115,11 +117,32 @@ impl OddsApiClient {
                             })
                             .collect();
 
+                        // Find the spreads market
+                        let spreads: Vec<SpreadOdds> = bookmaker
+                            .markets
+                            .iter()
+                            .find(|m| m.key == "spreads")
+                            .map(|spread_market| {
+                                spread_market
+                                    .outcomes
+                                    .iter()
+                                    .filter_map(|outcome| {
+                                        Some(SpreadOdds {
+                                            team: outcome.name.clone(),
+                                            point: outcome.point?,
+                                            price: outcome.price as i32,
+                                        })
+                                    })
+                                    .collect()
+                            })
+                            .unwrap_or_default();
+
                         Some(BettingOdds {
                             game_id: api_game.id.clone(),
                             bookmaker: bookmaker.title,
                             last_update: bookmaker.last_update,
                             moneyline,
+                            spreads,
                         })
                     })
                     .collect();

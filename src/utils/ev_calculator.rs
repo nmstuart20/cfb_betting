@@ -40,6 +40,49 @@ pub fn calculate_expected_value(model_prob: f64, odds: i32) -> f64 {
     (model_prob * win_amount) - (prob_lose * lose_amount)
 }
 
+/// Calculate the probability of covering a spread
+/// Uses a normal distribution approximation based on the predicted spread
+///
+/// model_spread: The predicted point differential (home team perspective, positive = home favored)
+/// bet_spread: The betting line (e.g., -7.5 means home team must win by more than 7.5)
+/// std_dev: Standard deviation of the prediction (typically 10-14 points for CFB)
+pub fn calculate_spread_cover_probability(model_spread: f64, bet_spread: f64, std_dev: f64) -> f64 {
+    // For a bet on the home team with spread bet_spread:
+    // The home team covers if: actual_margin > bet_spread
+    // We model actual_margin ~ Normal(model_spread, std_dev)
+
+    // Convert to standard normal: Z = (bet_spread - model_spread) / std_dev
+    // P(actual_margin > bet_spread) = P(Z < (model_spread - bet_spread) / std_dev)
+    let z = (model_spread - bet_spread) / std_dev;
+
+    // Use normal CDF approximation
+    normal_cdf(z)
+}
+
+/// Approximation of the standard normal cumulative distribution function
+/// Using the error function approximation
+fn normal_cdf(x: f64) -> f64 {
+    0.5 * (1.0 + erf(x / std::f64::consts::SQRT_2))
+}
+
+/// Approximation of the error function using Abramowitz and Stegun formula
+fn erf(x: f64) -> f64 {
+    let a1 = 0.254829592;
+    let a2 = -0.284496736;
+    let a3 = 1.421413741;
+    let a4 = -1.453152027;
+    let a5 = 1.061405429;
+    let p = 0.3275911;
+
+    let sign = if x < 0.0 { -1.0 } else { 1.0 };
+    let x = x.abs();
+
+    let t = 1.0 / (1.0 + p * x);
+    let y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * (-x * x).exp();
+
+    sign * y
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -66,5 +109,20 @@ mod tests {
         // Negative EV scenario: 40% win probability on -150 odds
         let ev = calculate_expected_value(0.4, -150);
         assert!(ev < 0.0);
+    }
+
+    #[test]
+    fn test_calculate_spread_cover_probability() {
+        // If model predicts home team wins by 10, and spread is -7, should have high probability
+        let prob = calculate_spread_cover_probability(10.0, -7.0, 12.0);
+        assert!(prob > 0.5);
+
+        // If model predicts home team wins by 3, and spread is -7, should have low probability
+        let prob = calculate_spread_cover_probability(3.0, -7.0, 12.0);
+        assert!(prob < 0.5);
+
+        // Equal values should be close to 50%
+        let prob = calculate_spread_cover_probability(7.0, -7.0, 12.0);
+        assert!((prob - 0.5).abs() < 0.1);
     }
 }

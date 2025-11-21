@@ -6,7 +6,7 @@ mod utils;
 use anyhow::Result;
 use api::odds_api::OddsApiClient;
 use scrapers::prediction_tracker::PredictionTrackerScraper;
-use utils::ev_analysis::find_top_ev_bets;
+use utils::ev_analysis::{find_top_ev_bets, find_top_spread_ev_bets};
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -26,13 +26,14 @@ async fn main() -> Result<()> {
     let odds_client = OddsApiClient::new(api_key);
     let prediction_scraper = PredictionTrackerScraper::new();
 
-    // Find top EV bets
-    match find_top_ev_bets(&odds_client, &prediction_scraper, 50).await {
+    // Find top moneyline EV bets
+    println!("MONEYLINE BETS\n");
+    match find_top_ev_bets(&odds_client, &prediction_scraper, 30).await {
         Ok(bets) => {
             if bets.is_empty() {
-                println!("No positive EV bets found.");
+                println!("No positive EV moneyline bets found.");
             } else {
-                println!("Top {} EV Bets:\n", bets.len());
+                println!("Top {} Moneyline EV Bets:\n", bets.len());
                 for (i, bet) in bets.iter().enumerate() {
                     println!("{}. {}", i + 1, bet.format());
                 }
@@ -41,6 +42,25 @@ async fn main() -> Result<()> {
         Err(e) => {
             eprintln!("Error: {}", e);
             return Err(e);
+        }
+    }
+
+    // Find top spread EV bets
+    println!("\nSPREAD BETS\n");
+    match find_top_spread_ev_bets(&odds_client, &prediction_scraper, 30).await {
+        Ok(bets) => {
+            if bets.is_empty() {
+                println!("No positive EV spread bets found.");
+            } else {
+                println!("Top {} Spread EV Bets:\n", bets.len());
+                for (i, bet) in bets.iter().enumerate() {
+                    println!("{}. {}", i + 1, bet.format());
+                }
+            }
+        }
+        Err(e) => {
+            eprintln!("Error fetching spread bets: {}", e);
+            // Don't return error - still show API usage
         }
     }
 

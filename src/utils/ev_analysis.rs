@@ -1,6 +1,10 @@
 use crate::api::odds_api::OddsApiClient;
-use crate::scrapers::prediction_tracker::{normalize_team_name, PredictionTrackerScraper};
-use crate::utils::ev_calculator::{american_odds_to_probability, calculate_expected_value};
+use crate::scrapers::prediction_tracker::{
+    normalize_team_name, GamePrediction, PredictionTrackerScraper,
+};
+use crate::utils::ev_calculator::{
+    american_odds_to_probability, calculate_expected_value, calculate_spread_cover_probability,
+};
 use anyhow::{Context, Result};
 use std::collections::HashMap;
 
@@ -156,4 +160,151 @@ impl EvBetRecommendation {
             self.implied_prob * 100.0
         )
     }
+}
+
+/// A spread bet recommendation with EV analysis
+#[derive(Debug, Clone)]
+pub struct SpreadEvBetRecommendation {
+    pub home_team: String,
+    pub away_team: String,
+    pub team: String,
+    pub spread_line: f64,
+    pub bookmaker: String,
+    pub odds: i32,
+    pub model_spread: f64,
+    pub model_prob: f64,
+    pub implied_prob: f64,
+    pub expected_value: f64,
+    pub edge: f64,
+}
+
+impl SpreadEvBetRecommendation {
+    /// Format the spread bet recommendation as a readable string
+    pub fn format(&self) -> String {
+        format!(
+            "{} @ {} | Bet: {} ({:+.1}) ({:+}) on {} | EV: {:+.2}% | Edge: {:+.2}% | Model Spread: {:+.1} | Model: {:.1}% | Implied: {:.1}%",
+            self.away_team,
+            self.home_team,
+            self.team,
+            self.spread_line,
+            self.odds,
+            self.bookmaker,
+            self.expected_value * 100.0,
+            self.edge * 100.0,
+            self.model_spread,
+            self.model_prob * 100.0,
+            self.implied_prob * 100.0
+        )
+    }
+}
+
+/// Analyze all available games and return the top N spread EV bets
+pub async fn find_top_spread_ev_bets(
+    odds_client: &OddsApiClient,
+    prediction_scraper: &PredictionTrackerScraper,
+    top_n: usize,
+) -> Result<Vec<SpreadEvBetRecommendation>> {
+    // Standard deviation for college football score predictions (typically 10-14 points)
+    const STD_DEV: f64 = 12.0;
+
+    // Fetch odds from The Odds API
+    let games_with_odds = odds_client
+        .fetch_games()
+        .await
+        .context("Failed to fetch odds")?;
+
+    // Fetch game predictions from Prediction Tracker (includes spread data)
+    let game_predictions = prediction_scraper
+        .fetch_game_predictions()
+        .await
+        .context("Failed to fetch game predictions")?;
+
+    // Create a lookup map for game predictions
+    let mut prediction_map: HashMap<String, GamePrediction> = HashMap::new();
+    for pred in game_predictions {
+        let home_key = extract_school_name(&pred.home_team);
+        let away_key = extract_school_name(&pred.away_team);
+
+        let game_key = format!("{}_{}", home_key, away_key);
+        prediction_map.insert(game_key.clone(), pred.clone());
+
+        // Also store reverse key
+        let reverse_key = format!("{}_{}", away_key, home_key);
+        prediction_map.insert(reverse_key, pred);
+    }
+
+    // Calculate EV for all spread bets
+    let mut all_bets = Vec::new();
+    let mut no_prediction_count = 0;
+
+    for (game, odds_list) in games_with_odds {
+        // Extract school names from full team names
+        let home_key = extract_school_name(&game.home_team);
+        let away_key = extract_school_name(&game.away_team);
+
+        // Try to find matching prediction
+        let game_key = format!("{}_{}", home_key, away_key);
+        let game_pred = match prediction_map.get(&game_key) {
+            Some(pred) => pred,
+            None => {
+                no_prediction_count += 1;
+                continue;
+            }
+        };
+
+        // The model spread is from the home team's perspective (positive = home favored)
+        let model_spread = game_pred.spread;
+
+        // Analyze each bookmaker's spread odds
+        for bookmaker_odds in odds_list {
+            for spread_odds in &bookmaker_odds.spreads {
+                let team_key = extract_school_name(&spread_odds.team);
+                let is_home_team = team_key == home_key;
+
+                // Determine the effective spread for this bet
+                // If betting on home team with spread -7, home must win by more than 7
+                // If betting on away team with spread +7, away must lose by less than 7 (or win)
+                let bet_spread = if is_home_team {
+                    spread_odds.point
+                } else {
+                    -spread_odds.point
+                };
+
+                // Calculate probability of covering the spread
+                let cover_prob =
+                    calculate_spread_cover_probability(model_spread, bet_spread, STD_DEV);
+                let implied_prob = american_odds_to_probability(spread_odds.price);
+                let ev = calculate_expected_value(cover_prob, spread_odds.price);
+                let edge = cover_prob - implied_prob;
+
+                all_bets.push(SpreadEvBetRecommendation {
+                    home_team: game.home_team.clone(),
+                    away_team: game.away_team.clone(),
+                    team: spread_odds.team.clone(),
+                    spread_line: spread_odds.point,
+                    bookmaker: bookmaker_odds.bookmaker.clone(),
+                    odds: spread_odds.price,
+                    model_spread,
+                    model_prob: cover_prob,
+                    implied_prob,
+                    expected_value: ev,
+                    edge,
+                });
+            }
+        }
+    }
+
+    println!(
+        "Spread bets - Number of games without predictions: {}",
+        no_prediction_count
+    );
+
+    // Sort by EV (descending) and take top N
+    all_bets.sort_by(|a, b| {
+        b.expected_value
+            .partial_cmp(&a.expected_value)
+            .unwrap_or(std::cmp::Ordering::Equal)
+    });
+
+    Ok(all_bets.into_iter().take(top_n).collect())
 }

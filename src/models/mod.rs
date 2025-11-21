@@ -18,6 +18,14 @@ pub struct MoneylineOdds {
     pub price: i32, // American odds format (e.g., -110, +150)
 }
 
+/// Spread odds for a team
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SpreadOdds {
+    pub team: String,
+    pub point: f64, // Spread points (e.g., -7.5, +3.5)
+    pub price: i32, // American odds format (e.g., -110, +150)
+}
+
 /// Betting odds from a sportsbook
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct BettingOdds {
@@ -25,6 +33,7 @@ pub struct BettingOdds {
     pub bookmaker: String,
     pub last_update: DateTime<Utc>,
     pub moneyline: Vec<MoneylineOdds>,
+    pub spreads: Vec<SpreadOdds>,
 }
 
 /// Prediction from a model (ESPN FPI, Sagarin, etc.)

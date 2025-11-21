@@ -8,7 +8,7 @@ const PREDICTION_TRACKER_URL: &str = "https://www.thepredictiontracker.com/predn
 pub struct GamePrediction {
     pub home_team: String,
     pub away_team: String,
-    pub _spread: f64,
+    pub spread: f64,
     pub home_win_prob: f64,
     pub _prediction_avg: f64,
 }
@@ -41,6 +41,20 @@ impl PredictionTrackerScraper {
         self.parse_html(&html)
     }
 
+    /// Scrape game predictions (with spread data) from The Prediction Tracker
+    pub async fn fetch_game_predictions(&self) -> Result<Vec<GamePrediction>> {
+        let html = self
+            .client
+            .get(PREDICTION_TRACKER_URL)
+            .send()
+            .await
+            .context("Failed to fetch Prediction Tracker page")?
+            .text()
+            .await?;
+
+        self.parse_html_to_game_predictions(&html)
+    }
+
     fn parse_html(&self, html: &str) -> Result<Vec<Prediction>> {
         let document = Html::parse_document(html);
         let mut predictions = Vec::new();
@@ -70,11 +84,38 @@ impl PredictionTrackerScraper {
                         home_win_prob: game.home_win_prob / 100.0, // Convert percentage to decimal
                         away_win_prob: (100.0 - game.home_win_prob) / 100.0,
                     });
+
+                    // Store the game prediction for spread calculations
+                    // This will be accessible through a separate interface
+                    // For now, we don't modify the Prediction struct
                 }
             }
         }
 
         Ok(predictions)
+    }
+
+    fn parse_html_to_game_predictions(&self, html: &str) -> Result<Vec<GamePrediction>> {
+        let document = Html::parse_document(html);
+        let mut game_predictions = Vec::new();
+
+        // The Prediction Tracker uses plain text tables within <pre> tags
+        let pre_selector = Selector::parse("pre")
+            .ok()
+            .context("Invalid pre selector")?;
+
+        for pre_elem in document.select(&pre_selector) {
+            let text = pre_elem.text().collect::<String>();
+
+            // Parse the plain text table
+            for line in text.lines() {
+                if let Some(game) = self.parse_text_line(line) {
+                    game_predictions.push(game);
+                }
+            }
+        }
+
+        Ok(game_predictions)
     }
 
     fn parse_text_line(&self, line: &str) -> Option<GamePrediction> {
@@ -164,7 +205,7 @@ impl PredictionTrackerScraper {
         Some(GamePrediction {
             home_team,
             away_team,
-            _spread: spread,
+            spread,
             home_win_prob,
             _prediction_avg: prediction_avg,
         })
