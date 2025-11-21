@@ -96,10 +96,8 @@ pub async fn find_top_ev_bets(
                     let edge = model_prob - implied_prob;
 
                     all_bets.push(EvBetRecommendation {
-                        game_id: game.id.clone(),
                         home_team: game.home_team.clone(),
                         away_team: game.away_team.clone(),
-                        commence_time: game.commence_time,
                         team: moneyline.team.clone(),
                         bookmaker: bookmaker_odds.bookmaker.clone(),
                         odds: moneyline.price,
@@ -131,10 +129,8 @@ pub async fn find_top_ev_bets(
 /// A bet recommendation with EV analysis
 #[derive(Debug, Clone)]
 pub struct EvBetRecommendation {
-    pub game_id: String,
     pub home_team: String,
     pub away_team: String,
-    pub commence_time: chrono::DateTime<chrono::Utc>,
     pub team: String,
     pub bookmaker: String,
     pub odds: i32,

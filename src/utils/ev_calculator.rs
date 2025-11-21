@@ -40,11 +40,6 @@ pub fn calculate_expected_value(model_prob: f64, odds: i32) -> f64 {
     (model_prob * win_amount) - (prob_lose * lose_amount)
 }
 
-/// Calculate the edge (difference between model probability and implied probability)
-pub fn calculate_edge(model_prob: f64, implied_prob: f64) -> f64 {
-    model_prob - implied_prob
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -71,11 +66,5 @@ mod tests {
         // Negative EV scenario: 40% win probability on -150 odds
         let ev = calculate_expected_value(0.4, -150);
         assert!(ev < 0.0);
-    }
-
-    #[test]
-    fn test_calculate_edge() {
-        let edge = calculate_edge(0.6, 0.5);
-        assert!((edge - 0.1).abs() < 0.01);
     }
 }

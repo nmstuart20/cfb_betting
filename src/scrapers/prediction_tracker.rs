@@ -8,9 +8,9 @@ const PREDICTION_TRACKER_URL: &str = "https://www.thepredictiontracker.com/predn
 pub struct GamePrediction {
     pub home_team: String,
     pub away_team: String,
-    pub spread: f64,
+    pub _spread: f64,
     pub home_win_prob: f64,
-    pub prediction_avg: f64,
+    pub _prediction_avg: f64,
 }
 
 pub struct PredictionTrackerScraper {
@@ -165,46 +165,10 @@ impl PredictionTrackerScraper {
         Some(GamePrediction {
             home_team,
             away_team,
-            spread,
+            _spread: spread,
             home_win_prob,
-            prediction_avg,
+            _prediction_avg: prediction_avg,
         })
-    }
-
-    /// Fetch and return raw game predictions with all data
-    pub async fn fetch_game_predictions(&self) -> Result<Vec<GamePrediction>> {
-        let html = self
-            .client
-            .get(PREDICTION_TRACKER_URL)
-            .send()
-            .await
-            .context("Failed to fetch Prediction Tracker page")?
-            .text()
-            .await?;
-
-        self.parse_games(&html)
-    }
-
-    fn parse_games(&self, html: &str) -> Result<Vec<GamePrediction>> {
-        let document = Html::parse_document(html);
-        let mut games = Vec::new();
-
-        let pre_selector = Selector::parse("pre")
-            .ok()
-            .context("Invalid pre selector")?;
-
-        for pre_elem in document.select(&pre_selector) {
-            let text = pre_elem.text().collect::<String>();
-
-            // Parse the plain text table
-            for line in text.lines() {
-                if let Some(game) = self.parse_text_line(line) {
-                    games.push(game);
-                }
-            }
-        }
-
-        Ok(games)
     }
 }
 
@@ -248,24 +212,6 @@ mod tests {
                     pred.home_team,
                     pred.away_team,
                     pred.home_win_prob * 100.0
-                );
-            }
-        }
-    }
-
-    #[tokio::test]
-    async fn test_fetch_game_predictions() {
-        let scraper = PredictionTrackerScraper::new();
-        let result = scraper.fetch_game_predictions().await;
-        assert!(result.is_ok());
-        assert!(false);
-
-        if let Ok(games) = result {
-            println!("Found {} games", games.len());
-            for game in games.iter().take(5) {
-                println!(
-                    "{} vs {} - Spread: {:.1}, Win prob: {:.2}%",
-                    game.home_team, game.away_team, game.spread, game.home_win_prob
                 );
             }
         }
