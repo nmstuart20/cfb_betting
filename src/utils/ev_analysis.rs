@@ -240,7 +240,7 @@ pub async fn find_top_spread_ev_bets(
             }
         };
 
-        // The model spread is from the home team's perspective (positive = home favored)
+        // The prediction tracker spread is positive if the home team is predicted to win
         let model_spread = game_pred.spread;
 
         // Analyze each bookmaker's spread odds
@@ -249,25 +249,34 @@ pub async fn find_top_spread_ev_bets(
                 let team_key = extract_school_name(&spread_odds.team);
                 let is_home_team = team_key == home_key;
 
-                // Determine the effective spread for this bet
-                // If betting on home team with spread -7, home must win by more than 7
-                // If betting on away team with spread +7, away must lose by less than 7 (or win)
-                let bet_spread = if is_home_team {
-                    spread_odds.point
-                } else {
-                    -spread_odds.point
-                };
+                // The model_spread is from the home team's perspective (positive = home wins by that much)
+                // The spread_odds.point is from the team's perspective in the bet
 
-                // Calculate probability of covering the spread
-                let cover_prob =
-                    calculate_spread_cover_probability(model_spread, bet_spread, STD_DEV);
+                // Calculate the probability this specific bet covers
+                // We always work in terms of the home team's margin
+                //
+                // If betting on home with -12.5: home needs to win by MORE than 12.5
+                // If betting on away with +12.5: home needs to win by LESS than 12.5 (or away loses by less than 12.5)
+                //
+                // So the bet spread represents different conditions:
+                // - Home team bet: need home_margin > abs(bet_spread)
+                // - Away team bet: need home_margin < abs(bet_spread)
+
+                let cover_prob = if is_home_team {
+                    // Betting on home team: use spread as-is
+                    calculate_spread_cover_probability(model_spread, spread_odds.point, STD_DEV)
+                } else {
+                    // Betting on away team: we need the OPPOSITE condition
+                    // If away has +12.5, they cover when home_margin < 12.5
+                    calculate_spread_cover_probability(-model_spread, spread_odds.point, STD_DEV)
+                };
+                println!(
+                    "Model Home Team: {}, Model Spread: {}, Spread Team: {}, Spread Odds: {}, Cover Prob: {}",
+                    home_key, model_spread, team_key, spread_odds.point, cover_prob
+                );
                 let implied_prob = american_odds_to_probability(spread_odds.price);
                 let ev = calculate_expected_value(cover_prob, spread_odds.price);
                 let edge = cover_prob - implied_prob;
-
-                if ev > 0.0 {
-                    println!("Home Team: {}, Away Team: {}, Cover Prob: {}, Implied Prob: {}, EV: {}, Edge: {}", game.home_team, game.away_team, cover_prob, implied_prob, ev, edge);
-                }
 
                 all_bets.push(SpreadEvBetRecommendation {
                     home_team: game.home_team.clone(),
