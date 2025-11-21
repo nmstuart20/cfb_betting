@@ -1,5 +1,4 @@
 use crate::api::odds_api::OddsApiClient;
-use crate::models::{BettingOdds, ExpectedValue, Game};
 use crate::scrapers::prediction_tracker::{normalize_team_name, PredictionTrackerScraper};
 use crate::utils::ev_calculator::{american_odds_to_probability, calculate_expected_value};
 use anyhow::{Context, Result};
@@ -66,7 +65,7 @@ pub async fn find_top_ev_bets(
 
     // Calculate EV for all bets
     let mut all_bets = Vec::new();
-
+    let mut no_prediction_count = 0;
     for (game, odds_list) in games_with_odds {
         // Extract school names from full team names (e.g., "Iowa Hawkeyes" -> "iowa")
         let home_key = extract_school_name(&game.home_team);
@@ -78,9 +77,10 @@ pub async fn find_top_ev_bets(
             Some(preds) => preds,
             None => {
                 println!(
-                    "⚠️  No prediction found for: {} vs {} (odds api key: {})",
+                    "No prediction found for: {} vs {} (odds api key: {})",
                     game.home_team, game.away_team, game_key
                 );
+                no_prediction_count += 1;
                 continue; // Skip games without predictions
             }
         };
@@ -112,6 +112,11 @@ pub async fn find_top_ev_bets(
             }
         }
     }
+
+    println!(
+        "Number of games without predictions: {}",
+        no_prediction_count
+    );
 
     // Sort by EV (descending) and take top N
     all_bets.sort_by(|a, b| {

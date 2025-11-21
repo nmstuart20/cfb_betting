@@ -1,7 +1,7 @@
 use crate::models::{BettingOdds, Game, MoneylineOdds};
 use anyhow::{Context, Result};
 use chrono::{DateTime, Utc};
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 
 const ODDS_API_BASE_URL: &str = "https://api.the-odds-api.com/v4";
 const SPORT_KEY: &str = "americanfootball_ncaaf"; // College football
@@ -20,7 +20,7 @@ struct OddsApiGame {
 /// Bookmaker data from The Odds API
 #[derive(Debug, Deserialize)]
 struct OddsApiBookmaker {
-    key: String,
+    _key: String,
     title: String,
     last_update: DateTime<Utc>,
     markets: Vec<OddsApiMarket>,
@@ -54,6 +54,7 @@ impl OddsApiClient {
     }
 
     /// Fetch upcoming college football games with odds
+    /// Only returns games that are in the future and within the next 7 days
     pub async fn fetch_games(&self) -> Result<Vec<(Game, Vec<BettingOdds>)>> {
         let url = format!("{}/sports/{}/odds", ODDS_API_BASE_URL, SPORT_KEY);
 
@@ -79,8 +80,16 @@ impl OddsApiClient {
             .await
             .context("Failed to parse Odds API response")?;
 
+        // Filter games to only include those in the future and within the next week
+        let now = Utc::now();
+        let one_week_from_now = now + chrono::Duration::days(7);
+
         Ok(api_games
             .into_iter()
+            .filter(|api_game| {
+                // Only include games that start in the future and within the next 7 days
+                api_game.commence_time > now && api_game.commence_time <= one_week_from_now
+            })
             .map(|api_game| {
                 let game = Game {
                     id: api_game.id.clone(),

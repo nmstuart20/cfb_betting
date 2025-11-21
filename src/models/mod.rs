@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 /// Represents a college football game
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -15,7 +15,7 @@ pub struct Game {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MoneylineOdds {
     pub team: String,
-    pub price: i32,  // American odds format (e.g., -110, +150)
+    pub price: i32, // American odds format (e.g., -110, +150)
 }
 
 /// Betting odds from a sportsbook
@@ -34,28 +34,6 @@ pub struct Prediction {
     pub model_name: String,
     pub home_team: String,
     pub away_team: String,
-    pub home_win_prob: f64,  // Probability between 0 and 1
-    pub away_win_prob: f64,  // Probability between 0 and 1
-}
-
-/// Expected value calculation for a bet
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct ExpectedValue {
-    pub game_id: String,
-    pub team: String,
-    pub model_name: String,
-    pub odds: i32,  // American odds
-    pub implied_prob: f64,  // Implied probability from odds
-    pub model_prob: f64,  // Probability from predictive model
-    pub expected_value: f64,  // EV as a percentage
-    pub edge: f64,  // Difference between model prob and implied prob
-}
-
-/// Combined game data with odds and predictions
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct GameAnalysis {
-    pub game: Game,
-    pub odds: Vec<BettingOdds>,
-    pub predictions: Vec<Prediction>,
-    pub expected_values: Vec<ExpectedValue>,
+    pub home_win_prob: f64, // Probability between 0 and 1
+    pub away_win_prob: f64, // Probability between 0 and 1
 }

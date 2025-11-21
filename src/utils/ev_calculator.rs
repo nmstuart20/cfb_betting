@@ -13,7 +13,7 @@ pub fn american_odds_to_probability(odds: i32) -> f64 {
 }
 
 /// Convert probability to American odds
-pub fn probability_to_american_odds(prob: f64) -> i32 {
+pub fn _probability_to_american_odds(prob: f64) -> i32 {
     if prob >= 0.5 {
         // Favorite (negative odds)
         -((prob / (1.0 - prob)) * 100.0) as i32
@@ -45,16 +45,6 @@ pub fn calculate_edge(model_prob: f64, implied_prob: f64) -> f64 {
     model_prob - implied_prob
 }
 
-/// Determine if a bet has positive expected value
-pub fn is_positive_ev(ev: f64) -> bool {
-    ev > 0.0
-}
-
-/// Format EV as a percentage string
-pub fn format_ev_percentage(ev: f64) -> String {
-    format!("{:+.2}%", ev * 100.0)
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -63,6 +53,7 @@ mod tests {
     fn test_american_odds_to_probability() {
         // Positive odds
         let prob = american_odds_to_probability(150);
+        assert!((prob - 0.4).abs() < 0.01);
         // Negative odds
         let prob = american_odds_to_probability(-150);
         assert!((prob - 0.6).abs() < 0.01);

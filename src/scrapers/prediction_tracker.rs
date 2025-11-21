@@ -95,7 +95,6 @@ impl PredictionTrackerScraper {
         // Extract the team names portion (everything before the numbers)
         let teams_str = line[..numeric_start].trim_end();
 
-        println!("Teams str: {}", teams_str);
         // Split teams by looking for multiple consecutive spaces (2+ spaces)
         // This separates "Air Force" from "New Mexico" but keeps each team name intact
         let team_parts: Vec<&str> = teams_str
@@ -108,9 +107,38 @@ impl PredictionTrackerScraper {
             return None;
         }
 
-        let home_team = team_parts[0].trim().to_string();
-        let away_team = team_parts[1].trim().to_string();
-
+        let mut home_team = team_parts[0].trim().replace(".", "").to_string();
+        if home_team.contains("Troy") {
+            home_team = "troy".to_string();
+        }
+        if home_team.contains("Louisiana-Monroe") {
+            home_team = "ul".to_string();
+        }
+        if home_team.contains("Texas-San Antonio") {
+            home_team = "utsa".to_string();
+        }
+        if home_team.contains("Central Florida") {
+            home_team = "ucf".to_string();
+        }
+        if home_team.contains("East Carolina") {
+            home_team = "east".to_string();
+        }
+        let mut away_team = team_parts[1].trim().replace(".", "").to_string();
+        if away_team.contains("Troy") {
+            away_team = "troy".to_string();
+        }
+        if away_team.contains("Louisiana-Monroe") {
+            away_team = "ul".to_string();
+        }
+        if away_team.contains("Texas-San Antonio") {
+            away_team = "utsa".to_string();
+        }
+        if away_team.contains("Central Florida") {
+            away_team = "ucf".to_string();
+        }
+        if away_team.contains("East Carolina") {
+            away_team = "east".to_string();
+        }
         // Extract numeric values
         let numeric_str = line[numeric_start..].trim();
         let numeric_parts: Vec<&str> = numeric_str.split_whitespace().collect();
