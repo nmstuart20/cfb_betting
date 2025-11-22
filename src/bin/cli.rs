@@ -94,7 +94,8 @@ async fn main() -> Result<()> {
     // Find top moneyline EV bets (CFB only - requires predictions)
     println!("COLLEGE FOOTBALL\n");
     println!("MONEYLINE BETS\n");
-    let moneyline_bets = match find_top_ev_bets(&cfb_games_with_odds, &predictions, Some(30)).await {
+    let moneyline_bets = match find_top_ev_bets(&cfb_games_with_odds, &predictions, Some(30)).await
+    {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV moneyline bets found.");
@@ -119,24 +120,25 @@ async fn main() -> Result<()> {
 
     // Find top spread EV bets
     println!("\nSPREAD BETS\n");
-    let spread_bets = match find_top_spread_ev_bets(&cfb_games_with_odds, &predictions, Some(30)).await {
-        Ok(bets) => {
-            if bets.is_empty() {
-                println!("No positive EV spread bets found.");
-            } else {
-                println!("Top {} Spread EV Bets:\n", bets.len());
-                for (i, bet) in bets.iter().enumerate() {
-                    println!("{}. {}", i + 1, bet.format());
+    let spread_bets =
+        match find_top_spread_ev_bets(&cfb_games_with_odds, &predictions, Some(30)).await {
+            Ok(bets) => {
+                if bets.is_empty() {
+                    println!("No positive EV spread bets found.");
+                } else {
+                    println!("Top {} Spread EV Bets:\n", bets.len());
+                    for (i, bet) in bets.iter().enumerate() {
+                        println!("{}. {}", i + 1, bet.format());
+                    }
                 }
+                bets
             }
-            bets
-        }
-        Err(e) => {
-            eprintln!("Error fetching spread bets: {}", e);
-            // Don't return error - still show API usage
-            Vec::new()
-        }
-    };
+            Err(e) => {
+                eprintln!("Error fetching spread bets: {}", e);
+                // Don't return error - still show API usage
+                Vec::new()
+            }
+        };
 
     if save_csv && !spread_bets.is_empty() {
         save_spread_bets_to_csv(&spread_bets, "cache/spread_bets.csv")?;
