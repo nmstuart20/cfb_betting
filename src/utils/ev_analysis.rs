@@ -76,8 +76,8 @@ fn extract_school_name(team_name: &str) -> String {
 
 /// Analyze all available games and return all positive EV bets (or top N if specified)
 pub async fn find_top_ev_bets(
-    games_with_odds: &Vec<(Game, Vec<BettingOdds>)>,
-    predictions: &Vec<GamePrediction>,
+    games_with_odds: &[(Game, Vec<BettingOdds>)],
+    predictions: &[GamePrediction],
     top_n: Option<usize>,
 ) -> Result<Vec<EvBetRecommendation>> {
     // Prediction model data is not live yet, so only look at bets in the future
@@ -233,8 +233,8 @@ impl SpreadEvBetRecommendation {
 
 /// Analyze all available games and return all positive spread EV bets (or top N if specified)
 pub async fn find_top_spread_ev_bets(
-    games_with_odds: &Vec<(Game, Vec<BettingOdds>)>,
-    game_predictions: &Vec<GamePrediction>,
+    games_with_odds: &[(Game, Vec<BettingOdds>)],
+    game_predictions: &[GamePrediction],
     top_n: Option<usize>,
 ) -> Result<Vec<SpreadEvBetRecommendation>> {
     // Prediction model data is not live yet, so only look at bets in the future
