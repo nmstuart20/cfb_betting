@@ -1,0 +1,215 @@
+{% extends "base.html" %} {% block title %}Home - College Sports Betting
+Calculator{% endblock %} {% block content %}
+<h1>College Sports Betting Calculator</h1>
+
+<div
+    style="
+        background: white;
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 30px;
+        font-size: 13px;
+        line-height: 1.6;
+    "
+>
+    <p style="margin-bottom: 12px">
+        Find positive expected value (EV) bets and arbitrage opportunities
+        across college football and basketball.
+    </p>
+    <p style="color: #666">
+        Data is automatically cached to minimize API usage. Values shown are
+        based on current odds and predictive models.
+    </p>
+</div>
+
+<div
+    style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    "
+>
+    <div style="background: white; border: 1px solid #ddd; padding: 20px">
+        <h2
+            style="
+                margin: 0 0 15px 0;
+                font-size: 16px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 8px;
+            "
+        >
+            College Football
+        </h2>
+        <table style="width: 100%; font-size: 13px; border-collapse: collapse">
+            <tr>
+                <td style="padding: 6px 0; color: #666">Moneyline EV Bets</td>
+                <td
+                    style="padding: 6px 0; text-align: right; font-weight: bold"
+                >
+                    {{ cfb_moneyline_count }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #666">Spread EV Bets</td>
+                <td
+                    style="padding: 6px 0; text-align: right; font-weight: bold"
+                >
+                    {{ cfb_spread_count }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #666">
+                    Arbitrage Opportunities
+                </td>
+                <td
+                    style="padding: 6px 0; text-align: right; font-weight: bold"
+                >
+                    {{ cfb_arb_count }}
+                </td>
+            </tr>
+        </table>
+        <a
+            href="/cfb"
+            style="
+                display: inline-block;
+                margin-top: 15px;
+                color: #0066cc;
+                text-decoration: none;
+                font-size: 13px;
+                font-weight: bold;
+            "
+        >
+            View Details →
+        </a>
+    </div>
+
+    <div style="background: white; border: 1px solid #ddd; padding: 20px">
+        <h2
+            style="
+                margin: 0 0 15px 0;
+                font-size: 16px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 8px;
+            "
+        >
+            College Basketball
+        </h2>
+        <table style="width: 100%; font-size: 13px; border-collapse: collapse">
+            <tr>
+                <td style="padding: 6px 0; color: #666">
+                    Arbitrage Opportunities
+                </td>
+                <td
+                    style="padding: 6px 0; text-align: right; font-weight: bold"
+                >
+                    {{ cbb_arb_count }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #999; font-style: italic">
+                    EV Analysis
+                </td>
+                <td style="padding: 6px 0; text-align: right; color: #999">
+                    Not Available
+                </td>
+            </tr>
+        </table>
+        <a
+            href="/cbb"
+            style="
+                display: inline-block;
+                margin-top: 15px;
+                color: #0066cc;
+                text-decoration: none;
+                font-size: 13px;
+                font-weight: bold;
+            "
+        >
+            View Details →
+        </a>
+    </div>
+</div>
+
+<div
+    style="
+        background: #f9f9f9;
+        border-left: 3px solid #0066cc;
+        padding: 20px;
+        margin-bottom: 20px;
+    "
+>
+    <h2 style="margin: 0 0 10px 0">Expected Value (EV)</h2>
+    <p style="font-size: 13px; line-height: 1.6; color: #666">
+        Expected value represents the average return per dollar wagered. A
+        positive EV bet indicates the sportsbook odds are better than the true
+        probability, providing a long-term edge. Calculated by comparing
+        predictive model probabilities against implied odds.
+    </p>
+</div>
+
+<div
+    style="
+        background: #f9f9f9;
+        border-left: 3px solid #28a745;
+        padding: 20px;
+        margin-bottom: 30px;
+    "
+>
+    <h2 style="margin: 0 0 10px 0">Arbitrage Betting</h2>
+    <p style="font-size: 13px; line-height: 1.6; color: #666">
+        Arbitrage opportunities occur when betting all outcomes across different
+        sportsbooks guarantees profit regardless of result. Happens when
+        combined implied probabilities are less than 100%. Stakes are calculated
+        to lock in guaranteed returns.
+    </p>
+</div>
+
+{% if show_top_bets %}
+<h2>Top CFB Moneyline EV Bets</h2>
+<div class="bets-list">
+    {% for bet in top_bets %}
+    <div class="bet-card">
+        <div class="bet-header">
+            <span class="bet-number">{{ loop.index }}</span>
+            <span class="game-matchup"
+                >{{ bet.home_team }} vs {{ bet.away_team }}</span
+            >
+        </div>
+        <div class="bet-details">
+            <div class="detail-row">
+                <span class="label">Team</span>
+                <span class="value">{{ bet.team }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Sportsbook</span>
+                <span class="value">{{ bet.bookmaker }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Odds</span>
+                <span class="value">{{ bet.odds|format_odds }}</span>
+            </div>
+            <div class="detail-row highlight">
+                <span class="label">Expected Value</span>
+                <span class="value positive"
+                    >{{ bet.expected_value|format_percent }}</span
+                >
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div style="text-align: left; margin-top: 15px">
+    <a
+        href="/cfb"
+        style="
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+        "
+    >
+        View All {{ cfb_moneyline_count }} EV Bets →
+    </a>
+</div>
+{% endif %} {% endblock %}

@@ -1,0 +1,158 @@
+{% extends "base.html" %} {% block title %}College Basketball - Betting
+Calculator{% endblock %} {% block content %}
+<h1>College Basketball</h1>
+
+<div class="subsection">
+    <h3>Moneyline Arbitrage Opportunities</h3>
+    {% if cbb_moneyline_arbs.is_empty() %}
+    <p class="no-data">No moneyline arbitrage opportunities found.</p>
+    {% else %}
+    <div class="arbs-list">
+        {% for arb in cbb_moneyline_arbs %}
+        <div class="arb-card">
+            <div class="arb-header">
+                <span class="arb-number">{{ loop.index }}.</span>
+                <span class="game-matchup"
+                    >{{ arb.home_team }} vs {{ arb.away_team }}</span
+                >
+                <span class="profit"
+                    >{{ arb.profit_percentage|format_arb_percent }} (${{
+                    arb.profit_percentage|calc_profit }} profit)</span
+                >
+            </div>
+            <div class="arb-details">
+                <div class="arb-side">
+                    <div class="detail-row">
+                        <span class="label">Home Team:</span>
+                        <span class="value">{{ arb.home_team }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Odds:</span>
+                        <span class="value"
+                            >{{ arb.home_odds|format_odds }}</span
+                        >
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Sportsbook:</span>
+                        <span class="value">{{ arb.home_bookmaker }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Stake ($100 total):</span>
+                        <span class="value"
+                            >${{ arb.home_stake_percentage|format_money }}</span
+                        >
+                    </div>
+                </div>
+                <div class="arb-side">
+                    <div class="detail-row">
+                        <span class="label">Away Team:</span>
+                        <span class="value">{{ arb.away_team }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Odds:</span>
+                        <span class="value"
+                            >{{ arb.away_odds|format_odds }}</span
+                        >
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Sportsbook:</span>
+                        <span class="value">{{ arb.away_bookmaker }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Stake ($100 total):</span>
+                        <span class="value"
+                            >${{ arb.away_stake_percentage|format_money }}</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="subsection">
+    <h3>Spread Arbitrage Opportunities</h3>
+    {% if cbb_spread_arbs.is_empty() %}
+    <p class="no-data">No spread arbitrage opportunities found.</p>
+    {% else %}
+    <div class="arbs-list">
+        {% for arb in cbb_spread_arbs %}
+        <div class="arb-card">
+            <div class="arb-header">
+                <span class="arb-number">{{ loop.index }}.</span>
+                <span class="game-matchup"
+                    >{{ arb.home_team }} vs {{ arb.away_team }}</span
+                >
+                <span class="profit"
+                    >{{ arb.profit_percentage|format_arb_percent }} (${{
+                    arb.profit_percentage|calc_profit }} profit)</span
+                >
+            </div>
+            <div class="arb-details">
+                <div class="arb-side">
+                    <div class="detail-row">
+                        <span class="label">Team 1:</span>
+                        <span class="value">{{ arb.side1_team }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Spread:</span>
+                        <span class="value"
+                            >{{ arb.side1_spread|format_spread }}</span
+                        >
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Odds:</span>
+                        <span class="value"
+                            >{{ arb.side1_odds|format_odds }}</span
+                        >
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Sportsbook:</span>
+                        <span class="value">{{ arb.side1_bookmaker }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Stake ($100 total):</span>
+                        <span class="value"
+                            >${{ arb.side1_stake_percentage|format_money
+                            }}</span
+                        >
+                    </div>
+                </div>
+                <div class="arb-side">
+                    <div class="detail-row">
+                        <span class="label">Team 2:</span>
+                        <span class="value">{{ arb.side2_team }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Spread:</span>
+                        <span class="value"
+                            >{{ arb.side2_spread|format_spread }}</span
+                        >
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Odds:</span>
+                        <span class="value"
+                            >{{ arb.side2_odds|format_odds }}</span
+                        >
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Sportsbook:</span>
+                        <span class="value">{{ arb.side2_bookmaker }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Stake ($100 total):</span>
+                        <span class="value"
+                            >${{ arb.side2_stake_percentage|format_money
+                            }}</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

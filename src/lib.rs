@@ -3,9 +3,14 @@ pub mod models;
 pub mod scrapers;
 pub mod utils;
 
+pub use api::*;
+pub use models::*;
+pub use scrapers::*;
+pub use utils::*;
+
+
 use anyhow::{Context, Result};
 use api::odds_api::OddsApiClient;
-use api::Sport;
 use scrapers::prediction_tracker::PredictionTrackerScraper;
 use serde::{Deserialize, Serialize};
 use std::path::Path;

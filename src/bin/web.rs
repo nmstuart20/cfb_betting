@@ -6,17 +6,8 @@ use axum::{
     Router,
 };
 use cfb_betting_ev::fetch_all_betting_data;
-
-#[derive(Template)]
-#[template(path = "index.html")]
-struct IndexTemplate {
-    cfb_moneyline_bets: Vec<cfb_betting_ev::utils::ev_analysis::EvBetRecommendation>,
-    cfb_spread_bets: Vec<cfb_betting_ev::utils::ev_analysis::SpreadEvBetRecommendation>,
-    cfb_moneyline_arbs: Vec<cfb_betting_ev::utils::arbitrage::MoneylineArbitrage>,
-    cfb_spread_arbs: Vec<cfb_betting_ev::utils::arbitrage::SpreadArbitrage>,
-    cbb_moneyline_arbs: Vec<cfb_betting_ev::utils::arbitrage::MoneylineArbitrage>,
-    cbb_spread_arbs: Vec<cfb_betting_ev::utils::arbitrage::SpreadArbitrage>,
-}
+use std::sync::Arc;
+use tokio::sync::RwLock;
 
 // Custom filters for formatting
 mod filters {
@@ -39,6 +30,41 @@ mod filters {
     pub fn format_money(value: &f64) -> ::askama::Result<String> {
         Ok(format!("{:.2}", value))
     }
+
+    pub fn calc_profit(profit_pct: &f64) -> ::askama::Result<String> {
+        let profit = (profit_pct / 100.0) * 100.0;
+        Ok(format!("{:.2}", profit))
+    }
+}
+
+#[derive(Template)]
+#[template(path = "home.html")]
+struct HomeTemplate {
+    active_page: String,
+    cfb_moneyline_count: usize,
+    cfb_spread_count: usize,
+    cfb_arb_count: usize,
+    cbb_arb_count: usize,
+    show_top_bets: bool,
+    top_bets: Vec<cfb_betting_ev::utils::ev_analysis::EvBetRecommendation>,
+}
+
+#[derive(Template)]
+#[template(path = "cfb.html")]
+struct CfbTemplate {
+    active_page: String,
+    cfb_moneyline_bets: Vec<cfb_betting_ev::utils::ev_analysis::EvBetRecommendation>,
+    cfb_spread_bets: Vec<cfb_betting_ev::utils::ev_analysis::SpreadEvBetRecommendation>,
+    cfb_moneyline_arbs: Vec<cfb_betting_ev::utils::arbitrage::MoneylineArbitrage>,
+    cfb_spread_arbs: Vec<cfb_betting_ev::utils::arbitrage::SpreadArbitrage>,
+}
+
+#[derive(Template)]
+#[template(path = "cbb.html")]
+struct CbbTemplate {
+    active_page: String,
+    cbb_moneyline_arbs: Vec<cfb_betting_ev::utils::arbitrage::MoneylineArbitrage>,
+    cbb_spread_arbs: Vec<cfb_betting_ev::utils::arbitrage::SpreadArbitrage>,
 }
 
 struct HtmlTemplate<T>(T);
@@ -59,24 +85,74 @@ where
     }
 }
 
-async fn index() -> impl IntoResponse {
-    // Fetch betting data (use cache by default for web to avoid excessive API calls)
-    let data = match fetch_all_betting_data(true).await {
-        Ok(data) => data,
-        Err(e) => {
-            return (
-                StatusCode::INTERNAL_SERVER_ERROR,
-                format!("Error fetching betting data: {}", e),
-            )
-                .into_response();
+// Shared state to cache data
+type SharedData = Arc<RwLock<Option<cfb_betting_ev::BettingData>>>;
+
+async fn home(data: axum::extract::State<SharedData>) -> impl IntoResponse {
+    let betting_data = data.read().await;
+
+    let data = match betting_data.as_ref() {
+        Some(d) => d.clone(),
+        None => {
+            return (StatusCode::INTERNAL_SERVER_ERROR, "Data not loaded yet").into_response();
         }
     };
 
-    let template = IndexTemplate {
+    let cfb_moneyline_count = data.cfb_moneyline_bets.len();
+    let cfb_spread_count = data.cfb_spread_bets.len();
+    let cfb_arb_count = data.cfb_moneyline_arbs.len() + data.cfb_spread_arbs.len();
+    let cbb_arb_count = data.cbb_moneyline_arbs.len() + data.cbb_spread_arbs.len();
+
+    // Get top 3 bets
+    let top_bets: Vec<_> = data.cfb_moneyline_bets.iter().take(3).cloned().collect();
+    let show_top_bets = !top_bets.is_empty();
+
+    let template = HomeTemplate {
+        active_page: "home".to_string(),
+        cfb_moneyline_count,
+        cfb_spread_count,
+        cfb_arb_count,
+        cbb_arb_count,
+        show_top_bets,
+        top_bets,
+    };
+
+    HtmlTemplate(template).into_response()
+}
+
+async fn cfb(data: axum::extract::State<SharedData>) -> impl IntoResponse {
+    let betting_data = data.read().await;
+
+    let data = match betting_data.as_ref() {
+        Some(d) => d.clone(),
+        None => {
+            return (StatusCode::INTERNAL_SERVER_ERROR, "Data not loaded yet").into_response();
+        }
+    };
+
+    let template = CfbTemplate {
+        active_page: "cfb".to_string(),
         cfb_moneyline_bets: data.cfb_moneyline_bets,
         cfb_spread_bets: data.cfb_spread_bets,
         cfb_moneyline_arbs: data.cfb_moneyline_arbs,
         cfb_spread_arbs: data.cfb_spread_arbs,
+    };
+
+    HtmlTemplate(template).into_response()
+}
+
+async fn cbb(data: axum::extract::State<SharedData>) -> impl IntoResponse {
+    let betting_data = data.read().await;
+
+    let data = match betting_data.as_ref() {
+        Some(d) => d.clone(),
+        None => {
+            return (StatusCode::INTERNAL_SERVER_ERROR, "Data not loaded yet").into_response();
+        }
+    };
+
+    let template = CbbTemplate {
+        active_page: "cbb".to_string(),
         cbb_moneyline_arbs: data.cbb_moneyline_arbs,
         cbb_spread_arbs: data.cbb_spread_arbs,
     };
@@ -93,11 +169,42 @@ async fn main() {
     tracing_subscriber::fmt::init();
 
     println!("Fetching betting data...");
-    println!("Starting web server at http://127.0.0.1:3000");
+
+    // Fetch data on startup
+    let data = match fetch_all_betting_data(true).await {
+        Ok(data) => {
+            println!("Data loaded successfully");
+            println!(
+                "  - {} CFB Moneyline EV Bets",
+                data.cfb_moneyline_bets.len()
+            );
+            println!("  - {} CFB Spread EV Bets", data.cfb_spread_bets.len());
+            println!(
+                "  - {} CFB Arbitrage Opportunities",
+                data.cfb_moneyline_arbs.len() + data.cfb_spread_arbs.len()
+            );
+            println!(
+                "  - {} CBB Arbitrage Opportunities",
+                data.cbb_moneyline_arbs.len() + data.cbb_spread_arbs.len()
+            );
+            Arc::new(RwLock::new(Some(data)))
+        }
+        Err(e) => {
+            eprintln!("Error fetching data: {}", e);
+            eprintln!("Server will start but pages may show errors");
+            Arc::new(RwLock::new(None))
+        }
+    };
+
+    println!("\nStarting web server at http://127.0.0.1:3000");
     println!("Press Ctrl+C to stop\n");
 
-    // Build router
-    let app = Router::new().route("/", get(index));
+    // Build router with routes
+    let app = Router::new()
+        .route("/", get(home))
+        .route("/cfb", get(cfb))
+        .route("/cbb", get(cbb))
+        .with_state(data);
 
     // Run server
     let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
