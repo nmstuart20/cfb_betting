@@ -1,9 +1,10 @@
 use crate::models::{BettingOdds, Game};
 use crate::utils::ev_calculator::american_odds_to_probability;
 use anyhow::Result;
+use serde::{Deserialize, Serialize};
 
 /// Represents an arbitrage opportunity for a moneyline bet
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MoneylineArbitrage {
     pub home_team: String,
     pub away_team: String,
@@ -36,7 +37,7 @@ impl MoneylineArbitrage {
 }
 
 /// Represents an arbitrage opportunity for a spread bet
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SpreadArbitrage {
     pub home_team: String,
     pub away_team: String,

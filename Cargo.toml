@@ -3,12 +3,22 @@ name = "cfb_betting_ev"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "cfb_betting_ev"
+path = "src/lib.rs"
+
+[[bin]]
+name = "cli"
+path = "src/bin/cli.rs"
+
+[[bin]]
+name = "web"
+path = "src/bin/web.rs"
+
 [dependencies]
-# Leptos framework
-leptos = { version = "0.7", features = ["ssr"] }
-leptos_meta = { version = "0.7", features = ["ssr"] }
-leptos_router = { version = "0.7", features = ["ssr"] }
-leptos_axum = { version = "0.7" }
+# Template engine
+askama = "0.12"
+askama_axum = "0.4"
 
 # Server framework
 axum = "0.7"

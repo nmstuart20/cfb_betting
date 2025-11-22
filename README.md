@@ -69,29 +69,49 @@ cargo build --release
 
 ## Usage
 
-### Basic Usage
+The application can be run in two modes: **CLI mode** for terminal output and **Web mode** for a browser-based interface.
 
-Run with live data from APIs:
+### Web Interface (Recommended)
+
+Run the web server to view results in your browser:
 ```bash
-cargo run --release
+cargo run --release --bin web
 ```
 
-### Using Cached Data
+Then open your browser to `http://localhost:3000`
+
+The web interface provides:
+- Clean, organized display of all betting opportunities
+- Color-coded cards for easy identification (EV bets in blue/gray, arbitrage in red/green)
+- Responsive design for mobile and desktop
+- Automatic caching to minimize API usage
+- All data displayed on a single page
+
+### CLI Mode
+
+Run the command-line version with live data from APIs:
+```bash
+cargo run --release --bin cli
+```
+
+### Using Cached Data (CLI only)
 
 To avoid consuming API credits, use cached data:
 ```bash
-USE_CACHE=1 cargo run --release
+USE_CACHE=1 cargo run --release --bin cli
 ```
+
+**Note**: The web interface automatically uses cached data by default.
 
 Cache files are stored in `cache/`:
 - `odds_cache.json` - Betting odds data
 - `predictions_cache.json` - Model predictions
 
-### Export to CSV
+### Export to CSV (CLI only)
 
 Save results to CSV files:
 ```bash
-SAVE_CSV=1 cargo run --release
+SAVE_CSV=1 cargo run --release --bin cli
 ```
 
 This creates:
@@ -102,11 +122,11 @@ This creates:
 - `cbb_moneyline_arbitrage.csv` - CBB moneyline arbitrage opportunities (if any)
 - `cbb_spread_arbitrage.csv` - CBB spread arbitrage opportunities (if any)
 
-### Combined Options
+### Combined Options (CLI only)
 
 Use cache and export to CSV:
 ```bash
-USE_CACHE=1 SAVE_CSV=1 cargo run --release
+USE_CACHE=1 SAVE_CSV=1 cargo run --release --bin cli
 ```
 
 ## Output Format

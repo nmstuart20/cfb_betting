@@ -4,6 +4,7 @@ use crate::utils::ev_calculator::{
     american_odds_to_probability, calculate_expected_value, calculate_spread_cover_probability,
 };
 use anyhow::Result;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 /// Extract the primary school name from a full team name
@@ -151,7 +152,7 @@ pub async fn find_top_ev_bets(
 }
 
 /// A bet recommendation with EV analysis
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EvBetRecommendation {
     pub home_team: String,
     pub away_team: String,
@@ -183,7 +184,7 @@ impl EvBetRecommendation {
 }
 
 /// A spread bet recommendation with EV analysis
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SpreadEvBetRecommendation {
     pub home_team: String,
     pub away_team: String,
