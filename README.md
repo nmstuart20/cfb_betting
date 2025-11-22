@@ -1,25 +1,28 @@
-# College Football Betting EV Calculator
+# College Sports Betting EV & Arbitrage Calculator
 
-A Rust-based tool for calculating expected value (EV) on college football betting opportunities by comparing sportsbook odds against predictive models.
+A Rust-based tool for calculating expected value (EV) on college football betting opportunities and finding arbitrage opportunities across college football and basketball games.
 
 ## Features
 
-- **Moneyline EV Analysis**: Identifies positive EV bets on moneyline markets
-- **Spread EV Analysis**: Calculates expected value for point spread bets using normal distribution modeling
+- **Moneyline EV Analysis**: Identifies positive EV bets on CFB moneyline markets
+- **Spread EV Analysis**: Calculates expected value for CFB point spread bets using normal distribution modeling
 - **Arbitrage Detection**: Finds arbitrage opportunities across different sportsbooks for guaranteed profit
+  - **College Football**: Moneyline and spread arbitrage
+  - **College Basketball**: Moneyline and spread arbitrage
 - **Multiple Sportsbooks**: Compares odds across major US sportsbooks via The Odds API
-- **Predictive Models**: Uses consensus predictions from Prediction Tracker
+- **Predictive Models**: Uses consensus predictions from Prediction Tracker for CFB EV analysis
 - **Odds Caching**: Cache odds data locally to avoid unnecessary API calls
 - **CSV Export**: Export recommendations to CSV files for further analysis
 
 ## How It Works
 
 The calculator:
-1. Fetches current betting odds from The Odds API
-2. Scrapes predictive model data from Prediction Tracker
-3. Calculates expected value by comparing model probabilities against implied odds
-4. Ranks bets by EV and edge percentage
-5. Optionally exports results to CSV files
+1. Fetches current betting odds from The Odds API for college football and basketball
+2. Scrapes predictive model data from Prediction Tracker (for CFB EV analysis)
+3. Calculates expected value by comparing model probabilities against implied odds (CFB only)
+4. Identifies arbitrage opportunities across all sportsbooks (CFB and CBB)
+5. Ranks bets by EV and edge percentage
+6. Optionally exports results to CSV files
 
 ### EV Calculation
 
@@ -92,10 +95,12 @@ SAVE_CSV=1 cargo run --release
 ```
 
 This creates:
-- `moneyline_bets.csv` - Top moneyline EV bets
-- `spread_bets.csv` - Top spread EV bets
-- `moneyline_arbitrage.csv` - Moneyline arbitrage opportunities (if any)
-- `spread_arbitrage.csv` - Spread arbitrage opportunities (if any)
+- `moneyline_bets.csv` - Top CFB moneyline EV bets
+- `spread_bets.csv` - Top CFB spread EV bets
+- `cfb_moneyline_arbitrage.csv` - CFB moneyline arbitrage opportunities (if any)
+- `cfb_spread_arbitrage.csv` - CFB spread arbitrage opportunities (if any)
+- `cbb_moneyline_arbitrage.csv` - CBB moneyline arbitrage opportunities (if any)
+- `cbb_spread_arbitrage.csv` - CBB spread arbitrage opportunities (if any)
 
 ### Combined Options
 

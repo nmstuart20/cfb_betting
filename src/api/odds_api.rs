@@ -4,7 +4,22 @@ use chrono::{DateTime, Utc};
 use serde::Deserialize;
 
 const ODDS_API_BASE_URL: &str = "https://api.the-odds-api.com/v4";
-const SPORT_KEY: &str = "americanfootball_ncaaf"; // College football
+
+/// Supported sports for odds fetching
+#[derive(Debug, Clone, Copy)]
+pub enum Sport {
+    CollegeFootball,
+    CollegeBasketball,
+}
+
+impl Sport {
+    pub fn api_key(&self) -> &'static str {
+        match self {
+            Sport::CollegeFootball => "americanfootball_ncaaf",
+            Sport::CollegeBasketball => "basketball_ncaab",
+        }
+    }
+}
 
 /// Response from The Odds API for a single game
 #[derive(Debug, Deserialize)]
@@ -56,10 +71,10 @@ impl OddsApiClient {
         }
     }
 
-    /// Fetch upcoming college football games with odds
+    /// Fetch upcoming games with odds for a given sport
     /// Only returns games that are in the future and within the next 7 days
-    pub async fn fetch_games(&self) -> Result<Vec<(Game, Vec<BettingOdds>)>> {
-        let url = format!("{}/sports/{}/odds", ODDS_API_BASE_URL, SPORT_KEY);
+    pub async fn fetch_games(&self, sport: Sport) -> Result<Vec<(Game, Vec<BettingOdds>)>> {
+        let url = format!("{}/sports/{}/odds", ODDS_API_BASE_URL, sport.api_key());
 
         let response = self
             .client
@@ -189,7 +204,7 @@ mod tests {
         let api_key = std::env::var("ODDS_API_KEY").expect("ODDS_API_KEY not set");
         let client = OddsApiClient::new(api_key);
 
-        let games = client.fetch_games().await.unwrap();
+        let games = client.fetch_games(Sport::CollegeFootball).await.unwrap();
         assert!(!games.is_empty());
     }
 }

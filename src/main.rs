@@ -5,6 +5,7 @@ mod utils;
 
 use anyhow::{Context, Result};
 use api::odds_api::OddsApiClient;
+use api::Sport;
 use scrapers::prediction_tracker::PredictionTrackerScraper;
 use std::path::Path;
 use utils::arbitrage::{find_moneyline_arbitrage, find_spread_arbitrage};
@@ -60,15 +61,16 @@ async fn main() -> Result<()> {
         );
         predictions
     };
-    let games_with_odds = if use_cache && Path::new(odds_cache_file).exists() {
+    // Fetch college football odds
+    let cfb_games_with_odds = if use_cache && Path::new(odds_cache_file).exists() {
         println!("Loading odds from cache file: {}\n", odds_cache_file);
         load_odds_from_cache(odds_cache_file)?
     } else {
         // Fetch odds from The Odds API
         let games_with_odds = odds_client
-            .fetch_games()
+            .fetch_games(Sport::CollegeFootball)
             .await
-            .context("Failed to fetch odds")?;
+            .context("Failed to fetch CFB odds")?;
 
         // Save to cache file
         save_odds_to_cache(&games_with_odds, odds_cache_file)?;
@@ -77,9 +79,29 @@ async fn main() -> Result<()> {
         games_with_odds
     };
 
-    // Find top moneyline EV bets
+    // Fetch college basketball odds
+    let cbb_cache_file = "cache/cbb_odds_cache.json";
+    let cbb_games_with_odds = if use_cache && Path::new(cbb_cache_file).exists() {
+        println!("Loading CBB odds from cache file: {}\n", cbb_cache_file);
+        load_odds_from_cache(cbb_cache_file)?
+    } else {
+        // Fetch odds from The Odds API
+        let games_with_odds = odds_client
+            .fetch_games(Sport::CollegeBasketball)
+            .await
+            .context("Failed to fetch CBB odds")?;
+
+        // Save to cache file
+        save_odds_to_cache(&games_with_odds, cbb_cache_file)?;
+        println!("Saved CBB odds to cache file: {}\n", cbb_cache_file);
+
+        games_with_odds
+    };
+
+    // Find top moneyline EV bets (CFB only - requires predictions)
+    println!("COLLEGE FOOTBALL\n");
     println!("MONEYLINE BETS\n");
-    let moneyline_bets = match find_top_ev_bets(&games_with_odds, &predictions, 30).await {
+    let moneyline_bets = match find_top_ev_bets(&cfb_games_with_odds, &predictions, 30).await {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV moneyline bets found.");
@@ -104,7 +126,7 @@ async fn main() -> Result<()> {
 
     // Find top spread EV bets
     println!("\nSPREAD BETS\n");
-    let spread_bets = match find_top_spread_ev_bets(&games_with_odds, &predictions, 30).await {
+    let spread_bets = match find_top_spread_ev_bets(&cfb_games_with_odds, &predictions, 30).await {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV spread bets found.");
@@ -128,45 +150,87 @@ async fn main() -> Result<()> {
         println!("\nSaved spread bets to spread_bets.csv");
     }
 
-    // Find arbitrage opportunities
-    println!("\nARBITRAGE OPPORTUNITIES\n");
+    // Find arbitrage opportunities for CFB
+    println!("\nCFB ARBITRAGE OPPORTUNITIES\n");
 
     println!("MONEYLINE ARBITRAGE\n");
-    let moneyline_arbs = find_moneyline_arbitrage(&games_with_odds)?;
-    if moneyline_arbs.is_empty() {
-        println!("No moneyline arbitrage opportunities found.");
+    let cfb_moneyline_arbs = find_moneyline_arbitrage(&cfb_games_with_odds)?;
+    if cfb_moneyline_arbs.is_empty() {
+        println!("No CFB moneyline arbitrage opportunities found.");
     } else {
         println!(
-            "Found {} Moneyline Arbitrage Opportunities:\n",
-            moneyline_arbs.len()
+            "Found {} CFB Moneyline Arbitrage Opportunities:\n",
+            cfb_moneyline_arbs.len()
         );
-        for (i, arb) in moneyline_arbs.iter().enumerate() {
+        for (i, arb) in cfb_moneyline_arbs.iter().enumerate() {
             println!("{}. {}", i + 1, arb.format());
         }
     }
 
-    if save_csv && !moneyline_arbs.is_empty() {
-        save_moneyline_arbitrage_to_csv(&moneyline_arbs, "cache/moneyline_arbitrage.csv")?;
-        println!("\nSaved moneyline arbitrage to moneyline_arbitrage.csv");
+    if save_csv && !cfb_moneyline_arbs.is_empty() {
+        save_moneyline_arbitrage_to_csv(&cfb_moneyline_arbs, "cache/cfb_moneyline_arbitrage.csv")?;
+        println!("\nSaved CFB moneyline arbitrage to cfb_moneyline_arbitrage.csv");
     }
 
     println!("\nSPREAD ARBITRAGE\n");
-    let spread_arbs = find_spread_arbitrage(&games_with_odds)?;
-    if spread_arbs.is_empty() {
-        println!("No spread arbitrage opportunities found.");
+    let cfb_spread_arbs = find_spread_arbitrage(&cfb_games_with_odds)?;
+    if cfb_spread_arbs.is_empty() {
+        println!("No CFB spread arbitrage opportunities found.");
     } else {
         println!(
-            "Found {} Spread Arbitrage Opportunities:\n",
-            spread_arbs.len()
+            "Found {} CFB Spread Arbitrage Opportunities:\n",
+            cfb_spread_arbs.len()
         );
-        for (i, arb) in spread_arbs.iter().enumerate() {
+        for (i, arb) in cfb_spread_arbs.iter().enumerate() {
             println!("{}. {}", i + 1, arb.format());
         }
     }
 
-    if save_csv && !spread_arbs.is_empty() {
-        save_spread_arbitrage_to_csv(&spread_arbs, "cache/spread_arbitrage.csv")?;
-        println!("\nSaved spread arbitrage to spread_arbitrage.csv");
+    if save_csv && !cfb_spread_arbs.is_empty() {
+        save_spread_arbitrage_to_csv(&cfb_spread_arbs, "cache/cfb_spread_arbitrage.csv")?;
+        println!("\nSaved CFB spread arbitrage to cfb_spread_arbitrage.csv");
+    }
+
+    // Find arbitrage opportunities for CBB
+    println!("\nCOLLEGE BASKETBALL\n");
+    println!("CBB ARBITRAGE OPPORTUNITIES\n");
+
+    println!("MONEYLINE ARBITRAGE\n");
+    let cbb_moneyline_arbs = find_moneyline_arbitrage(&cbb_games_with_odds)?;
+    if cbb_moneyline_arbs.is_empty() {
+        println!("No CBB moneyline arbitrage opportunities found.");
+    } else {
+        println!(
+            "Found {} CBB Moneyline Arbitrage Opportunities:\n",
+            cbb_moneyline_arbs.len()
+        );
+        for (i, arb) in cbb_moneyline_arbs.iter().enumerate() {
+            println!("{}. {}", i + 1, arb.format());
+        }
+    }
+
+    if save_csv && !cbb_moneyline_arbs.is_empty() {
+        save_moneyline_arbitrage_to_csv(&cbb_moneyline_arbs, "cache/cbb_moneyline_arbitrage.csv")?;
+        println!("\nSaved CBB moneyline arbitrage to cbb_moneyline_arbitrage.csv");
+    }
+
+    println!("\nSPREAD ARBITRAGE\n");
+    let cbb_spread_arbs = find_spread_arbitrage(&cbb_games_with_odds)?;
+    if cbb_spread_arbs.is_empty() {
+        println!("No CBB spread arbitrage opportunities found.");
+    } else {
+        println!(
+            "Found {} CBB Spread Arbitrage Opportunities:\n",
+            cbb_spread_arbs.len()
+        );
+        for (i, arb) in cbb_spread_arbs.iter().enumerate() {
+            println!("{}. {}", i + 1, arb.format());
+        }
+    }
+
+    if save_csv && !cbb_spread_arbs.is_empty() {
+        save_spread_arbitrage_to_csv(&cbb_spread_arbs, "cache/cbb_spread_arbitrage.csv")?;
+        println!("\nSaved CBB spread arbitrage to cbb_spread_arbitrage.csv");
     }
 
     // Check API usage
