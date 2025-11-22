@@ -6,6 +6,7 @@ A Rust-based tool for calculating expected value (EV) on college football bettin
 
 - **Moneyline EV Analysis**: Identifies positive EV bets on moneyline markets
 - **Spread EV Analysis**: Calculates expected value for point spread bets using normal distribution modeling
+- **Arbitrage Detection**: Finds arbitrage opportunities across different sportsbooks for guaranteed profit
 - **Multiple Sportsbooks**: Compares odds across major US sportsbooks via The Odds API
 - **Predictive Models**: Uses consensus predictions from Prediction Tracker
 - **Odds Caching**: Cache odds data locally to avoid unnecessary API calls
@@ -25,6 +26,18 @@ The calculator:
 **Moneyline**: Compares the model's win probability against the implied probability from American odds.
 
 **Spreads**: Uses a normal distribution (σ = 12 points) to calculate the probability of covering the spread based on the predicted margin of victory.
+
+### Arbitrage Detection
+
+**How it works**: The program identifies opportunities where you can bet on all possible outcomes across different sportsbooks and guarantee a profit regardless of the result.
+
+**Moneyline Arbitrage**: Finds cases where betting on both teams at different sportsbooks yields a profit.
+
+**Spread Arbitrage**: Finds cases where taking opposite sides of a spread at different books guarantees profit.
+
+**Calculation**: For each opportunity, the program calculates:
+- Profit percentage (guaranteed return on investment)
+- Optimal stake distribution (what percentage to bet on each side)
 
 ## Installation
 
@@ -81,6 +94,8 @@ SAVE_CSV=1 cargo run --release
 This creates:
 - `moneyline_bets.csv` - Top moneyline EV bets
 - `spread_bets.csv` - Top spread EV bets
+- `moneyline_arbitrage.csv` - Moneyline arbitrage opportunities (if any)
+- `spread_arbitrage.csv` - Spread arbitrage opportunities (if any)
 
 ### Combined Options
 
@@ -93,6 +108,7 @@ USE_CACHE=1 SAVE_CSV=1 cargo run --release
 
 ### Console Output
 
+**EV Bets:**
 ```
 === MONEYLINE BETS ===
 
@@ -105,6 +121,18 @@ Top 30 Moneyline EV Bets:
 - **Edge**: Difference between model probability and implied probability
 - **Model**: Model's predicted win probability
 - **Implied**: Bookmaker's implied probability from the odds
+
+**Arbitrage Opportunities:**
+```
+=== ARBITRAGE OPPORTUNITIES ===
+
+MONEYLINE ARBITRAGE
+
+1. Away Team @ Home Team | Home: Home Team (+120) on BookmakerA [51.2%] | Away: Away Team (+125) on BookmakerB [48.8%] | Profit: 2.5%
+```
+
+- **Stake %**: Percentage of total bankroll to wager on each side
+- **Profit %**: Guaranteed return regardless of outcome
 
 ### CSV Output
 

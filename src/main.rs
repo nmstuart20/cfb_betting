@@ -7,9 +7,11 @@ use anyhow::{Context, Result};
 use api::odds_api::OddsApiClient;
 use scrapers::prediction_tracker::PredictionTrackerScraper;
 use std::path::Path;
+use utils::arbitrage::{find_moneyline_arbitrage, find_spread_arbitrage};
 use utils::data::{
-    load_odds_from_cache, load_predictions_from_cache, save_moneyline_bets_to_csv,
-    save_odds_to_cache, save_predictions_to_cache, save_spread_bets_to_csv,
+    load_odds_from_cache, load_predictions_from_cache, save_moneyline_arbitrage_to_csv,
+    save_moneyline_bets_to_csv, save_odds_to_cache, save_predictions_to_cache,
+    save_spread_arbitrage_to_csv, save_spread_bets_to_csv,
 };
 use utils::ev_analysis::{
     find_top_ev_bets, find_top_spread_ev_bets, EvBetRecommendation, SpreadEvBetRecommendation,
@@ -124,6 +126,47 @@ async fn main() -> Result<()> {
     if save_csv && !spread_bets.is_empty() {
         save_spread_bets_to_csv(&spread_bets, "cache/spread_bets.csv")?;
         println!("\nSaved spread bets to spread_bets.csv");
+    }
+
+    // Find arbitrage opportunities
+    println!("\nARBITRAGE OPPORTUNITIES\n");
+
+    println!("MONEYLINE ARBITRAGE\n");
+    let moneyline_arbs = find_moneyline_arbitrage(&games_with_odds)?;
+    if moneyline_arbs.is_empty() {
+        println!("No moneyline arbitrage opportunities found.");
+    } else {
+        println!(
+            "Found {} Moneyline Arbitrage Opportunities:\n",
+            moneyline_arbs.len()
+        );
+        for (i, arb) in moneyline_arbs.iter().enumerate() {
+            println!("{}. {}", i + 1, arb.format());
+        }
+    }
+
+    if save_csv && !moneyline_arbs.is_empty() {
+        save_moneyline_arbitrage_to_csv(&moneyline_arbs, "cache/moneyline_arbitrage.csv")?;
+        println!("\nSaved moneyline arbitrage to moneyline_arbitrage.csv");
+    }
+
+    println!("\nSPREAD ARBITRAGE\n");
+    let spread_arbs = find_spread_arbitrage(&games_with_odds)?;
+    if spread_arbs.is_empty() {
+        println!("No spread arbitrage opportunities found.");
+    } else {
+        println!(
+            "Found {} Spread Arbitrage Opportunities:\n",
+            spread_arbs.len()
+        );
+        for (i, arb) in spread_arbs.iter().enumerate() {
+            println!("{}. {}", i + 1, arb.format());
+        }
+    }
+
+    if save_csv && !spread_arbs.is_empty() {
+        save_spread_arbitrage_to_csv(&spread_arbs, "cache/spread_arbitrage.csv")?;
+        println!("\nSaved spread arbitrage to spread_arbitrage.csv");
     }
 
     // Check API usage
