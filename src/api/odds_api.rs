@@ -108,7 +108,7 @@ impl OddsApiClient {
             .into_iter()
             .filter(|api_game| {
                 // Only include games that start in the future and within the next 7 days
-                api_game.commence_time > now && api_game.commence_time <= one_week_from_now
+                api_game.commence_time <= one_week_from_now
             })
             .map(|api_game| {
                 let game = Game {
