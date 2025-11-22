@@ -122,7 +122,7 @@ impl PredictionTrackerScraper {
             home_team,
             away_team,
             spread,
-            home_win_prob: home_win_prob, // Convert percentage to decimal
+            home_win_prob, // Convert percentage to decimal
             away_win_prob: 1.0 - home_win_prob,
             _prediction_avg: prediction_avg,
         })
