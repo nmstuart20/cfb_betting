@@ -233,3 +233,313 @@ pub fn find_spread_arbitrage(
 
     Ok(arbitrage_opportunities)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::models::{BettingOdds, Game, MoneylineOdds, SpreadOdds};
+    use chrono::Utc;
+
+    fn create_test_game(home: &str, away: &str) -> Game {
+        Game {
+            id: "test_game_1".to_string(),
+            home_team: home.to_string(),
+            away_team: away.to_string(),
+            commence_time: Utc::now(),
+            sport_title: "Test Sport".to_string(),
+        }
+    }
+
+    fn create_betting_odds(
+        game_id: &str,
+        bookmaker: &str,
+        moneyline: Vec<MoneylineOdds>,
+        spreads: Vec<SpreadOdds>,
+    ) -> BettingOdds {
+        BettingOdds {
+            game_id: game_id.to_string(),
+            bookmaker: bookmaker.to_string(),
+            last_update: Utc::now(),
+            moneyline,
+            spreads,
+        }
+    }
+
+    #[test]
+    fn test_moneyline_arbitrage_found() {
+        // Setup: Create a game with arbitrage opportunity
+        // BookA: Home +120 (45.5% implied), BookB: Away +125 (44.4% implied)
+        // Total: 89.9% < 100%, so arbitrage exists
+        let game = create_test_game("Home Team", "Away Team");
+
+        let book_a_odds = create_betting_odds(
+            &game.id,
+            "BookmakerA",
+            vec![MoneylineOdds {
+                team: "Home Team".to_string(),
+                price: 120,
+            }],
+            vec![],
+        );
+
+        let book_b_odds = create_betting_odds(
+            &game.id,
+            "BookmakerB",
+            vec![MoneylineOdds {
+                team: "Away Team".to_string(),
+                price: 125,
+            }],
+            vec![],
+        );
+
+        let games_with_odds = vec![(game.clone(), vec![book_a_odds, book_b_odds])];
+
+        let result = find_moneyline_arbitrage(&games_with_odds).unwrap();
+
+        assert_eq!(result.len(), 1);
+        let arb = &result[0];
+        assert_eq!(arb.home_team, "Home Team");
+        assert_eq!(arb.away_team, "Away Team");
+        assert_eq!(arb.home_odds, 120);
+        assert_eq!(arb.away_odds, 125);
+        assert!(arb.profit_percentage > 0.0);
+        assert!(arb.home_stake_percentage + arb.away_stake_percentage > 99.0);
+        assert!(arb.home_stake_percentage + arb.away_stake_percentage < 101.0);
+    }
+
+    #[test]
+    fn test_moneyline_no_arbitrage() {
+        // Setup: No arbitrage opportunity (normal vig)
+        // BookA: Home -110 (52.4% implied), Away -110 (52.4% implied)
+        // Total: 104.8% > 100%, so no arbitrage
+        let game = create_test_game("Home Team", "Away Team");
+
+        let book_a_odds = create_betting_odds(
+            &game.id,
+            "BookmakerA",
+            vec![
+                MoneylineOdds {
+                    team: "Home Team".to_string(),
+                    price: -110,
+                },
+                MoneylineOdds {
+                    team: "Away Team".to_string(),
+                    price: -110,
+                },
+            ],
+            vec![],
+        );
+
+        let games_with_odds = vec![(game.clone(), vec![book_a_odds])];
+
+        let result = find_moneyline_arbitrage(&games_with_odds).unwrap();
+
+        assert_eq!(result.len(), 0);
+    }
+
+    #[test]
+    fn test_moneyline_arbitrage_multiple_bookmakers() {
+        // Setup: Multiple bookmakers, best odds create arbitrage
+        let game = create_test_game("Home Team", "Away Team");
+
+        let book_a_odds = create_betting_odds(
+            &game.id,
+            "BookmakerA",
+            vec![
+                MoneylineOdds {
+                    team: "Home Team".to_string(),
+                    price: 110, // Not the best
+                },
+                MoneylineOdds {
+                    team: "Away Team".to_string(),
+                    price: 105, // Not the best
+                },
+            ],
+            vec![],
+        );
+
+        let book_b_odds = create_betting_odds(
+            &game.id,
+            "BookmakerB",
+            vec![MoneylineOdds {
+                team: "Home Team".to_string(),
+                price: 130, // Best home odds
+            }],
+            vec![],
+        );
+
+        let book_c_odds = create_betting_odds(
+            &game.id,
+            "BookmakerC",
+            vec![MoneylineOdds {
+                team: "Away Team".to_string(),
+                price: 140, // Best away odds
+            }],
+            vec![],
+        );
+
+        let games_with_odds = vec![(game.clone(), vec![book_a_odds, book_b_odds, book_c_odds])];
+
+        let result = find_moneyline_arbitrage(&games_with_odds).unwrap();
+
+        assert_eq!(result.len(), 1);
+        let arb = &result[0];
+        assert_eq!(arb.home_odds, 130); // Should pick best odds
+        assert_eq!(arb.away_odds, 140); // Should pick best odds
+        assert_eq!(arb.home_bookmaker, "BookmakerB");
+        assert_eq!(arb.away_bookmaker, "BookmakerC");
+    }
+
+    #[test]
+    fn test_spread_arbitrage_found() {
+        // Setup: Spread arbitrage opportunity
+        let game = create_test_game("Home Team", "Away Team");
+
+        let book_a_odds = create_betting_odds(
+            &game.id,
+            "BookmakerA",
+            vec![],
+            vec![SpreadOdds {
+                team: "Home Team".to_string(),
+                point: -7.0,
+                price: 110, // +110 offers arbitrage opportunity
+            }],
+        );
+
+        let book_b_odds = create_betting_odds(
+            &game.id,
+            "BookmakerB",
+            vec![],
+            vec![SpreadOdds {
+                team: "Away Team".to_string(),
+                point: 7.0,
+                price: 110, // +110 offers arbitrage opportunity
+            }],
+        );
+
+        let games_with_odds = vec![(game.clone(), vec![book_a_odds, book_b_odds])];
+
+        let result = find_spread_arbitrage(&games_with_odds).unwrap();
+
+        assert_eq!(result.len(), 1);
+        let arb = &result[0];
+        assert_eq!(arb.side1_spread, -7.0);
+        assert_eq!(arb.side2_spread, 7.0);
+        assert!(arb.profit_percentage > 0.0);
+    }
+
+    #[test]
+    fn test_spread_no_arbitrage() {
+        // Setup: No spread arbitrage (normal vig)
+        let game = create_test_game("Home Team", "Away Team");
+
+        let book_a_odds = create_betting_odds(
+            &game.id,
+            "BookmakerA",
+            vec![],
+            vec![
+                SpreadOdds {
+                    team: "Home Team".to_string(),
+                    point: -7.0,
+                    price: -110,
+                },
+                SpreadOdds {
+                    team: "Away Team".to_string(),
+                    point: 7.0,
+                    price: -110,
+                },
+            ],
+        );
+
+        let games_with_odds = vec![(game.clone(), vec![book_a_odds])];
+
+        let result = find_spread_arbitrage(&games_with_odds).unwrap();
+
+        assert_eq!(result.len(), 0);
+    }
+
+    #[test]
+    fn test_spread_arbitrage_ignores_non_matching_spreads() {
+        // Setup: Spreads don't match up (different lines)
+        let game = create_test_game("Home Team", "Away Team");
+
+        let book_a_odds = create_betting_odds(
+            &game.id,
+            "BookmakerA",
+            vec![],
+            vec![SpreadOdds {
+                team: "Home Team".to_string(),
+                point: -7.0,
+                price: 110,
+            }],
+        );
+
+        let book_b_odds = create_betting_odds(
+            &game.id,
+            "BookmakerB",
+            vec![],
+            vec![SpreadOdds {
+                team: "Away Team".to_string(),
+                point: 6.5, // Doesn't match -7.0
+                price: 110,
+            }],
+        );
+
+        let games_with_odds = vec![(game.clone(), vec![book_a_odds, book_b_odds])];
+
+        let result = find_spread_arbitrage(&games_with_odds).unwrap();
+
+        assert_eq!(result.len(), 0);
+    }
+
+    #[test]
+    fn test_empty_games_returns_empty() {
+        let games_with_odds: Vec<(Game, Vec<BettingOdds>)> = vec![];
+
+        let moneyline_result = find_moneyline_arbitrage(&games_with_odds).unwrap();
+        let spread_result = find_spread_arbitrage(&games_with_odds).unwrap();
+
+        assert_eq!(moneyline_result.len(), 0);
+        assert_eq!(spread_result.len(), 0);
+    }
+
+    #[test]
+    fn test_arbitrage_profit_calculation() {
+        // Test specific profit percentage calculation
+        let game = create_test_game("Home Team", "Away Team");
+
+        // Using specific odds to verify profit calculation
+        // Home +100 (50% implied), Away +110 (47.6% implied)
+        // Total: 97.6%, profit should be about 2.4%
+        let book_a_odds = create_betting_odds(
+            &game.id,
+            "BookmakerA",
+            vec![MoneylineOdds {
+                team: "Home Team".to_string(),
+                price: 100,
+            }],
+            vec![],
+        );
+
+        let book_b_odds = create_betting_odds(
+            &game.id,
+            "BookmakerB",
+            vec![MoneylineOdds {
+                team: "Away Team".to_string(),
+                price: 110,
+            }],
+            vec![],
+        );
+
+        let games_with_odds = vec![(game.clone(), vec![book_a_odds, book_b_odds])];
+
+        let result = find_moneyline_arbitrage(&games_with_odds).unwrap();
+
+        assert_eq!(result.len(), 1);
+        let arb = &result[0];
+
+        // Profit should be approximately 2.4%
+        assert!(arb.profit_percentage > 2.0);
+        assert!(arb.profit_percentage < 3.0);
+    }
+}
