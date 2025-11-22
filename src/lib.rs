@@ -8,7 +8,6 @@ pub use models::*;
 pub use scrapers::*;
 pub use utils::*;
 
-
 use anyhow::{Context, Result};
 use api::odds_api::OddsApiClient;
 use scrapers::prediction_tracker::PredictionTrackerScraper;

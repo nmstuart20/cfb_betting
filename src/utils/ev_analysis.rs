@@ -4,6 +4,7 @@ use crate::utils::ev_calculator::{
     american_odds_to_probability, calculate_expected_value, calculate_spread_cover_probability,
 };
 use anyhow::Result;
+use chrono::Utc;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -79,6 +80,10 @@ pub async fn find_top_ev_bets(
     predictions: &Vec<GamePrediction>,
     top_n: usize,
 ) -> Result<Vec<EvBetRecommendation>> {
+    // Prediction model data is not live yet, so only look at bets in the future
+    let now = Utc::now();
+    let games_with_odds = games_with_odds.iter().filter(|g| g.0.commence_time > now);
+
     // Create a lookup map for predictions by team names
     // Use extract_school_name to match with Odds API which has full names
     let mut prediction_map: HashMap<String, HashMap<String, f64>> = HashMap::new();
@@ -225,6 +230,10 @@ pub async fn find_top_spread_ev_bets(
     game_predictions: &Vec<GamePrediction>,
     top_n: usize,
 ) -> Result<Vec<SpreadEvBetRecommendation>> {
+    // Prediction model data is not live yet, so only look at bets in the future
+    let now = Utc::now();
+    let games_with_odds = games_with_odds.iter().filter(|g| g.0.commence_time > now);
+
     // Standard deviation for college football score predictions (typically 10-14 points)
     const STD_DEV: f64 = 12.0;
 

@@ -1,11 +1,15 @@
 use anyhow::{Context, Result};
 use cfb_betting_ev::api::Sport;
 use cfb_betting_ev::arbitrage::{find_moneyline_arbitrage, find_spread_arbitrage};
-use cfb_betting_ev::data::{load_odds_from_cache, load_predictions_from_cache, save_moneyline_arbitrage_to_csv, save_moneyline_bets_to_csv, save_odds_to_cache, save_predictions_to_cache, save_spread_arbitrage_to_csv, save_spread_bets_to_csv};
+use cfb_betting_ev::data::{
+    load_odds_from_cache, load_predictions_from_cache, save_moneyline_arbitrage_to_csv,
+    save_moneyline_bets_to_csv, save_odds_to_cache, save_predictions_to_cache,
+    save_spread_arbitrage_to_csv, save_spread_bets_to_csv,
+};
 use cfb_betting_ev::ev_analysis::{find_top_ev_bets, find_top_spread_ev_bets};
-use std::path::Path;
 use cfb_betting_ev::odds_api::OddsApiClient;
 use cfb_betting_ev::prediction_tracker::PredictionTrackerScraper;
+use std::path::Path;
 
 #[tokio::main]
 async fn main() -> Result<()> {
