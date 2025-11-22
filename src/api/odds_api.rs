@@ -20,6 +20,7 @@ struct OddsApiGame {
 /// Bookmaker data from The Odds API
 #[derive(Debug, Deserialize)]
 struct OddsApiBookmaker {
+    #[allow(dead_code)]
     key: String,
     title: String,
     last_update: DateTime<Utc>,
@@ -86,7 +87,7 @@ impl OddsApiClient {
 
         // Filter games to only include those in the future and within the next week
         let now = Utc::now();
-        let one_week_from_now = now + chrono::Duration::days(7);
+        let one_week_from_now = now + chrono::Duration::days(4);
 
         Ok(api_games
             .into_iter()

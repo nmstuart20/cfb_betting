@@ -5,12 +5,15 @@ mod utils;
 
 use anyhow::{Context, Result};
 use api::odds_api::OddsApiClient;
-use models::{BettingOdds, Game};
 use scrapers::prediction_tracker::PredictionTrackerScraper;
 use std::path::Path;
-use utils::ev_analysis::{find_top_ev_bets, find_top_spread_ev_bets};
-
-use crate::scrapers::prediction_tracker::GamePrediction;
+use utils::data::{
+    load_odds_from_cache, load_predictions_from_cache, save_moneyline_bets_to_csv,
+    save_odds_to_cache, save_predictions_to_cache, save_spread_bets_to_csv,
+};
+use utils::ev_analysis::{
+    find_top_ev_bets, find_top_spread_ev_bets, EvBetRecommendation, SpreadEvBetRecommendation,
+};
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -34,6 +37,7 @@ async fn main() -> Result<()> {
     let odds_cache_file = "cache/odds_cache.json";
     let predictions_cache_file = "cache/predictions_cache.json";
     let use_cache = std::env::var("USE_CACHE").unwrap_or_default() == "1";
+    let save_csv = std::env::var("SAVE_CSV").unwrap_or_default() == "1";
 
     let predictions = if use_cache && Path::new(predictions_cache_file).exists() {
         println!(
@@ -73,7 +77,7 @@ async fn main() -> Result<()> {
 
     // Find top moneyline EV bets
     println!("MONEYLINE BETS\n");
-    match find_top_ev_bets(&games_with_odds, &predictions, 30).await {
+    let moneyline_bets = match find_top_ev_bets(&games_with_odds, &predictions, 30).await {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV moneyline bets found.");
@@ -83,16 +87,22 @@ async fn main() -> Result<()> {
                     println!("{}. {}", i + 1, bet.format());
                 }
             }
+            bets
         }
         Err(e) => {
             eprintln!("Error: {}", e);
             return Err(e);
         }
+    };
+
+    if save_csv && !moneyline_bets.is_empty() {
+        save_moneyline_bets_to_csv(&moneyline_bets, "cache/moneyline_bets.csv")?;
+        println!("\nSaved moneyline bets to moneyline_bets.csv");
     }
 
     // Find top spread EV bets
     println!("\nSPREAD BETS\n");
-    match find_top_spread_ev_bets(&games_with_odds, &predictions, 30).await {
+    let spread_bets = match find_top_spread_ev_bets(&games_with_odds, &predictions, 30).await {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV spread bets found.");
@@ -102,11 +112,18 @@ async fn main() -> Result<()> {
                     println!("{}. {}", i + 1, bet.format());
                 }
             }
+            bets
         }
         Err(e) => {
             eprintln!("Error fetching spread bets: {}", e);
             // Don't return error - still show API usage
+            Vec::new()
         }
+    };
+
+    if save_csv && !spread_bets.is_empty() {
+        save_spread_bets_to_csv(&spread_bets, "cache/spread_bets.csv")?;
+        println!("\nSaved spread bets to spread_bets.csv");
     }
 
     // Check API usage
@@ -114,42 +131,4 @@ async fn main() -> Result<()> {
     odds_client.check_usage().await?;
 
     Ok(())
-}
-
-/// Save odds data to a JSON cache file
-fn save_odds_to_cache(
-    games_with_odds: &[(Game, Vec<BettingOdds>)],
-    odds_cache_file: &str,
-) -> Result<()> {
-    let json =
-        serde_json::to_string_pretty(games_with_odds).context("Failed to serialize odds data")?;
-    std::fs::write(odds_cache_file, json).context("Failed to write cache file")?;
-    Ok(())
-}
-
-fn save_predictions_to_cache(
-    predictions: &[GamePrediction],
-    predictions_cache: &str,
-) -> Result<()> {
-    let json =
-        serde_json::to_string_pretty(predictions).context("Failed to serialize prediction data")?;
-    std::fs::write(predictions_cache, json)?;
-    Ok(())
-}
-
-/// Load odds data from a JSON cache file
-fn load_odds_from_cache(odds_cache_file: &str) -> Result<Vec<(Game, Vec<BettingOdds>)>> {
-    let json = std::fs::read_to_string(odds_cache_file).context("Failed to read cache file")?;
-    let games_with_odds: Vec<(Game, Vec<BettingOdds>)> =
-        serde_json::from_str(&json).context("Failed to deserialize odds data")?;
-    Ok(games_with_odds)
-}
-
-/// Load prediction data from JSON
-fn load_predictions_from_cache(predictions_cache_file: &str) -> Result<Vec<GamePrediction>> {
-    let json =
-        std::fs::read_to_string(predictions_cache_file).context("Failed to read cache file")?;
-    let predictions: Vec<GamePrediction> =
-        serde_json::from_str(&json).context("Failed to deserialize prediction data")?;
-    Ok(predictions)
 }

@@ -96,7 +96,6 @@ pub async fn find_top_ev_bets(
 
     // Calculate EV for all bets
     let mut all_bets = Vec::new();
-    let mut no_prediction_count = 0;
     for (game, odds_list) in games_with_odds {
         // Extract school names from full team names (e.g., "Iowa Hawkeyes" -> "iowa")
         let home_key = extract_school_name(&game.home_team);
@@ -111,7 +110,6 @@ pub async fn find_top_ev_bets(
                     "No prediction found for: {} vs {} (odds api key: {})",
                     game.home_team, game.away_team, game_key
                 );
-                no_prediction_count += 1;
                 continue; // Skip games without predictions
             }
         };
@@ -141,11 +139,6 @@ pub async fn find_top_ev_bets(
             }
         }
     }
-
-    println!(
-        "Number of games without predictions: {}",
-        no_prediction_count
-    );
 
     // Sort by EV (descending) and take top N
     all_bets.sort_by(|a, b| {
@@ -250,7 +243,6 @@ pub async fn find_top_spread_ev_bets(
 
     // Calculate EV for all spread bets
     let mut all_bets = Vec::new();
-    let mut no_prediction_count = 0;
 
     for (game, odds_list) in games_with_odds {
         // Extract school names from full team names
@@ -262,7 +254,6 @@ pub async fn find_top_spread_ev_bets(
         let game_pred = match prediction_map.get(&game_key) {
             Some(pred) => pred,
             None => {
-                no_prediction_count += 1;
                 continue;
             }
         };
@@ -308,11 +299,6 @@ pub async fn find_top_spread_ev_bets(
             }
         }
     }
-
-    println!(
-        "Spread bets - Number of games without predictions: {}",
-        no_prediction_count
-    );
 
     // Sort by EV (descending) and take top N
     all_bets.sort_by(|a, b| {
