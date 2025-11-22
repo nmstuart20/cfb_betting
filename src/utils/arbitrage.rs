@@ -96,9 +96,9 @@ pub fn find_moneyline_arbitrage(
                 } else if moneyline.team == game.away_team
                     && (best_away_odds.is_none()
                         || moneyline.price > best_away_odds.as_ref().unwrap().0)
-                    {
-                        best_away_odds = Some((moneyline.price, bookmaker_odds.bookmaker.clone()));
-                    }
+                {
+                    best_away_odds = Some((moneyline.price, bookmaker_odds.bookmaker.clone()));
+                }
             }
         }
 
