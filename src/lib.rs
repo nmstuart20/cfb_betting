@@ -85,12 +85,12 @@ pub async fn fetch_all_betting_data(use_cache: bool) -> Result<BettingData> {
         games_with_odds
     };
 
-    // Calculate EV bets and arbitrage opportunities
-    let cfb_moneyline_bets = find_top_ev_bets(&cfb_games_with_odds, &predictions, 30)
+    // Calculate EV bets and arbitrage opportunities (None = all positive EV bets)
+    let cfb_moneyline_bets = find_top_ev_bets(&cfb_games_with_odds, &predictions, None)
         .await
         .unwrap_or_default();
 
-    let cfb_spread_bets = find_top_spread_ev_bets(&cfb_games_with_odds, &predictions, 30)
+    let cfb_spread_bets = find_top_spread_ev_bets(&cfb_games_with_odds, &predictions, None)
         .await
         .unwrap_or_default();
 

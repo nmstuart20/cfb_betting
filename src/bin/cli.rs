@@ -94,7 +94,7 @@ async fn main() -> Result<()> {
     // Find top moneyline EV bets (CFB only - requires predictions)
     println!("COLLEGE FOOTBALL\n");
     println!("MONEYLINE BETS\n");
-    let moneyline_bets = match find_top_ev_bets(&cfb_games_with_odds, &predictions, 30).await {
+    let moneyline_bets = match find_top_ev_bets(&cfb_games_with_odds, &predictions, Some(30)).await {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV moneyline bets found.");
@@ -119,7 +119,7 @@ async fn main() -> Result<()> {
 
     // Find top spread EV bets
     println!("\nSPREAD BETS\n");
-    let spread_bets = match find_top_spread_ev_bets(&cfb_games_with_odds, &predictions, 30).await {
+    let spread_bets = match find_top_spread_ev_bets(&cfb_games_with_odds, &predictions, Some(30)).await {
         Ok(bets) => {
             if bets.is_empty() {
                 println!("No positive EV spread bets found.");

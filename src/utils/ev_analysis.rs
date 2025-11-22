@@ -74,11 +74,11 @@ fn extract_school_name(team_name: &str) -> String {
     }
 }
 
-/// Analyze all available games and return the top N EV bets
+/// Analyze all available games and return all positive EV bets (or top N if specified)
 pub async fn find_top_ev_bets(
     games_with_odds: &Vec<(Game, Vec<BettingOdds>)>,
     predictions: &Vec<GamePrediction>,
-    top_n: usize,
+    top_n: Option<usize>,
 ) -> Result<Vec<EvBetRecommendation>> {
     // Prediction model data is not live yet, so only look at bets in the future
     let now = Utc::now();
@@ -146,14 +146,21 @@ pub async fn find_top_ev_bets(
         }
     }
 
-    // Sort by EV (descending) and take top N
+    // Filter for positive EV only
+    all_bets.retain(|bet| bet.expected_value > 0.0);
+
+    // Sort by EV (descending)
     all_bets.sort_by(|a, b| {
         b.expected_value
             .partial_cmp(&a.expected_value)
             .unwrap_or(std::cmp::Ordering::Equal)
     });
 
-    Ok(all_bets.into_iter().take(top_n).collect())
+    // Take top N if specified, otherwise return all positive EV bets
+    Ok(match top_n {
+        Some(n) => all_bets.into_iter().take(n).collect(),
+        None => all_bets,
+    })
 }
 
 /// A bet recommendation with EV analysis
@@ -224,11 +231,11 @@ impl SpreadEvBetRecommendation {
     }
 }
 
-/// Analyze all available games and return the top N spread EV bets
+/// Analyze all available games and return all positive spread EV bets (or top N if specified)
 pub async fn find_top_spread_ev_bets(
     games_with_odds: &Vec<(Game, Vec<BettingOdds>)>,
     game_predictions: &Vec<GamePrediction>,
-    top_n: usize,
+    top_n: Option<usize>,
 ) -> Result<Vec<SpreadEvBetRecommendation>> {
     // Prediction model data is not live yet, so only look at bets in the future
     let now = Utc::now();
@@ -310,12 +317,19 @@ pub async fn find_top_spread_ev_bets(
         }
     }
 
-    // Sort by EV (descending) and take top N
+    // Filter for positive EV only
+    all_bets.retain(|bet| bet.expected_value > 0.0);
+
+    // Sort by EV (descending)
     all_bets.sort_by(|a, b| {
         b.expected_value
             .partial_cmp(&a.expected_value)
             .unwrap_or(std::cmp::Ordering::Equal)
     });
 
-    Ok(all_bets.into_iter().take(top_n).collect())
+    // Take top N if specified, otherwise return all positive EV bets
+    Ok(match top_n {
+        Some(n) => all_bets.into_iter().take(n).collect(),
+        None => all_bets,
+    })
 }

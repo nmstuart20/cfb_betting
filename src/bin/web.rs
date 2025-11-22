@@ -20,7 +20,7 @@ mod filters {
     }
 
     pub fn format_arb_percent(value: &f64) -> ::askama::Result<String> {
-        Ok(format!("{:.1}%", value))
+        Ok(format!("{:.2}%", value))
     }
 
     pub fn format_spread(value: &f64) -> ::askama::Result<String> {
@@ -53,9 +53,23 @@ struct HomeTemplate {
 #[template(path = "cfb.html")]
 struct CfbTemplate {
     active_page: String,
-    cfb_moneyline_bets: Vec<cfb_betting_ev::utils::ev_analysis::EvBetRecommendation>,
-    cfb_spread_bets: Vec<cfb_betting_ev::utils::ev_analysis::SpreadEvBetRecommendation>,
     cfb_moneyline_arbs: Vec<cfb_betting_ev::utils::arbitrage::MoneylineArbitrage>,
+    cfb_spread_arbs: Vec<cfb_betting_ev::utils::arbitrage::SpreadArbitrage>,
+}
+
+#[derive(Template)]
+#[template(path = "cfb_moneyline.html")]
+struct CfbMoneylineTemplate {
+    active_page: String,
+    cfb_moneyline_bets: Vec<cfb_betting_ev::utils::ev_analysis::EvBetRecommendation>,
+    cfb_moneyline_arbs: Vec<cfb_betting_ev::utils::arbitrage::MoneylineArbitrage>,
+}
+
+#[derive(Template)]
+#[template(path = "cfb_spread.html")]
+struct CfbSpreadTemplate {
+    active_page: String,
+    cfb_spread_bets: Vec<cfb_betting_ev::utils::ev_analysis::SpreadEvBetRecommendation>,
     cfb_spread_arbs: Vec<cfb_betting_ev::utils::arbitrage::SpreadArbitrage>,
 }
 
@@ -132,9 +146,45 @@ async fn cfb(data: axum::extract::State<SharedData>) -> impl IntoResponse {
 
     let template = CfbTemplate {
         active_page: "cfb".to_string(),
-        cfb_moneyline_bets: data.cfb_moneyline_bets,
-        cfb_spread_bets: data.cfb_spread_bets,
         cfb_moneyline_arbs: data.cfb_moneyline_arbs,
+        cfb_spread_arbs: data.cfb_spread_arbs,
+    };
+
+    HtmlTemplate(template).into_response()
+}
+
+async fn cfb_moneyline(data: axum::extract::State<SharedData>) -> impl IntoResponse {
+    let betting_data = data.read().await;
+
+    let data = match betting_data.as_ref() {
+        Some(d) => d.clone(),
+        None => {
+            return (StatusCode::INTERNAL_SERVER_ERROR, "Data not loaded yet").into_response();
+        }
+    };
+
+    let template = CfbMoneylineTemplate {
+        active_page: "cfb_moneyline".to_string(),
+        cfb_moneyline_bets: data.cfb_moneyline_bets,
+        cfb_moneyline_arbs: data.cfb_moneyline_arbs,
+    };
+
+    HtmlTemplate(template).into_response()
+}
+
+async fn cfb_spread(data: axum::extract::State<SharedData>) -> impl IntoResponse {
+    let betting_data = data.read().await;
+
+    let data = match betting_data.as_ref() {
+        Some(d) => d.clone(),
+        None => {
+            return (StatusCode::INTERNAL_SERVER_ERROR, "Data not loaded yet").into_response();
+        }
+    };
+
+    let template = CfbSpreadTemplate {
+        active_page: "cfb_spread".to_string(),
+        cfb_spread_bets: data.cfb_spread_bets,
         cfb_spread_arbs: data.cfb_spread_arbs,
     };
 
@@ -203,6 +253,8 @@ async fn main() {
     let app = Router::new()
         .route("/", get(home))
         .route("/cfb", get(cfb))
+        .route("/cfb/moneyline", get(cfb_moneyline))
+        .route("/cfb/spread", get(cfb_spread))
         .route("/cbb", get(cbb))
         .with_state(data);
 
