@@ -1,6 +1,7 @@
 use crate::models::{BettingOdds, Game};
 use crate::utils::ev_calculator::american_odds_to_probability;
 use anyhow::Result;
+use chrono::Utc;
 use serde::{Deserialize, Serialize};
 
 /// Represents an arbitrage opportunity for a moneyline bet
@@ -80,6 +81,8 @@ pub fn find_moneyline_arbitrage(
     games_with_odds: &[(Game, Vec<BettingOdds>)],
 ) -> Result<Vec<MoneylineArbitrage>> {
     let mut arbitrage_opportunities = Vec::new();
+    let now = Utc::now();
+    let games_with_odds = games_with_odds.iter().filter(|g| g.0.commence_time >= now);
 
     for (game, odds_list) in games_with_odds {
         // Find best odds for home team across all bookmakers
@@ -151,6 +154,8 @@ pub fn find_spread_arbitrage(
     games_with_odds: &[(Game, Vec<BettingOdds>)],
 ) -> Result<Vec<SpreadArbitrage>> {
     let mut arbitrage_opportunities = Vec::new();
+    let now = Utc::now();
+    let games_with_odds = games_with_odds.iter().filter(|g| g.0.commence_time >= now);
 
     for (game, odds_list) in games_with_odds {
         // Collect all spread odds for this game

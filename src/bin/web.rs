@@ -8,6 +8,7 @@ use axum::{
 use cfb_betting_ev::fetch_all_betting_data;
 use std::sync::Arc;
 use tokio::sync::RwLock;
+use tower_http::services::ServeDir;
 
 // Custom filters for formatting
 mod filters {
@@ -251,6 +252,8 @@ async fn main() {
 
     // Build router with routes
     let app = Router::new()
+        // This will serve files from the "static" directory at the "/static" URL path
+        .nest_service("/static", ServeDir::new("static"))
         .route("/", get(home))
         .route("/cfb", get(cfb))
         .route("/cfb/moneyline", get(cfb_moneyline))
