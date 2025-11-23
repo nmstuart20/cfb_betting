@@ -81,6 +81,7 @@ pub fn find_moneyline_arbitrage(
     games_with_odds: &[(Game, Vec<BettingOdds>)],
 ) -> Result<Vec<MoneylineArbitrage>> {
     let mut arbitrage_opportunities = Vec::new();
+
     let now = Utc::now();
     let games_with_odds = games_with_odds.iter().filter(|g| g.0.commence_time >= now);
 
@@ -243,14 +244,14 @@ pub fn find_spread_arbitrage(
 mod tests {
     use super::*;
     use crate::models::{BettingOdds, Game, MoneylineOdds, SpreadOdds};
-    use chrono::Utc;
+    use chrono::{Duration, Utc};
 
     fn create_test_game(home: &str, away: &str) -> Game {
         Game {
             id: "test_game_1".to_string(),
             home_team: home.to_string(),
             away_team: away.to_string(),
-            commence_time: Utc::now(),
+            commence_time: Utc::now()+ Duration::milliseconds(1),
             sport_title: "Test Sport".to_string(),
         }
     }

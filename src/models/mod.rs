@@ -1,7 +1,7 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-/// Represents a college football game
+/// Represents a college football or basketball game
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Game {
     pub id: String,
