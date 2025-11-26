@@ -17,9 +17,6 @@ fn extract_school_name(team_name: &str) -> String {
     if team_name.contains("Central Florida") || team_name.contains("UCF") {
         return "ucf".to_string();
     }
-    if team_name.contains("Louisiana-Monroe") || team_name.contains("UL Monroe") {
-        return "ul".to_string();
-    }
     if team_name.contains("Texas-San Antonio") || team_name.contains("UTSA") {
         return "utsa".to_string();
     }
@@ -28,6 +25,12 @@ fn extract_school_name(team_name: &str) -> String {
     }
     if team_name.contains("Connecticut") {
         return "uconn".to_string();
+    }
+    if team_name.contains("Eastern Mich") {
+        return "eastern_michigan".to_string();
+    }
+    if team_name.contains("Western Mich") {
+        return "western_michigan".to_string();
     }
 
     let normalized = normalize_team_name(team_name);

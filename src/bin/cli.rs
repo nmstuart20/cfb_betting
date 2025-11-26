@@ -1,9 +1,8 @@
 use anyhow::{Context, Result};
-use cfb_betting_ev::api::Sport;
+use cfb_betting_ev::Sport;
 use cfb_betting_ev::arbitrage::{find_moneyline_arbitrage, find_spread_arbitrage};
 use cfb_betting_ev::data::{
-    load_odds_from_cache, load_predictions_from_cache, save_moneyline_arbitrage_to_csv,
-    save_moneyline_bets_to_csv, save_odds_to_cache, save_predictions_to_cache,
+    load_from_cache, save_moneyline_arbitrage_to_csv, save_moneyline_bets_to_csv, save_to_cache,
     save_spread_arbitrage_to_csv, save_spread_bets_to_csv,
 };
 use cfb_betting_ev::ev_analysis::{find_top_ev_bets, find_top_spread_ev_bets};
@@ -40,14 +39,14 @@ async fn main() -> Result<()> {
             "Loading predictions from cache file: {}\n",
             predictions_cache_file
         );
-        load_predictions_from_cache(predictions_cache_file)?
+        load_from_cache(predictions_cache_file)?
     } else {
         // Fetch predictions from The Prediction Tracker
         let predictions = prediction_scraper
             .fetch_game_predictions()
             .await
             .context("Failed to fetch predictions")?;
-        save_predictions_to_cache(&predictions, predictions_cache_file)?;
+        save_to_cache(&predictions, predictions_cache_file)?;
         println!(
             "Saved predictions to cache file: {}\n",
             predictions_cache_file
@@ -57,7 +56,7 @@ async fn main() -> Result<()> {
     // Fetch college football odds
     let cfb_games_with_odds = if use_cache && Path::new(odds_cache_file).exists() {
         println!("Loading odds from cache file: {}\n", odds_cache_file);
-        load_odds_from_cache(odds_cache_file)?
+        load_from_cache(odds_cache_file)?
     } else {
         // Fetch odds from The Odds API
         let games_with_odds = odds_client
@@ -66,7 +65,7 @@ async fn main() -> Result<()> {
             .context("Failed to fetch CFB odds")?;
 
         // Save to cache file
-        save_odds_to_cache(&games_with_odds, odds_cache_file)?;
+        save_to_cache(&games_with_odds, odds_cache_file)?;
         println!("Saved odds to cache file: {}\n", odds_cache_file);
 
         games_with_odds
@@ -76,7 +75,7 @@ async fn main() -> Result<()> {
     let cbb_cache_file = "cache/cbb_odds_cache.json";
     let cbb_games_with_odds = if use_cache && Path::new(cbb_cache_file).exists() {
         println!("Loading CBB odds from cache file: {}\n", cbb_cache_file);
-        load_odds_from_cache(cbb_cache_file)?
+        load_from_cache(cbb_cache_file)?
     } else {
         // Fetch odds from The Odds API
         let games_with_odds = odds_client
@@ -85,7 +84,7 @@ async fn main() -> Result<()> {
             .context("Failed to fetch CBB odds")?;
 
         // Save to cache file
-        save_odds_to_cache(&games_with_odds, cbb_cache_file)?;
+        save_to_cache(&games_with_odds, cbb_cache_file)?;
         println!("Saved CBB odds to cache file: {}\n", cbb_cache_file);
 
         games_with_odds

@@ -1,20 +1,24 @@
-use crate::models::{BettingOdds, Game};
-use crate::scrapers::prediction_tracker::GamePrediction;
 use crate::utils::arbitrage::{MoneylineArbitrage, SpreadArbitrage};
 use crate::{EvBetRecommendation, SpreadEvBetRecommendation};
 use anyhow::{Context, Result};
+use serde::{de::DeserializeOwned, Serialize};
 use std::fs::File;
 use std::io::Write;
+use std::path::Path;
 
-/// Save odds data to a JSON cache file
-pub fn save_odds_to_cache(
-    games_with_odds: &[(Game, Vec<BettingOdds>)],
-    odds_cache_file: &str,
-) -> Result<()> {
-    let json =
-        serde_json::to_string_pretty(games_with_odds).context("Failed to serialize odds data")?;
-    std::fs::write(odds_cache_file, json).context("Failed to write cache file")?;
+/// Save any serializable data to a JSON cache file.
+pub fn save_to_cache<T: Serialize>(data: &T, cache_file: &str) -> Result<()> {
+    let json = serde_json::to_string_pretty(data).context("Failed to serialize data")?;
+    std::fs::create_dir_all(Path::new(cache_file).parent().unwrap())?;
+    std::fs::write(cache_file, json).context("Failed to write cache file")?;
     Ok(())
+}
+
+/// Load any deserializable data from a JSON cache file.
+pub fn load_from_cache<T: DeserializeOwned>(cache_file: &str) -> Result<T> {
+    let json = std::fs::read_to_string(cache_file).context("Failed to read cache file")?;
+    let data: T = serde_json::from_str(&json).context("Failed to deserialize data")?;
+    Ok(data)
 }
 
 /// Save moneyline arbitrage opportunities to CSV
@@ -81,33 +85,6 @@ pub fn save_spread_arbitrage_to_csv(arbs: &[SpreadArbitrage], filename: &str) ->
     Ok(())
 }
 
-pub fn save_predictions_to_cache(
-    predictions: &[GamePrediction],
-    predictions_cache: &str,
-) -> Result<()> {
-    let json =
-        serde_json::to_string_pretty(predictions).context("Failed to serialize prediction data")?;
-    std::fs::write(predictions_cache, json)?;
-    Ok(())
-}
-
-/// Load odds data from a JSON cache file
-pub fn load_odds_from_cache(odds_cache_file: &str) -> Result<Vec<(Game, Vec<BettingOdds>)>> {
-    let json = std::fs::read_to_string(odds_cache_file).context("Failed to read cache file")?;
-    let games_with_odds: Vec<(Game, Vec<BettingOdds>)> =
-        serde_json::from_str(&json).context("Failed to deserialize odds data")?;
-    Ok(games_with_odds)
-}
-
-/// Load prediction data from JSON
-pub fn load_predictions_from_cache(predictions_cache_file: &str) -> Result<Vec<GamePrediction>> {
-    let json =
-        std::fs::read_to_string(predictions_cache_file).context("Failed to read cache file")?;
-    let predictions: Vec<GamePrediction> =
-        serde_json::from_str(&json).context("Failed to deserialize prediction data")?;
-    Ok(predictions)
-}
-
 /// Save moneyline bets to CSV
 pub fn save_moneyline_bets_to_csv(bets: &[EvBetRecommendation], filename: &str) -> Result<()> {
     let mut file = File::create(filename).context("Failed to create CSV file")?;
@@ -169,3 +146,4 @@ pub fn save_spread_bets_to_csv(bets: &[SpreadEvBetRecommendation], filename: &st
 
     Ok(())
 }
+

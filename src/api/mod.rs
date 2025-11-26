@@ -1,3 +1,2 @@
 pub mod odds_api;
-
-pub use odds_api::Sport;
+pub mod game_results_api;

@@ -12,6 +12,8 @@ use tower_http::services::ServeDir;
 
 // Custom filters for formatting
 mod filters {
+    use chrono::{DateTime, Utc};
+
     pub fn format_odds(odds: &i32) -> ::askama::Result<String> {
         Ok(format!("{:+}", odds))
     }
@@ -36,6 +38,11 @@ mod filters {
         let profit = (profit_pct / 100.0) * 100.0;
         Ok(format!("{:.2}", profit))
     }
+
+    pub fn date(s: &str) -> ::askama::Result<String> {
+        let dt = s.parse::<DateTime<Utc>>().unwrap();
+        Ok(dt.format("%Y-%m-%d").to_string())
+    }
 }
 
 #[derive(Template)]
@@ -46,6 +53,8 @@ struct HomeTemplate {
     cfb_spread_count: usize,
     cfb_arb_count: usize,
     cbb_arb_count: usize,
+    cfb_game_results_count: usize,
+    cbb_game_results_count: usize,
     show_top_bets: bool,
     top_bets: Vec<cfb_betting_ev::utils::ev_analysis::EvBetRecommendation>,
 }
@@ -80,6 +89,20 @@ struct CbbTemplate {
     active_page: String,
     cbb_moneyline_arbs: Vec<cfb_betting_ev::utils::arbitrage::MoneylineArbitrage>,
     cbb_spread_arbs: Vec<cfb_betting_ev::utils::arbitrage::SpreadArbitrage>,
+}
+
+#[derive(Template)]
+#[template(path = "cfb_results.html")]
+struct CfbResultsTemplate {
+    active_page: String,
+    cfb_game_results: Vec<cfb_betting_ev::api::game_results_api::GameResult>,
+}
+
+#[derive(Template)]
+#[template(path = "cbb_results.html")]
+struct CbbResultsTemplate {
+    active_page: String,
+    cbb_game_results: Vec<cfb_betting_ev::api::game_results_api::CbbGameResult>,
 }
 
 struct HtmlTemplate<T>(T);
@@ -117,6 +140,8 @@ async fn home(data: axum::extract::State<SharedData>) -> impl IntoResponse {
     let cfb_spread_count = data.cfb_spread_bets.len();
     let cfb_arb_count = data.cfb_moneyline_arbs.len() + data.cfb_spread_arbs.len();
     let cbb_arb_count = data.cbb_moneyline_arbs.len() + data.cbb_spread_arbs.len();
+    let cfb_game_results_count = data.cfb_game_results.len();
+    let cbb_game_results_count = data.cbb_game_results.len();
 
     // Get top 3 bets
     let top_bets: Vec<_> = data.cfb_moneyline_bets.iter().take(3).cloned().collect();
@@ -128,6 +153,8 @@ async fn home(data: axum::extract::State<SharedData>) -> impl IntoResponse {
         cfb_spread_count,
         cfb_arb_count,
         cbb_arb_count,
+        cfb_game_results_count,
+        cbb_game_results_count,
         show_top_bets,
         top_bets,
     };
@@ -211,6 +238,42 @@ async fn cbb(data: axum::extract::State<SharedData>) -> impl IntoResponse {
     HtmlTemplate(template).into_response()
 }
 
+async fn cfb_results(data: axum::extract::State<SharedData>) -> impl IntoResponse {
+    let betting_data = data.read().await;
+
+    let data = match betting_data.as_ref() {
+        Some(d) => d.clone(),
+        None => {
+            return (StatusCode::INTERNAL_SERVER_ERROR, "Data not loaded yet").into_response();
+        }
+    };
+
+    let template = CfbResultsTemplate {
+        active_page: "cfb_results".to_string(),
+        cfb_game_results: data.cfb_game_results,
+    };
+
+    HtmlTemplate(template).into_response()
+}
+
+async fn cbb_results(data: axum::extract::State<SharedData>) -> impl IntoResponse {
+    let betting_data = data.read().await;
+
+    let data = match betting_data.as_ref() {
+        Some(d) => d.clone(),
+        None => {
+            return (StatusCode::INTERNAL_SERVER_ERROR, "Data not loaded yet").into_response();
+        }
+    };
+
+    let template = CbbResultsTemplate {
+        active_page: "cbb_results".to_string(),
+        cbb_game_results: data.cbb_game_results,
+    };
+
+    HtmlTemplate(template).into_response()
+}
+
 #[tokio::main]
 async fn main() {
     // Load environment variables
@@ -238,6 +301,8 @@ async fn main() {
                 "  - {} CBB Arbitrage Opportunities",
                 data.cbb_moneyline_arbs.len() + data.cbb_spread_arbs.len()
             );
+            println!("  - {} CFB Game Results", data.cfb_game_results.len());
+            println!("  - {} CBB Game Results", data.cbb_game_results.len());
             Arc::new(RwLock::new(Some(data)))
         }
         Err(e) => {
@@ -258,7 +323,9 @@ async fn main() {
         .route("/cfb", get(cfb))
         .route("/cfb/moneyline", get(cfb_moneyline))
         .route("/cfb/spread", get(cfb_spread))
+        .route("/cfb/results", get(cfb_results))
         .route("/cbb", get(cbb))
+        .route("/cbb/results", get(cbb_results))
         .with_state(data);
 
     // Run server

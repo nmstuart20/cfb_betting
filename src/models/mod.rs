@@ -1,6 +1,12 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
+pub enum Sport {
+    CollegeFootball,
+    CollegeBasketball,
+}
+
 /// Represents a college football or basketball game
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Game {

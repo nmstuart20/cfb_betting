@@ -1,16 +1,9 @@
-use crate::models::{BettingOdds, Game, MoneylineOdds, SpreadOdds};
+use crate::models::{BettingOdds, Game, MoneylineOdds, SpreadOdds, Sport};
 use anyhow::{Context, Result};
 use chrono::{DateTime, Utc};
 use serde::Deserialize;
 
 const ODDS_API_BASE_URL: &str = "https://api.the-odds-api.com/v4";
-
-/// Supported sports for odds fetching
-#[derive(Debug, Clone, Copy)]
-pub enum Sport {
-    CollegeFootball,
-    CollegeBasketball,
-}
 
 impl Sport {
     pub fn api_key(&self) -> &'static str {

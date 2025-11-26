@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}College Basketball Results - Betting Calculator{% endblock %} {% block content %}
+<h1>College Basketball - Game Results</h1>
+
+<div class="subsection">
+    <h3>Recent Game Results</h3>
+    {% if cbb_game_results.is_empty() %}
+    <p class="no-data">No game results found.</p>
+    {% else %}
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Score</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in cbb_game_results %}
+            <tr>
+                <td>{{ result.day|date }}</td>
+                <td>{{ result.home }}</td>
+                <td>{{ result.away }}</td>
+                <td>
+                    {% if let Some(home_score) = result.home_score %}
+                        {% if let Some(away_score) = result.away_score %}
+                            {{ home_score }} - {{ away_score }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td>{{ result.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

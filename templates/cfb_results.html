@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}College Football Results - Betting Calculator{% endblock %} {% block content %}
+<h1>College Football - Game Results</h1>
+
+<div class="subsection">
+    <h3>Recent Game Results</h3>
+    {% if cfb_game_results.is_empty() %}
+    <p class="no-data">No game results found.</p>
+    {% else %}
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in cfb_game_results %}
+            <tr>
+                <td>{{ result.start_date|date }}</td>
+                <td>{{ result.home_team }}</td>
+                <td>{{ result.away_team }}</td>
+                <td>
+                    {% if result.completed %}
+                        {{ result.home_points.unwrap_or(0) }} - {{ result.away_points.unwrap_or(0) }}
+                    {% else %}
+                        Not completed
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endblock %}
