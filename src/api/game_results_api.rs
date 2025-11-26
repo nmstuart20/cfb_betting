@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use reqwest::Client;
+use serde::{Deserialize, Serialize};
 
 const BASE_URL: &str = "https://api.collegefootballdata.com";
 
@@ -46,13 +46,20 @@ impl GameResultsApiClient {
         }
     }
 
-    pub async fn fetch_cfb_game_results(&self, year: u32, week: u8, season_type: &str, conference: &str) -> Result<Vec<GameResult>, reqwest::Error> {
+    pub async fn fetch_cfb_game_results(
+        &self,
+        year: u32,
+        week: u8,
+        season_type: &str,
+        conference: &str,
+    ) -> Result<Vec<GameResult>, reqwest::Error> {
         let url = format!(
             "{}/games?year={}&week={}&seasonType={}&conference={}",
             BASE_URL, year, week, season_type, conference
         );
 
-        let response = self.client
+        let response = self
+            .client
             .get(&url)
             .header("Authorization", format!("Bearer {}", self.api_key))
             .send()
@@ -62,13 +69,14 @@ impl GameResultsApiClient {
         Ok(results)
     }
 
-    pub async fn fetch_cbb_game_results(&self, day: &str) -> Result<Vec<CbbGameResult>, reqwest::Error> {
-        let url = format!(
-            "{}/scoreboard?day={}",
-            BASE_URL, day
-        );
+    pub async fn fetch_cbb_game_results(
+        &self,
+        day: &str,
+    ) -> Result<Vec<CbbGameResult>, reqwest::Error> {
+        let url = format!("{}/scoreboard?day={}", BASE_URL, day);
 
-        let response = self.client
+        let response = self
+            .client
             .get(&url)
             .header("Authorization", format!("Bearer {}", self.api_key))
             .send()

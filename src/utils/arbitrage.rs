@@ -251,7 +251,7 @@ mod tests {
             id: "test_game_1".to_string(),
             home_team: home.to_string(),
             away_team: away.to_string(),
-            commence_time: Utc::now()+ Duration::milliseconds(1),
+            commence_time: Utc::now() + Duration::milliseconds(1),
             sport_title: "Test Sport".to_string(),
         }
     }

@@ -1,4 +1,4 @@
-use crate::models::{BettingOdds, Game, MoneylineOdds, SpreadOdds, Sport};
+use crate::models::{BettingOdds, Game, MoneylineOdds, Sport, SpreadOdds};
 use anyhow::{Context, Result};
 use chrono::{DateTime, Utc};
 use serde::Deserialize;

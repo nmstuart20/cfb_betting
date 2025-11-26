@@ -146,4 +146,3 @@ pub fn save_spread_bets_to_csv(bets: &[SpreadEvBetRecommendation], filename: &st
 
     Ok(())
 }
-
