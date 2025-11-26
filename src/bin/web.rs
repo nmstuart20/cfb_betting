@@ -284,8 +284,10 @@ async fn main() {
 
     println!("Fetching betting data...");
 
+    let use_cache = std::env::var("USE_CACHE").unwrap_or_default() == "1";
+
     // Fetch data on startup
-    let data = match fetch_all_betting_data(true).await {
+    let data = match fetch_all_betting_data(use_cache).await {
         Ok(data) => {
             println!("Data loaded successfully");
             println!(

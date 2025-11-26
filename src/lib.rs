@@ -110,18 +110,19 @@ pub async fn fetch_all_betting_data(use_cache: bool) -> Result<BettingData> {
     };
 
     // Fetch college basketball game results
-    let cbb_game_results = if use_cache && Path::new(cbb_results_cache_file).exists() {
-        load_from_cache(cbb_results_cache_file)?
-    } else {
-        let now = Local::now();
-        let day = now.format("%Y-%m-%d").to_string();
-        let game_results = game_results_client
-            .fetch_cbb_game_results(&day)
-            .await
-            .context("Failed to fetch CBB game results")?;
-        save_to_cache(&game_results, cbb_results_cache_file)?;
-        game_results
-    };
+    // let cbb_game_results = if use_cache && Path::new(cbb_results_cache_file).exists() {
+    //     load_from_cache(cbb_results_cache_file)?
+    // } else {
+    //     let now = Local::now();
+    //     let day = now.format("%Y-%m-%d").to_string();
+    //     let game_results = game_results_client
+    //         .fetch_cbb_game_results(&day)
+    //         .await
+    //         .context("Failed to fetch CBB game results")?;
+    //     save_to_cache(&game_results, cbb_results_cache_file)?;
+    //     game_results
+    // };
+    let cbb_game_results = vec![];
 
     // Calculate EV bets and arbitrage opportunities (None = all positive EV bets)
     let cfb_moneyline_bets = find_top_ev_bets(&cfb_games_with_odds, &predictions, None)
