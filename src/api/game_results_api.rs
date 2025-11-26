@@ -2,22 +2,65 @@ use reqwest::Client;
 use serde::{Deserialize, Serialize};
 
 const BASE_URL: &str = "https://api.collegefootballdata.com";
+const FIRST_WEEK: u8 = 34;
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[allow(non_snake_case)]
 #[serde(rename_all = "camelCase")]
 pub struct GameResult {
-    pub id: u32,
-    pub season: u32,
-    pub week: u8,
-    pub season_type: String,
+    pub id: i32,
+    pub season: i32,
+    pub week: i32,
+    pub season_type: SeasonType,
     pub start_date: String,
+    pub start_time_TBD: bool,
+    pub completed: bool,
+    pub neutral_site: bool,
+    pub conference_game: bool,
+    pub attendance: Option<i32>,
+    pub venue_id: Option<i32>,
+    pub venue: Option<String>,
+    pub home_id: i32,
     pub home_team: String,
     pub home_conference: Option<String>,
-    pub home_points: Option<u32>,
+    pub home_classification: Option<Classification>,
+    pub home_points: Option<i32>,
+    pub home_line_scores: Option<Vec<f64>>,
+    pub home_postgame_win_probability: Option<f64>,
+    pub home_pregame_elo: Option<i32>,
+    pub home_postgame_elo: Option<i32>,
+    pub away_id: i32,
     pub away_team: String,
     pub away_conference: Option<String>,
-    pub away_points: Option<u32>,
-    pub completed: bool,
+    pub away_classification: Option<Classification>,
+    pub away_points: Option<i32>,
+    pub away_line_scores: Option<Vec<f64>>,
+    pub away_postgame_win_probability: Option<f64>,
+    pub away_pregame_elo: Option<i32>,
+    pub away_postgame_elo: Option<i32>,
+    pub excitement_index: Option<f64>,
+    pub highlights: Option<String>,
+    pub notes: Option<String>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "camelCase")]
+pub enum SeasonType {
+    Regular,
+    Postseason,
+    Both,
+    Allstar,
+    SpringRegular,
+    SpringPostseason,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "camelCase")]
+pub enum Classification {
+    Fbs,
+    Fcs,
+    Ii,
+    Iii,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
@@ -50,13 +93,9 @@ impl GameResultsApiClient {
         &self,
         year: u32,
         week: u8,
-        season_type: &str,
-        conference: &str,
     ) -> Result<Vec<GameResult>, reqwest::Error> {
-        let url = format!(
-            "{}/games?year={}&week={}&seasonType={}&conference={}",
-            BASE_URL, year, week, season_type, conference
-        );
+        let week = week - FIRST_WEEK;
+        let url = format!("{}/games?year={}&week={}", BASE_URL, year, week);
 
         let response = self
             .client
@@ -84,5 +123,30 @@ impl GameResultsApiClient {
 
         let results: Vec<CbbGameResult> = response.json().await?;
         Ok(results)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::game_results_api::GameResultsApiClient;
+    use anyhow::Context;
+    use chrono::{Datelike, Local};
+
+    #[tokio::test]
+    async fn test_fetch_games() {
+        dotenv::dotenv().ok();
+        let api_key = std::env::var("COLLEGE_FOOTBALL_DATA_API_KEY")
+            .expect("COLLEGE_FOOTBALL_DATA_API_KEY not set");
+        let client = GameResultsApiClient::new(api_key);
+        let now = Local::now();
+        let year = now.year() as u32;
+        let week = now.iso_week().week() as u8;
+        println!("Now: {}, year: {}, week: {}", now, year, week);
+        let games = client
+            .fetch_cfb_game_results(year, week)
+            .await
+            .context("Failed to fetch CFB game results")
+            .unwrap();
+        assert!(!games.is_empty());
     }
 }

@@ -26,14 +26,11 @@ fn extract_school_name(team_name: &str) -> String {
     if team_name.contains("Connecticut") {
         return "uconn".to_string();
     }
-    if team_name.contains("Eastern Mich") {
-        return "eastern_michigan".to_string();
-    }
-    if team_name.contains("Western Mich") {
-        return "western_michigan".to_string();
+    if team_name == "Kent" {
+        return "kent_st".to_string();
     }
 
-    let normalized = normalize_team_name(team_name);
+    let normalized = normalize_team_name(&team_name);
 
     // Split by underscore
     let parts: Vec<&str> = normalized.split('_').collect();
@@ -63,7 +60,8 @@ fn extract_school_name(team_name: &str) -> String {
                 || parts[1] == "michigan"
                 || parts[1] == "illinois"
                 || parts[1] == "tech"
-                || parts[1] == "carolina")
+                || parts[1] == "carolina"
+                || parts[1] == "miss")
         {
             // Handle two-word schools: Wake Forest, North Texas, Air Force, New Mexico,
             // Western Kentucky, West Virginia, Western Michigan, etc.

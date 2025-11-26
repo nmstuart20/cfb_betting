@@ -102,7 +102,7 @@ pub async fn fetch_all_betting_data(use_cache: bool) -> Result<BettingData> {
         let year = now.year() as u32;
         let week = now.iso_week().week() as u8;
         let game_results = game_results_client
-            .fetch_cfb_game_results(year, week, "regular", "")
+            .fetch_cfb_game_results(year, week)
             .await
             .context("Failed to fetch CFB game results")?;
         save_to_cache(&game_results, cfb_results_cache_file)?;

@@ -150,9 +150,12 @@ mod tests {
 
     #[test]
     fn test_normalize_team_name() {
+        // TODO: Need a different normalize function for the scraper and odds api
         assert_eq!(normalize_team_name("Ohio State"), "ohio_st");
         assert_eq!(normalize_team_name("Texas A&M"), "texas_aandm");
         assert_eq!(normalize_team_name("Florida Intl"), "florida_intl");
+        assert_eq!(normalize_team_name("Central Michigan"), "central_michigan");
+        assert_eq!(normalize_team_name("Texas Tech"), "texas_tech");
     }
 
     #[tokio::test]
