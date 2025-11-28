@@ -1,6 +1,6 @@
 # College Sports Betting EV & Arbitrage Calculator
 
-A Rust-based tool for calculating expected value (EV) on college football betting opportunities and finding arbitrage opportunities across college football and basketball games.
+A Rust-based tool to help with analysis in regards to college football and basketball. Currently provides only EV and Arbitrage betting help.
 
 ## Features
 
@@ -10,15 +10,12 @@ A Rust-based tool for calculating expected value (EV) on college football bettin
   - **College Football**: Moneyline and spread arbitrage
   - **College Basketball**: Moneyline and spread arbitrage
 - **Multiple Sportsbooks**: Compares odds across major US sportsbooks via The Odds API
-- **Predictive Models**: Uses consensus predictions from Prediction Tracker for CFB EV analysis
-- **Odds Caching**: Cache odds data locally to avoid unnecessary API calls
-- **CSV Export**: Export recommendations to CSV files for further analysis
 
 ## How It Works
 
 The calculator:
 1. Fetches current betting odds from The Odds API for college football and basketball
-2. Scrapes predictive model data from Prediction Tracker (for CFB EV analysis)
+2. Scrapes various predictive model data from Prediction Tracker (for CFB EV analysis)
 3. Calculates expected value by comparing model probabilities against implied odds (CFB only)
 4. Identifies arbitrage opportunities across all sportsbooks (CFB and CBB)
 5. Ranks bets by EV and edge percentage
@@ -48,6 +45,7 @@ The calculator:
 
 - Rust (install from [rustup.rs](https://rustup.rs))
 - The Odds API key (get one free at [the-odds-api.com](https://the-odds-api.com))
+- The College Football Data API key [https://api.collegefootballdata.com/](https://api.collegefootballdata.com/)
 
 ### Setup
 
@@ -91,14 +89,19 @@ The web interface provides:
 
 Run the command-line version with live data from APIs:
 ```bash
-cargo run --release --bin cli
+cargo run --release --bin cli -- analyze
+```
+
+To Check API usage:
+```bash
+cargo run --release --bin cli -- check-usage
 ```
 
 ### Using Cached Data (CLI only)
 
 To avoid consuming API credits, use cached data:
 ```bash
-USE_CACHE=1 cargo run --release --bin cli
+USE_CACHE=1 cargo run --release --bin cli -- analyze
 ```
 
 **Note**: The web interface automatically uses cached data by default.
@@ -126,7 +129,7 @@ This creates:
 
 Use cache and export to CSV:
 ```bash
-USE_CACHE=1 SAVE_CSV=1 cargo run --release --bin cli
+USE_CACHE=1 SAVE_CSV=1 cargo run --release --bin cli -- analyze
 ```
 
 ## Output Format
@@ -135,7 +138,7 @@ USE_CACHE=1 SAVE_CSV=1 cargo run --release --bin cli
 
 **EV Bets:**
 ```
-=== MONEYLINE BETS ===
+MONEYLINE BETS
 
 Top 30 Moneyline EV Bets:
 
@@ -149,7 +152,7 @@ Top 30 Moneyline EV Bets:
 
 **Arbitrage Opportunities:**
 ```
-=== ARBITRAGE OPPORTUNITIES ===
+ARBITRAGE OPPORTUNITIES
 
 MONEYLINE ARBITRAGE
 
@@ -158,26 +161,6 @@ MONEYLINE ARBITRAGE
 
 - **Stake %**: Percentage of total bankroll to wager on each side
 - **Profit %**: Guaranteed return regardless of outcome
-
-### CSV Output
-
-CSV files contain the same data in a spreadsheet-friendly format with headers for easy sorting and filtering.
-
-## Project Structure
-
-```
-src/
-├── main.rs                           # Entry point and CSV export
-├── api/
-│   └── odds_api.rs                   # The Odds API client
-├── models/
-│   └── mod.rs                        # Data structures
-├── scrapers/
-│   └── prediction_tracker.rs        # Prediction Tracker scraper
-└── utils/
-    ├── ev_calculator.rs              # EV and probability calculations
-    └── ev_analysis.rs                # Bet analysis and matching
-```
 
 ## API Usage
 
@@ -190,7 +173,7 @@ Each run typically uses 1-2 API requests depending on the number of games.
 
 ## Limitations
 
-- Only analyzes FBS college football games
+- Only analyzes FBS college football games and college basketball games
 - Prediction Tracker may not cover all matchups (especially FCS opponents)
 - Spread calculations assume a normal distribution with 12-point standard deviation
 - Does not account for:
