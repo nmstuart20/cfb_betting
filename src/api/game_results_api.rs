@@ -145,7 +145,10 @@ impl GameResultsApiClient {
             .await?;
 
         let result: InfoResult = response.json().await?;
-        println!("CFB Data API requests remaining: {}", result.remaining_calls);
+        println!(
+            "CFB Data API requests remaining: {}",
+            result.remaining_calls
+        );
 
         Ok(())
     }

@@ -45,8 +45,8 @@ async fn main() -> Result<()> {
     match cli.command {
         Some(Commands::CheckUsage { odds, cfb_data }) => {
             // If no flags are provided, check both by default
-            let check_odds = odds || (!odds && !cfb_data);
-            let check_cfb = cfb_data || (!odds && !cfb_data);
+            let check_odds = odds || !cfb_data;
+            let check_cfb = cfb_data || !odds;
 
             if check_odds {
                 let odds_api_key =
