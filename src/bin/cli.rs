@@ -5,18 +5,72 @@ use cfb_betting_ev::data::{
     save_spread_arbitrage_to_csv, save_spread_bets_to_csv, save_to_cache,
 };
 use cfb_betting_ev::ev_analysis::{find_top_ev_bets, find_top_spread_ev_bets};
-use cfb_betting_ev::odds_api::OddsApiClient;
-use cfb_betting_ev::prediction_tracker::PredictionTrackerScraper;
-use cfb_betting_ev::Sport;
+use cfb_betting_ev::{GameResultsApiClient, OddsApiClient, PredictionTrackerScraper, Sport};
+use clap::{Parser, Subcommand};
 use std::path::Path;
+
+#[derive(Parser)]
+#[command(name = "cfb-betting")]
+#[command(about = "College Football Betting EV Calculator", long_about = None)]
+struct Cli {
+    #[command(subcommand)]
+    command: Option<Commands>,
+}
+
+#[derive(Subcommand)]
+enum Commands {
+    /// Check API usage for Odds API and/or College Football Data API
+    CheckUsage {
+        /// Check Odds API usage
+        #[arg(long)]
+        odds: bool,
+
+        /// Check College Football Data API usage
+        #[arg(long)]
+        cfb_data: bool,
+    },
+    /// Run the full betting analysis (default)
+    Analyze,
+}
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    let cli = Cli::parse();
     // Load environment variables from .env file
     dotenv::dotenv().ok();
 
     // Initialize logging
     tracing_subscriber::fmt::init();
+
+    match cli.command {
+        Some(Commands::CheckUsage { odds, cfb_data }) => {
+            // If no flags are provided, check both by default
+            let check_odds = odds || (!odds && !cfb_data);
+            let check_cfb = cfb_data || (!odds && !cfb_data);
+
+            if check_odds {
+                let odds_api_key =
+                    std::env::var("ODDS_API_KEY").expect("ODDS_API_KEY not set in .env file");
+                let odds_client = OddsApiClient::new(odds_api_key);
+                println!("Checking Odds API usage...\n");
+                odds_client.check_usage().await?;
+                println!();
+            }
+
+            if check_cfb {
+                let cfb_api_key = std::env::var("COLLEGE_FOOTBALL_DATA_API_KEY")
+                    .expect("COLLEGE_FOOTBALL_DATA_API_KEY not set in .env file");
+                let cfb_client = GameResultsApiClient::new(cfb_api_key);
+                println!("Checking College Football Data API usage...\n");
+                cfb_client.check_usage().await?;
+            }
+
+            return Ok(());
+        }
+        Some(Commands::Analyze) | None => {
+            // Run the full analysis (default behavior)
+        }
+    }
 
     println!("College Football Betting EV Calculator\n");
     println!("Fetching betting odds and model data...\n");

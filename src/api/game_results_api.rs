@@ -76,6 +76,13 @@ pub struct CbbGameResult {
     pub status: String,
 }
 
+#[derive(Debug, Deserialize, Serialize, Clone)]
+#[serde(rename_all = "camelCase")]
+pub struct InfoResult {
+    pub patron_level: u32,
+    pub remaining_calls: u32,
+}
+
 pub struct GameResultsApiClient {
     client: Client,
     api_key: String,
@@ -123,6 +130,24 @@ impl GameResultsApiClient {
 
         let results: Vec<CbbGameResult> = response.json().await?;
         Ok(results)
+    }
+
+    /// Check API usage/rate limits for College Football Data API
+    pub async fn check_usage(&self) -> Result<(), reqwest::Error> {
+        // Make a lightweight request to check headers
+        let url = format!("{}/info", BASE_URL);
+
+        let response = self
+            .client
+            .get(&url)
+            .header("Authorization", format!("Bearer {}", self.api_key))
+            .send()
+            .await?;
+
+        let result: InfoResult = response.json().await?;
+        println!("CFB Data API requests remaining: {}", result.remaining_calls);
+
+        Ok(())
     }
 }
 

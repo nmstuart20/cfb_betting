@@ -9,10 +9,10 @@ pub use scrapers::*;
 pub use utils::*;
 
 use anyhow::{Context, Result};
-use api::game_results_api::{CbbGameResult, GameResult, GameResultsApiClient};
-use api::odds_api::OddsApiClient;
+pub use api::game_results_api::{CbbGameResult, GameResult, GameResultsApiClient};
+pub use api::odds_api::OddsApiClient;
 use chrono::prelude::*;
-use scrapers::prediction_tracker::PredictionTrackerScraper;
+pub use scrapers::prediction_tracker::PredictionTrackerScraper;
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use utils::arbitrage::{
