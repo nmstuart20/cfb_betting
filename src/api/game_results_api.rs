@@ -161,6 +161,7 @@ mod tests {
     use chrono::{Datelike, Local};
 
     #[tokio::test]
+    #[ignore]
     async fn test_fetch_games() {
         dotenv::dotenv().ok();
         let api_key = std::env::var("COLLEGE_FOOTBALL_DATA_API_KEY")
