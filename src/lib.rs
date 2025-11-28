@@ -20,7 +20,9 @@ use utils::arbitrage::{
 };
 use utils::data::{load_from_cache, save_to_cache};
 use utils::ev_analysis::{
-    find_top_ev_bets, find_top_spread_ev_bets, EvBetRecommendation, SpreadEvBetRecommendation,
+    compare_ev_bets_to_results, compare_spread_ev_bets_to_results, find_top_ev_bets,
+    find_top_spread_ev_bets, BetResult, EvBetRecommendation, SpreadBetResult,
+    SpreadEvBetRecommendation,
 };
 
 /// All the data we want to display on the web page
@@ -34,6 +36,8 @@ pub struct BettingData {
     pub cbb_spread_arbs: Vec<SpreadArbitrage>,
     pub cfb_game_results: Vec<GameResult>,
     pub cbb_game_results: Vec<CbbGameResult>,
+    pub cfb_moneyline_bet_results: Vec<BetResult>,
+    pub cfb_spread_bet_results: Vec<SpreadBetResult>,
 }
 
 /// Fetch all betting data from APIs or cache
@@ -138,6 +142,12 @@ pub async fn fetch_all_betting_data(use_cache: bool) -> Result<BettingData> {
     let cbb_moneyline_arbs = find_moneyline_arbitrage(&cbb_games_with_odds)?;
     let cbb_spread_arbs = find_spread_arbitrage(&cbb_games_with_odds)?;
 
+    // Compare bets to actual game results
+    let cfb_moneyline_bet_results =
+        compare_ev_bets_to_results(&cfb_moneyline_bets, &cfb_game_results);
+    let cfb_spread_bet_results =
+        compare_spread_ev_bets_to_results(&cfb_spread_bets, &cfb_game_results);
+
     Ok(BettingData {
         cfb_moneyline_bets,
         cfb_spread_bets,
@@ -147,5 +157,7 @@ pub async fn fetch_all_betting_data(use_cache: bool) -> Result<BettingData> {
         cbb_spread_arbs,
         cfb_game_results,
         cbb_game_results,
+        cfb_moneyline_bet_results,
+        cfb_spread_bet_results,
     })
 }

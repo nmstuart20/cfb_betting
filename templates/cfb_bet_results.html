@@ -1,0 +1,146 @@
+{% extends "base.html" %} {% block title %}CFB Bet Results - Betting Calculator{% endblock %} {% block content %}
+<h1>College Football - Bet Performance Tracker</h1>
+
+<div class="subsection">
+    <h3>Moneyline Bet Results</h3>
+    {% if cfb_moneyline_bet_results.is_empty() %}
+    <p class="no-data">No moneyline bet results available.</p>
+    {% else %}
+    <div class="bets-list">
+        {% for result in cfb_moneyline_bet_results %}
+        {% match result.bet_won %}
+        {% when Some with (won) %}
+        <div class="bet-card {% if won %}bet-won{% else %}bet-lost{% endif %}">
+            <div class="bet-header">
+                <span class="bet-number">{{ loop.index }}.</span>
+                <span class="game-matchup">{{ result.bet.home_team }} vs {{ result.bet.away_team }}</span>
+                <span class="result-badge {% if won %}won{% else %}lost{% endif %}">
+                    {% if won %}WON{% else %}LOST{% endif %}
+                </span>
+            </div>
+            <div class="bet-details">
+                <div class="detail-row">
+                    <span class="label">Team Bet:</span>
+                    <span class="value">{{ result.bet.team }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Sportsbook:</span>
+                    <span class="value">{{ result.bet.bookmaker }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Odds:</span>
+                    <span class="value">{{ result.bet.odds|format_odds }}</span>
+                </div>
+                {% match result.game_result %}
+                {% when Some with (game) %}
+                <div class="detail-row">
+                    <span class="label">Final Score:</span>
+                    <span class="value">{{ game.away_points.unwrap_or(0) }} - {{ game.home_points.unwrap_or(0) }}</span>
+                </div>
+                {% when None %}{% endmatch %}
+                <div class="detail-row">
+                    <span class="label">Model Probability:</span>
+                    <span class="value">{{ result.bet.model_prob|format_percent }}</span>
+                </div>
+                <div class="detail-row highlight">
+                    <span class="label">Expected Value:</span>
+                    <span class="value positive">{{ result.bet.expected_value|format_percent }}</span>
+                </div>
+            </div>
+        </div>
+        {% when None %}{% endmatch %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="subsection">
+    <h3>Spread Bet Results</h3>
+    {% if cfb_spread_bet_results.is_empty() %}
+    <p class="no-data">No spread bet results available.</p>
+    {% else %}
+    <div class="bets-list">
+        {% for result in cfb_spread_bet_results %}
+        {% match result.bet_won %}
+        {% when Some with (won) %}
+        <div class="bet-card {% if won %}bet-won{% else %}bet-lost{% endif %}">
+            <div class="bet-header">
+                <span class="bet-number">{{ loop.index }}.</span>
+                <span class="game-matchup">{{ result.bet.home_team }} vs {{ result.bet.away_team }}</span>
+                <span class="result-badge {% if won %}won{% else %}lost{% endif %}">
+                    {% if won %}WON{% else %}LOST{% endif %}
+                </span>
+            </div>
+            <div class="bet-details">
+                <div class="detail-row">
+                    <span class="label">Team Bet:</span>
+                    <span class="value">{{ result.bet.team }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Spread Line:</span>
+                    <span class="value">{{ result.bet.spread_line|format_spread }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Sportsbook:</span>
+                    <span class="value">{{ result.bet.bookmaker }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Odds:</span>
+                    <span class="value">{{ result.bet.odds|format_odds }}</span>
+                </div>
+                {% match result.game_result %}
+                {% when Some with (game) %}
+                <div class="detail-row">
+                    <span class="label">Final Score:</span>
+                    <span class="value">{{ game.away_points.unwrap_or(0) }} - {{ game.home_points.unwrap_or(0) }}</span>
+                </div>
+                {% when None %}{% endmatch %}
+                <div class="detail-row">
+                    <span class="label">Model Spread:</span>
+                    <span class="value">{{ result.bet.model_spread|format_spread }}</span>
+                </div>
+                <div class="detail-row highlight">
+                    <span class="label">Expected Value:</span>
+                    <span class="value positive">{{ result.bet.expected_value|format_percent }}</span>
+                </div>
+            </div>
+        </div>
+        {% when None %}{% endmatch %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<style>
+    .result-badge {
+        font-size: 12px;
+        font-weight: bold;
+        padding: 4px 12px;
+        border-radius: 4px;
+        margin-left: auto;
+    }
+
+    .result-badge.won {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .result-badge.lost {
+        background: #f8d7da;
+        color: #721c24;
+    }
+
+    .bet-card.bet-won {
+        border-left: 3px solid #28a745;
+    }
+
+    .bet-card.bet-lost {
+        border-left: 3px solid #dc3545;
+    }
+
+    .value.negative {
+        color: #dc3545;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}

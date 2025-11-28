@@ -105,6 +105,14 @@ struct CbbResultsTemplate {
     cbb_game_results: Vec<cfb_betting_ev::api::game_results_api::CbbGameResult>,
 }
 
+#[derive(Template)]
+#[template(path = "cfb_bet_results.html")]
+struct CfbBetResultsTemplate {
+    active_page: String,
+    cfb_moneyline_bet_results: Vec<cfb_betting_ev::utils::ev_analysis::BetResult>,
+    cfb_spread_bet_results: Vec<cfb_betting_ev::utils::ev_analysis::SpreadBetResult>,
+}
+
 struct HtmlTemplate<T>(T);
 
 impl<T> IntoResponse for HtmlTemplate<T>
@@ -274,6 +282,25 @@ async fn cbb_results(data: axum::extract::State<SharedData>) -> impl IntoRespons
     HtmlTemplate(template).into_response()
 }
 
+async fn cfb_bet_results(data: axum::extract::State<SharedData>) -> impl IntoResponse {
+    let betting_data = data.read().await;
+
+    let data = match betting_data.as_ref() {
+        Some(d) => d.clone(),
+        None => {
+            return (StatusCode::INTERNAL_SERVER_ERROR, "Data not loaded yet").into_response();
+        }
+    };
+
+    let template = CfbBetResultsTemplate {
+        active_page: "cfb_bet_results".to_string(),
+        cfb_moneyline_bet_results: data.cfb_moneyline_bet_results,
+        cfb_spread_bet_results: data.cfb_spread_bet_results,
+    };
+
+    HtmlTemplate(template).into_response()
+}
+
 #[tokio::main]
 async fn main() {
     // Load environment variables
@@ -326,6 +353,7 @@ async fn main() {
         .route("/cfb/moneyline", get(cfb_moneyline))
         .route("/cfb/spread", get(cfb_spread))
         .route("/cfb/results", get(cfb_results))
+        .route("/cfb/bet-results", get(cfb_bet_results))
         .route("/cbb", get(cbb))
         .route("/cbb/results", get(cbb_results))
         .with_state(data);
