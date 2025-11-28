@@ -1,3 +1,4 @@
+use crate::api::game_results_api::GameResult;
 use crate::models::{BettingOdds, Game};
 use crate::scrapers::prediction_tracker::{normalize_team_name, GamePrediction};
 use crate::utils::ev_calculator::{
@@ -333,4 +334,209 @@ pub async fn find_top_spread_ev_bets(
         Some(n) => all_bets.into_iter().take(n).collect(),
         None => all_bets,
     })
+}
+
+/// Result of comparing a moneyline bet against actual game outcome
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct BetResult {
+    pub bet: EvBetRecommendation,
+    pub game_result: Option<GameResult>,
+    pub bet_won: Option<bool>,
+    pub actual_payout: Option<f64>,
+}
+
+/// Result of comparing a spread bet against actual game outcome
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SpreadBetResult {
+    pub bet: SpreadEvBetRecommendation,
+    pub game_result: Option<GameResult>,
+    pub bet_won: Option<bool>,
+    pub actual_payout: Option<f64>,
+}
+
+impl BetResult {
+    pub fn format(&self) -> String {
+        match (&self.game_result, &self.bet_won, &self.actual_payout) {
+            (Some(game), Some(won), Some(payout)) => {
+                let home_score = game.home_points.unwrap_or(0);
+                let away_score = game.away_points.unwrap_or(0);
+                let result_str = if *won { "WON" } else { "LOST" };
+                let payout_str = if *won { 
+                    format!("+${:.2}", payout) 
+                } else { 
+                    "-$1.00".to_string() 
+                };
+                
+                format!(
+                    "{} | {} {} | Score: {}-{}",
+                    self.bet.format(),
+                    result_str,
+                    payout_str,
+                    away_score,
+                    home_score
+                )
+            }
+            _ => format!("{} | Game not found or incomplete", self.bet.format()),
+        }
+    }
+}
+
+impl SpreadBetResult {
+    pub fn format(&self) -> String {
+        match (&self.game_result, &self.bet_won, &self.actual_payout) {
+            (Some(game), Some(won), Some(payout)) => {
+                let home_score = game.home_points.unwrap_or(0);
+                let away_score = game.away_points.unwrap_or(0);
+                let margin = home_score - away_score;
+                let result_str = if *won { "WON" } else { "LOST" };
+                let payout_str = if *won { 
+                    format!("+${:.2}", payout) 
+                } else { 
+                    "-$1.00".to_string() 
+                };
+                
+                format!(
+                    "{} | {} {} | Score: {}-{} (margin: {:+})",
+                    self.bet.format(),
+                    result_str,
+                    payout_str,
+                    away_score,
+                    home_score,
+                    margin
+                )
+            }
+            _ => format!("{} | Game not found or incomplete", self.bet.format()),
+        }
+    }
+}
+
+/// Compare moneyline EV bet recommendations against actual game results
+pub fn compare_ev_bets_to_results(
+    bets: &[EvBetRecommendation],
+    game_results: &[GameResult],
+) -> Vec<BetResult> {
+    // Create a lookup map for game results by team names
+    let mut results_map: HashMap<String, &GameResult> = HashMap::new();
+    for result in game_results {
+        let home_key = extract_school_name(&result.home_team);
+        let away_key = extract_school_name(&result.away_team);
+        
+        let game_key = format!("{}_{}", home_key, away_key);
+        results_map.insert(game_key.clone(), result);
+        
+        let reverse_key = format!("{}_{}", away_key, home_key);
+        results_map.insert(reverse_key, result);
+    }
+    
+    bets.iter()
+        .map(|bet| {
+            let home_key = extract_school_name(&bet.home_team);
+            let away_key = extract_school_name(&bet.away_team);
+            let game_key = format!("{}_{}", home_key, away_key);
+            
+            let game_result = results_map.get(&game_key).copied();
+            
+            let (bet_won, actual_payout) = if let Some(result) = game_result {
+                if let (Some(home_points), Some(away_points)) = (result.home_points, result.away_points) {
+                    let bet_team_key = extract_school_name(&bet.team);
+                    let home_team_key = extract_school_name(&result.home_team);
+                    
+                    let bet_won = if bet_team_key == home_team_key {
+                        home_points > away_points
+                    } else {
+                        away_points > home_points
+                    };
+                    
+                    let payout = if bet_won {
+                        if bet.odds > 0 {
+                            (bet.odds as f64) / 100.0
+                        } else {
+                            100.0 / (-bet.odds as f64)
+                        }
+                    } else {
+                        0.0
+                    };
+                    
+                    (Some(bet_won), Some(payout))
+                } else {
+                    (None, None)
+                }
+            } else {
+                (None, None)
+            };
+            
+            BetResult {
+                bet: bet.clone(),
+                game_result: game_result.cloned(),
+                bet_won,
+                actual_payout,
+            }
+        })
+        .collect()
+}
+
+/// Compare spread EV bet recommendations against actual game results
+pub fn compare_spread_ev_bets_to_results(
+    bets: &[SpreadEvBetRecommendation],
+    game_results: &[GameResult],
+) -> Vec<SpreadBetResult> {
+    // Create a lookup map for game results by team names
+    let mut results_map: HashMap<String, &GameResult> = HashMap::new();
+    for result in game_results {
+        let home_key = extract_school_name(&result.home_team);
+        let away_key = extract_school_name(&result.away_team);
+        
+        let game_key = format!("{}_{}", home_key, away_key);
+        results_map.insert(game_key.clone(), result);
+        
+        let reverse_key = format!("{}_{}", away_key, home_key);
+        results_map.insert(reverse_key, result);
+    }
+    
+    bets.iter()
+        .map(|bet| {
+            let home_key = extract_school_name(&bet.home_team);
+            let away_key = extract_school_name(&bet.away_team);
+            let game_key = format!("{}_{}", home_key, away_key);
+            
+            let game_result = results_map.get(&game_key).copied();
+            
+            let (bet_won, actual_payout) = if let Some(result) = game_result {
+                if let (Some(home_points), Some(away_points)) = (result.home_points, result.away_points) {
+                    let bet_team_key = extract_school_name(&bet.team);
+                    let home_team_key = extract_school_name(&result.home_team);
+                    let actual_margin = home_points - away_points;
+                    
+                    let bet_won = if bet_team_key == home_team_key {
+                        (actual_margin as f64) > bet.spread_line
+                    } else {
+                        (actual_margin as f64) < bet.spread_line
+                    };
+                    
+                    let payout = if bet_won {
+                        if bet.odds > 0 {
+                            (bet.odds as f64) / 100.0
+                        } else {
+                            100.0 / (-bet.odds as f64)
+                        }
+                    } else {
+                        0.0
+                    };
+                    
+                    (Some(bet_won), Some(payout))
+                } else {
+                    (None, None)
+                }
+            } else {
+                (None, None)
+            };
+            
+            SpreadBetResult {
+                bet: bet.clone(),
+                game_result: game_result.cloned(),
+                bet_won,
+                actual_payout,
+            }
+        })
+        .collect()
 }
