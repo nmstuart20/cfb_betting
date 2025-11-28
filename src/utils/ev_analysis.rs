@@ -31,7 +31,7 @@ fn extract_school_name(team_name: &str) -> String {
         return "kent_st".to_string();
     }
 
-    let normalized = normalize_team_name(&team_name);
+    let normalized = normalize_team_name(team_name);
 
     // Split by underscore
     let parts: Vec<&str> = normalized.split('_').collect();

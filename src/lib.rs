@@ -60,7 +60,7 @@ pub async fn fetch_all_betting_data(use_cache: bool) -> Result<BettingData> {
     let predictions_cache_file = "cache/predictions_cache.json";
     let cbb_cache_file = "cache/cbb_odds_cache.json";
     let cfb_results_cache_file = "cache/cfb_results_cache.json";
-    let cbb_results_cache_file = "cache/cbb_results_cache.json";
+    //let cbb_results_cache_file = "cache/cbb_results_cache.json";
 
     // Fetch predictions
     let predictions = if use_cache && Path::new(predictions_cache_file).exists() {
