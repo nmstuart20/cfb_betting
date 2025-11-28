@@ -51,13 +51,13 @@ fn extract_school_name(team_name: &str) -> String {
         } else if parts.len() >= 2 && parts[1] == "dame" {
             // Handle "Notre Dame"
             format!("{}_{}", parts[0], parts[1])
-        } else if parts.len() >=2 && parts[1] == "ill" {
+        } else if parts.len() >= 2 && parts[1] == "ill" {
             let parts_1 = "illinois";
             format!("{}_{}", parts[0], parts_1)
-        } else if parts.len() >=2 && parts[1] == "mich" {
+        } else if parts.len() >= 2 && parts[1] == "mich" {
             let parts_1 = "michigan";
             format!("{}_{}", parts[0], parts_1)
-        } else if parts.len() >=2 && parts[1] == "va" {
+        } else if parts.len() >= 2 && parts[1] == "va" {
             let parts_1 = "virginia";
             format!("{}_{}", parts[0], parts_1)
         } else if parts.len() >= 2 && parts[1] == "aandm" {
@@ -88,7 +88,7 @@ fn extract_school_name(team_name: &str) -> String {
         }
     } else {
         if normalized == "mississippi" {
-            return format!("ole_miss");
+            return "ole_miss".to_string();
         }
         normalized
     }

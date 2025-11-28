@@ -191,7 +191,6 @@ mod tests {
     use super::*;
 
     #[tokio::test]
-    #[ignore]
     async fn test_fetch_games() {
         dotenv::dotenv().ok();
         let api_key = std::env::var("ODDS_API_KEY").expect("ODDS_API_KEY not set");

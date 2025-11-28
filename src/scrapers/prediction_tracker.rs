@@ -93,7 +93,7 @@ impl PredictionTrackerScraper {
         if team_parts.len() < 2 {
             return None;
         }
-        
+
         let home_team = team_parts[0].trim().replace(".", "").to_string();
         let away_team = team_parts[1].trim().replace(".", "").to_string();
         // Extract numeric values
