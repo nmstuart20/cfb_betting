@@ -30,6 +30,9 @@ fn extract_school_name(team_name: &str) -> String {
     if team_name == "Kent" {
         return "kent_st".to_string();
     }
+    if team_name == "Southern Miss" {
+        return "southern_mississippi".to_string();
+    }
 
     let normalized = normalize_team_name(team_name);
 
@@ -48,6 +51,15 @@ fn extract_school_name(team_name: &str) -> String {
         } else if parts.len() >= 2 && parts[1] == "dame" {
             // Handle "Notre Dame"
             format!("{}_{}", parts[0], parts[1])
+        } else if parts.len() >=2 && parts[1] == "ill" {
+            let parts_1 = "illinois";
+            format!("{}_{}", parts[0], parts_1)
+        } else if parts.len() >=2 && parts[1] == "mich" {
+            let parts_1 = "michigan";
+            format!("{}_{}", parts[0], parts_1)
+        } else if parts.len() >=2 && parts[1] == "va" {
+            let parts_1 = "virginia";
+            format!("{}_{}", parts[0], parts_1)
         } else if parts.len() >= 2 && parts[1] == "aandm" {
             // Handle "Texas A&M" -> "texas_aandm"
             format!("{}_{}", parts[0], parts[1])
@@ -62,6 +74,9 @@ fn extract_school_name(team_name: &str) -> String {
                 || parts[1] == "illinois"
                 || parts[1] == "tech"
                 || parts[1] == "carolina"
+                || parts[1] == "mississippi"
+                || parts[1] == "mich"
+                || parts[1] == "monroe"
                 || parts[1] == "miss")
         {
             // Handle two-word schools: Wake Forest, North Texas, Air Force, New Mexico,
@@ -72,6 +87,9 @@ fn extract_school_name(team_name: &str) -> String {
             parts[0].to_string()
         }
     } else {
+        if normalized == "mississippi" {
+            return format!("ole_miss");
+        }
         normalized
     }
 }

@@ -1,0 +1,530 @@
+[
+  {
+    "home_team": "Appalachian St",
+    "away_team": "Arkansas St",
+    "spread": 2.5,
+    "home_win_prob": 0.5232,
+    "away_win_prob": 0.4768,
+    "_prediction_avg": 0.94
+  },
+  {
+    "home_team": "Arizona St",
+    "away_team": "Arizona",
+    "spread": -1.5,
+    "home_win_prob": 0.5421,
+    "away_win_prob": 0.4579,
+    "_prediction_avg": 1.73
+  },
+  {
+    "home_team": "Arkansas",
+    "away_team": "Missouri",
+    "spread": -3.0,
+    "home_win_prob": 0.3692,
+    "away_win_prob": 0.6308,
+    "_prediction_avg": -5.44
+  },
+  {
+    "home_team": "Auburn",
+    "away_team": "Alabama",
+    "spread": -5.5,
+    "home_win_prob": 0.3163,
+    "away_win_prob": 0.6837,
+    "_prediction_avg": -7.73
+  },
+  {
+    "home_team": "BYU",
+    "away_team": "Central Florida",
+    "spread": 17.5,
+    "home_win_prob": 0.8995,
+    "away_win_prob": 0.10050000000000003,
+    "_prediction_avg": 21.17
+  },
+  {
+    "home_team": "Baylor",
+    "away_team": "Houston",
+    "spread": 2.5,
+    "home_win_prob": 0.5395,
+    "away_win_prob": 0.4605,
+    "_prediction_avg": 1.62
+  },
+  {
+    "home_team": "Buffalo",
+    "away_team": "Ohio",
+    "spread": -7.0,
+    "home_win_prob": 0.3172,
+    "away_win_prob": 0.6828000000000001,
+    "_prediction_avg": -7.67
+  },
+  {
+    "home_team": "California",
+    "away_team": "SMU",
+    "spread": -13.5,
+    "home_win_prob": 0.1933,
+    "away_win_prob": 0.8067,
+    "_prediction_avg": -14.4
+  },
+  {
+    "home_team": "Central Mich",
+    "away_team": "Toledo",
+    "spread": -10.0,
+    "home_win_prob": 0.2928,
+    "away_win_prob": 0.7072,
+    "_prediction_avg": -8.97
+  },
+  {
+    "home_team": "Coastal Carolina",
+    "away_team": "James Madison",
+    "spread": -22.0,
+    "home_win_prob": 0.1214,
+    "away_win_prob": 0.8786,
+    "_prediction_avg": -19.6
+  },
+  {
+    "home_team": "Colorado St",
+    "away_team": "Air Force",
+    "spread": -2.5,
+    "home_win_prob": 0.4655,
+    "away_win_prob": 0.5345,
+    "_prediction_avg": -1.41
+  },
+  {
+    "home_team": "Delaware",
+    "away_team": "UTEP",
+    "spread": 4.0,
+    "home_win_prob": 0.6104,
+    "away_win_prob": 0.38959999999999995,
+    "_prediction_avg": 4.6
+  },
+  {
+    "home_team": "Duke",
+    "away_team": "Wake Forest",
+    "spread": 1.0,
+    "home_win_prob": 0.5573,
+    "away_win_prob": 0.4427,
+    "_prediction_avg": 2.37
+  },
+  {
+    "home_team": "Eastern Mich",
+    "away_team": "Western Mich",
+    "spread": -8.0,
+    "home_win_prob": 0.3237,
+    "away_win_prob": 0.6763,
+    "_prediction_avg": -7.38
+  },
+  {
+    "home_team": "Florida",
+    "away_team": "Florida St",
+    "spread": 1.0,
+    "home_win_prob": 0.5131,
+    "away_win_prob": 0.4869,
+    "_prediction_avg": 0.55
+  },
+  {
+    "home_team": "Florida Atlantic",
+    "away_team": "East Carolina",
+    "spread": -7.0,
+    "home_win_prob": 0.2722,
+    "away_win_prob": 0.7278,
+    "_prediction_avg": -9.89
+  },
+  {
+    "home_team": "Georgia Tech",
+    "away_team": "Georgia",
+    "spread": -14.0,
+    "home_win_prob": 0.2076,
+    "away_win_prob": 0.7924,
+    "_prediction_avg": -13.38
+  },
+  {
+    "home_team": "Hawaii",
+    "away_team": "Wyoming",
+    "spread": 7.5,
+    "home_win_prob": 0.7395,
+    "away_win_prob": 0.26049999999999995,
+    "_prediction_avg": 10.47
+  },
+  {
+    "home_team": "Illinois",
+    "away_team": "Northwestern",
+    "spread": 7.5,
+    "home_win_prob": 0.7112,
+    "away_win_prob": 0.28879999999999995,
+    "_prediction_avg": 8.97
+  },
+  {
+    "home_team": "Jacksonville St",
+    "away_team": "Western Kentucky",
+    "spread": -2.5,
+    "home_win_prob": 0.4643,
+    "away_win_prob": 0.5357000000000001,
+    "_prediction_avg": -1.45
+  },
+  {
+    "home_team": "Kansas",
+    "away_team": "Utah",
+    "spread": -10.5,
+    "home_win_prob": 0.1726,
+    "away_win_prob": 0.8274,
+    "_prediction_avg": -15.72
+  },
+  {
+    "home_team": "Kansas St",
+    "away_team": "Colorado",
+    "spread": 17.0,
+    "home_win_prob": 0.8194,
+    "away_win_prob": 0.18059999999999998,
+    "_prediction_avg": 14.92
+  },
+  {
+    "home_team": "Liberty",
+    "away_team": "Kennesaw St",
+    "spread": -2.0,
+    "home_win_prob": 0.4784,
+    "away_win_prob": 0.5216000000000001,
+    "_prediction_avg": -0.91
+  },
+  {
+    "home_team": "Louisville",
+    "away_team": "Kentucky",
+    "spread": 3.0,
+    "home_win_prob": 0.5737,
+    "away_win_prob": 0.4263,
+    "_prediction_avg": 3.08
+  },
+  {
+    "home_team": "Marshall",
+    "away_team": "Georgia Southern",
+    "spread": 10.0,
+    "home_win_prob": 0.6962,
+    "away_win_prob": 0.30379999999999996,
+    "_prediction_avg": 8.36
+  },
+  {
+    "home_team": "Massachusetts",
+    "away_team": "Bowling Green",
+    "spread": -14.0,
+    "home_win_prob": 0.2121,
+    "away_win_prob": 0.7879,
+    "_prediction_avg": -13.39
+  },
+  {
+    "home_team": "Memphis",
+    "away_team": "Navy",
+    "spread": 3.5,
+    "home_win_prob": 0.6859,
+    "away_win_prob": 0.31410000000000005,
+    "_prediction_avg": 7.92
+  },
+  {
+    "home_team": "Miami (Ohio)",
+    "away_team": "Ball St",
+    "spread": 17.5,
+    "home_win_prob": 0.8673,
+    "away_win_prob": 0.13270000000000004,
+    "_prediction_avg": 18.0
+  },
+  {
+    "home_team": "Michigan",
+    "away_team": "Ohio St",
+    "spread": -10.0,
+    "home_win_prob": 0.2471,
+    "away_win_prob": 0.7529,
+    "_prediction_avg": -11.24
+  },
+  {
+    "home_team": "Michigan St",
+    "away_team": "Maryland",
+    "spread": 4.0,
+    "home_win_prob": 0.5753,
+    "away_win_prob": 0.42469999999999997,
+    "_prediction_avg": 3.1
+  },
+  {
+    "home_team": "Minnesota",
+    "away_team": "Wisconsin",
+    "spread": -1.0,
+    "home_win_prob": 0.4993,
+    "away_win_prob": 0.5006999999999999,
+    "_prediction_avg": -0.03
+  },
+  {
+    "home_team": "Mississippi St",
+    "away_team": "Mississippi",
+    "spread": -7.0,
+    "home_win_prob": 0.2416,
+    "away_win_prob": 0.7584,
+    "_prediction_avg": -11.36
+  },
+  {
+    "home_team": "Missouri St",
+    "away_team": "Louisiana Tech",
+    "spread": 1.0,
+    "home_win_prob": 0.5232,
+    "away_win_prob": 0.4768,
+    "_prediction_avg": 0.94
+  },
+  {
+    "home_team": "NC St",
+    "away_team": "North Carolina",
+    "spread": 7.5,
+    "home_win_prob": 0.7581,
+    "away_win_prob": 0.2419,
+    "_prediction_avg": 11.57
+  },
+  {
+    "home_team": "Nebraska",
+    "away_team": "Iowa",
+    "spread": -6.0,
+    "home_win_prob": 0.3776,
+    "away_win_prob": 0.6224000000000001,
+    "_prediction_avg": -5.06
+  },
+  {
+    "home_team": "Nevada",
+    "away_team": "UNLV",
+    "spread": -7.5,
+    "home_win_prob": 0.2336,
+    "away_win_prob": 0.7664,
+    "_prediction_avg": -11.92
+  },
+  {
+    "home_team": "New Mexico",
+    "away_team": "San Diego St",
+    "spread": -1.5,
+    "home_win_prob": 0.4748,
+    "away_win_prob": 0.5252,
+    "_prediction_avg": -1.02
+  },
+  {
+    "home_team": "New Mexico St",
+    "away_team": "Middle Tenn",
+    "spread": 3.5,
+    "home_win_prob": 0.6504,
+    "away_win_prob": 0.3496,
+    "_prediction_avg": 6.22
+  },
+  {
+    "home_team": "North Texas",
+    "away_team": "Temple",
+    "spread": 19.5,
+    "home_win_prob": 0.9118,
+    "away_win_prob": 0.08819999999999995,
+    "_prediction_avg": 22.09
+  },
+  {
+    "home_team": "Northern Ill",
+    "away_team": "Kent",
+    "spread": 5.5,
+    "home_win_prob": 0.6848,
+    "away_win_prob": 0.31520000000000004,
+    "_prediction_avg": 7.89
+  },
+  {
+    "home_team": "Oklahoma",
+    "away_team": "LSU",
+    "spread": 10.5,
+    "home_win_prob": 0.7424,
+    "away_win_prob": 0.25760000000000005,
+    "_prediction_avg": 10.62
+  },
+  {
+    "home_team": "Oklahoma St",
+    "away_team": "Iowa St",
+    "spread": -13.5,
+    "home_win_prob": 0.1058,
+    "away_win_prob": 0.8942,
+    "_prediction_avg": -20.48
+  },
+  {
+    "home_team": "Old Dominion",
+    "away_team": "Georgia St",
+    "spread": 27.5,
+    "home_win_prob": 0.9459,
+    "away_win_prob": 0.05410000000000004,
+    "_prediction_avg": 26.59
+  },
+  {
+    "home_team": "Pittsburgh",
+    "away_team": "Miami (Fla)",
+    "spread": -7.0,
+    "home_win_prob": 0.3692,
+    "away_win_prob": 0.6308,
+    "_prediction_avg": -5.4
+  },
+  {
+    "home_team": "Purdue",
+    "away_team": "Indiana",
+    "spread": -28.0,
+    "home_win_prob": 0.039,
+    "away_win_prob": 0.961,
+    "_prediction_avg": -29.96
+  },
+  {
+    "home_team": "Rutgers",
+    "away_team": "Penn St",
+    "spread": -13.5,
+    "home_win_prob": 0.244,
+    "away_win_prob": 0.756,
+    "_prediction_avg": -11.52
+  },
+  {
+    "home_team": "Sam Houston St",
+    "away_team": "Florida Intl",
+    "spread": -10.5,
+    "home_win_prob": 0.3073,
+    "away_win_prob": 0.6927,
+    "_prediction_avg": -8.37
+  },
+  {
+    "home_team": "San Jose St",
+    "away_team": "Fresno St",
+    "spread": -3.5,
+    "home_win_prob": 0.3757,
+    "away_win_prob": 0.6243000000000001,
+    "_prediction_avg": -5.11
+  },
+  {
+    "home_team": "South Carolina",
+    "away_team": "Clemson",
+    "spread": 2.5,
+    "home_win_prob": 0.6166,
+    "away_win_prob": 0.38339999999999996,
+    "_prediction_avg": 4.83
+  },
+  {
+    "home_team": "South Florida",
+    "away_team": "Rice",
+    "spread": 28.0,
+    "home_win_prob": 0.9543,
+    "away_win_prob": 0.04569999999999996,
+    "_prediction_avg": 28.21
+  },
+  {
+    "home_team": "Southern Miss",
+    "away_team": "Troy St",
+    "spread": 7.0,
+    "home_win_prob": 0.5732,
+    "away_win_prob": 0.42679999999999996,
+    "_prediction_avg": 2.99
+  },
+  {
+    "home_team": "Stanford",
+    "away_team": "Notre Dame",
+    "spread": -31.0,
+    "home_win_prob": 0.0545,
+    "away_win_prob": 0.9455,
+    "_prediction_avg": -27.08
+  },
+  {
+    "home_team": "Syracuse",
+    "away_team": "Boston College",
+    "spread": -3.0,
+    "home_win_prob": 0.5896,
+    "away_win_prob": 0.4104,
+    "_prediction_avg": 3.71
+  },
+  {
+    "home_team": "TCU",
+    "away_team": "Cincinnati",
+    "spread": 3.5,
+    "home_win_prob": 0.5796,
+    "away_win_prob": 0.4204,
+    "_prediction_avg": 3.26
+  },
+  {
+    "home_team": "Tennessee",
+    "away_team": "Vanderbilt",
+    "spread": 3.0,
+    "home_win_prob": 0.5221,
+    "away_win_prob": 0.4779,
+    "_prediction_avg": 0.9
+  },
+  {
+    "home_team": "Texas",
+    "away_team": "Texas A&M",
+    "spread": -2.5,
+    "home_win_prob": 0.4387,
+    "away_win_prob": 0.5613,
+    "_prediction_avg": -2.52
+  },
+  {
+    "home_team": "Texas St",
+    "away_team": "South Alabama",
+    "spread": 9.0,
+    "home_win_prob": 0.6891,
+    "away_win_prob": 0.31089999999999995,
+    "_prediction_avg": 7.99
+  },
+  {
+    "home_team": "Texas-San Antonio",
+    "away_team": "Army",
+    "spread": 7.5,
+    "home_win_prob": 0.6976,
+    "away_win_prob": 0.3024,
+    "_prediction_avg": 8.55
+  },
+  {
+    "home_team": "Tulane",
+    "away_team": "Charlotte",
+    "spread": 30.0,
+    "home_win_prob": 0.9649,
+    "away_win_prob": 0.03510000000000002,
+    "_prediction_avg": 29.77
+  },
+  {
+    "home_team": "Tulsa",
+    "away_team": "UAB",
+    "spread": 8.5,
+    "home_win_prob": 0.6513,
+    "away_win_prob": 0.3487,
+    "_prediction_avg": 6.31
+  },
+  {
+    "home_team": "USC",
+    "away_team": "UCLA",
+    "spread": 21.5,
+    "home_win_prob": 0.914,
+    "away_win_prob": 0.08599999999999997,
+    "_prediction_avg": 22.64
+  },
+  {
+    "home_team": "Utah St",
+    "away_team": "Boise St",
+    "spread": -3.0,
+    "home_win_prob": 0.3996,
+    "away_win_prob": 0.6004,
+    "_prediction_avg": -4.17
+  },
+  {
+    "home_team": "Virginia",
+    "away_team": "Virginia Tech",
+    "spread": 9.5,
+    "home_win_prob": 0.788,
+    "away_win_prob": 0.21199999999999997,
+    "_prediction_avg": 13.62
+  },
+  {
+    "home_team": "Washington",
+    "away_team": "Oregon",
+    "spread": -6.5,
+    "home_win_prob": 0.3276,
+    "away_win_prob": 0.6724,
+    "_prediction_avg": -7.23
+  },
+  {
+    "home_team": "Washington St",
+    "away_team": "Oregon St",
+    "spread": 13.5,
+    "home_win_prob": 0.862,
+    "away_win_prob": 0.138,
+    "_prediction_avg": 17.99
+  },
+  {
+    "home_team": "West Va",
+    "away_team": "Texas Tech",
+    "spread": -23.5,
+    "home_win_prob": 0.0963,
+    "away_win_prob": 0.9037,
+    "_prediction_avg": -21.84
+  }
+]

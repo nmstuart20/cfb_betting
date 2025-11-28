@@ -9,6 +9,10 @@ env:
 
 jobs:
   build_and_test:
+    env:
+      COLLEGE_FOOTBALL_DATA_API_KEY: ${{ secrets.COLLEGE_FOOTBALL_DATA_API_KEY }}
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      USE_CACHE: 0
     name: Rust project - latest
     runs-on: ubuntu-latest
 
