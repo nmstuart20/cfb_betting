@@ -154,7 +154,7 @@ impl KalshiClient {
         for market in markets {
             events_map
                 .entry(market.event_ticker.clone())
-                .or_insert_with(Vec::new)
+                .or_default()
                 .push(market);
         }
 
@@ -342,7 +342,7 @@ impl KalshiClient {
         let american_odds = probability_to_american_odds(probability);
 
         // Validate odds are reasonable
-        if american_odds < -10000 || american_odds > 10000 {
+        if !(-10000..=10000).contains(&american_odds) {
             eprintln!(
                 "Warning: Unreasonable odds for {}: {}",
                 market.ticker, american_odds

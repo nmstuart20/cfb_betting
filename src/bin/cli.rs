@@ -289,7 +289,7 @@ async fn main() -> Result<()> {
     // Optionally create Kalshi client if API key is available
     let kalshi_client = std::env::var("KALSHI_API_KEY")
         .ok()
-        .map(|key| KalshiClient::new(key));
+        .map(KalshiClient::new);
 
     if kalshi_client.is_some() {
         println!("Kalshi integration enabled\n");
