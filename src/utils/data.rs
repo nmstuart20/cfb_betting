@@ -1,7 +1,7 @@
 use crate::utils::arbitrage::{MoneylineArbitrage, SpreadArbitrage};
 use crate::{EvBetRecommendation, SpreadEvBetRecommendation};
 use anyhow::{Context, Result};
-use serde::{de::DeserializeOwned, Serialize};
+use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use std::fs::File;
 use std::io::Write;
 use std::path::Path;
@@ -145,4 +145,106 @@ pub fn save_spread_bets_to_csv(bets: &[SpreadEvBetRecommendation], filename: &st
     }
 
     Ok(())
+}
+
+/// CSV record for reading moneyline bets
+#[derive(Debug, Deserialize)]
+struct MoneylineBetCsvRecord {
+    #[serde(rename = "Home Team")]
+    home_team: String,
+    #[serde(rename = "Away Team")]
+    away_team: String,
+    #[serde(rename = "Bet Team")]
+    team: String,
+    #[serde(rename = "Odds")]
+    odds: i32,
+    #[serde(rename = "Bookmaker")]
+    bookmaker: String,
+    #[serde(rename = "Expected Value (%)")]
+    expected_value_pct: f64,
+    #[serde(rename = "Edge (%)")]
+    edge_pct: f64,
+    #[serde(rename = "Model Probability (%)")]
+    model_prob_pct: f64,
+    #[serde(rename = "Implied Probability (%)")]
+    implied_prob_pct: f64,
+}
+
+/// CSV record for reading spread bets
+#[derive(Debug, Deserialize)]
+struct SpreadBetCsvRecord {
+    #[serde(rename = "Home Team")]
+    home_team: String,
+    #[serde(rename = "Away Team")]
+    away_team: String,
+    #[serde(rename = "Bet Team")]
+    team: String,
+    #[serde(rename = "Spread")]
+    spread_line: f64,
+    #[serde(rename = "Odds")]
+    odds: i32,
+    #[serde(rename = "Bookmaker")]
+    bookmaker: String,
+    #[serde(rename = "Expected Value (%)")]
+    expected_value_pct: f64,
+    #[serde(rename = "Edge (%)")]
+    edge_pct: f64,
+    #[serde(rename = "Model Spread")]
+    model_spread: f64,
+    #[serde(rename = "Model Probability (%)")]
+    model_prob_pct: f64,
+    #[serde(rename = "Implied Probability (%)")]
+    implied_prob_pct: f64,
+}
+
+/// Load moneyline bets from CSV
+pub fn load_moneyline_bets_from_csv(filename: &str) -> Result<Vec<EvBetRecommendation>> {
+    let mut reader = csv::Reader::from_path(filename)
+        .context(format!("Failed to open CSV file: {}", filename))?;
+
+    let mut bets = Vec::new();
+    for result in reader.deserialize() {
+        let record: MoneylineBetCsvRecord = result.context("Failed to parse CSV record")?;
+
+        bets.push(EvBetRecommendation {
+            home_team: record.home_team,
+            away_team: record.away_team,
+            team: record.team,
+            bookmaker: record.bookmaker,
+            odds: record.odds,
+            model_prob: record.model_prob_pct / 100.0,
+            implied_prob: record.implied_prob_pct / 100.0,
+            expected_value: record.expected_value_pct / 100.0,
+            edge: record.edge_pct / 100.0,
+        });
+    }
+
+    Ok(bets)
+}
+
+/// Load spread bets from CSV
+pub fn load_spread_bets_from_csv(filename: &str) -> Result<Vec<SpreadEvBetRecommendation>> {
+    let mut reader = csv::Reader::from_path(filename)
+        .context(format!("Failed to open CSV file: {}", filename))?;
+
+    let mut bets = Vec::new();
+    for result in reader.deserialize() {
+        let record: SpreadBetCsvRecord = result.context("Failed to parse CSV record")?;
+
+        bets.push(SpreadEvBetRecommendation {
+            home_team: record.home_team,
+            away_team: record.away_team,
+            team: record.team,
+            spread_line: record.spread_line,
+            bookmaker: record.bookmaker,
+            odds: record.odds,
+            model_spread: record.model_spread,
+            model_prob: record.model_prob_pct / 100.0,
+            implied_prob: record.implied_prob_pct / 100.0,
+            expected_value: record.expected_value_pct / 100.0,
+            edge: record.edge_pct / 100.0,
+        });
+    }
+
+    Ok(bets)
 }

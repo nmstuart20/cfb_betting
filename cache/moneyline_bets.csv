@@ -1,31 +1,31 @@
 Home Team,Away Team,Bet Team,Odds,Bookmaker,Expected Value (%),Edge (%),Model Probability (%),Implied Probability (%)
-Stanford Cardinal,Notre Dame Fighting Irish,Stanford Cardinal,4000,FanDuel,123.45,3.01,5.5,2.4
-Coastal Carolina Chanticleers,James Madison Dukes,Coastal Carolina Chanticleers,1300,FanDuel,69.96,5.00,12.1,7.1
-West Virginia Mountaineers,Texas Tech Red Raiders,West Virginia Mountaineers,1500,FanDuel,54.08,3.38,9.6,6.2
-Coastal Carolina Chanticleers,James Madison Dukes,Coastal Carolina Chanticleers,1100,DraftKings,45.68,3.81,12.1,8.3
-Coastal Carolina Chanticleers,James Madison Dukes,Coastal Carolina Chanticleers,1100,BetMGM,45.68,3.81,12.1,8.3
-Coastal Carolina Chanticleers,James Madison Dukes,Coastal Carolina Chanticleers,1075,BetUS,42.64,3.63,12.1,8.5
-Coastal Carolina Chanticleers,James Madison Dukes,Coastal Carolina Chanticleers,1069,LowVig.ag,41.92,3.59,12.1,8.6
-Coastal Carolina Chanticleers,James Madison Dukes,Coastal Carolina Chanticleers,1069,BetOnline.ag,41.92,3.59,12.1,8.6
-Stanford Cardinal,Notre Dame Fighting Irish,Stanford Cardinal,2500,DraftKings,41.70,1.60,5.5,3.8
-Sam Houston State Bearkats,Florida International Panthers,Sam Houston State Bearkats,360,FanDuel,41.36,8.99,30.7,21.7
-Sam Houston State Bearkats,Florida International Panthers,Sam Houston State Bearkats,360,MyBookie.ag,41.36,8.99,30.7,21.7
-Sam Houston State Bearkats,Florida International Panthers,Sam Houston State Bearkats,355,BetUS,39.82,8.75,30.7,22.0
-Syracuse Orange,Boston College Eagles,Syracuse Orange,135,LowVig.ag,38.56,16.41,59.0,42.6
-Syracuse Orange,Boston College Eagles,Syracuse Orange,135,BetOnline.ag,38.56,16.41,59.0,42.6
-Syracuse Orange,Boston College Eagles,Syracuse Orange,135,Bovada,38.56,16.41,59.0,42.6
-Syracuse Orange,Boston College Eagles,Syracuse Orange,135,BetMGM,38.56,16.41,59.0,42.6
-Sam Houston State Bearkats,Florida International Panthers,Sam Houston State Bearkats,350,DraftKings,38.29,8.51,30.7,22.2
-Sam Houston State Bearkats,Florida International Panthers,Sam Houston State Bearkats,350,LowVig.ag,38.29,8.51,30.7,22.2
-Sam Houston State Bearkats,Florida International Panthers,Sam Houston State Bearkats,350,BetOnline.ag,38.29,8.51,30.7,22.2
-Syracuse Orange,Boston College Eagles,Syracuse Orange,134,BetUS,37.97,16.22,59.0,42.7
-Syracuse Orange,Boston College Eagles,Syracuse Orange,130,DraftKings,35.61,15.48,59.0,43.5
-Rutgers Scarlet Knights,Penn State Nittany Lions,Rutgers Scarlet Knights,455,DraftKings,35.42,6.38,24.4,18.0
-Sam Houston State Bearkats,Florida International Panthers,Sam Houston State Bearkats,340,BetMGM,35.21,8.00,30.7,22.7
-Coastal Carolina Chanticleers,James Madison Dukes,Coastal Carolina Chanticleers,1013,MyBookie.ag,35.12,3.16,12.1,9.0
-Central Michigan Chippewas,Toledo Rockets,Central Michigan Chippewas,360,FanDuel,34.69,7.54,29.3,21.7
-Syracuse Orange,Boston College Eagles,Syracuse Orange,128,MyBookie.ag,34.43,15.10,59.0,43.9
-Kansas State Wildcats,Colorado Buffaloes,Colorado Buffaloes,640,FanDuel,33.64,4.55,18.1,13.5
-Southern Mississippi Golden Eagles,Troy Trojans,Troy Trojans,212,MyBookie.ag,33.16,10.63,42.7,32.1
-Southern Mississippi Golden Eagles,Troy Trojans,Troy Trojans,210,Bovada,32.31,10.42,42.7,32.3
-Sam Houston State Bearkats,Florida International Panthers,Sam Houston State Bearkats,330,Bovada,32.14,7.47,30.7,23.3
+Cincinnati Bearcats,Navy Midshipmen,Cincinnati Bearcats,260,FanDuel,110.56,30.71,58.5,27.8
+Cincinnati Bearcats,Navy Midshipmen,Cincinnati Bearcats,240,BetUS,98.87,29.08,58.5,29.4
+Cincinnati Bearcats,Navy Midshipmen,Cincinnati Bearcats,240,BetMGM,98.87,29.08,58.5,29.4
+Cincinnati Bearcats,Navy Midshipmen,Cincinnati Bearcats,240,Bovada,98.87,29.08,58.5,29.4
+Cincinnati Bearcats,Navy Midshipmen,Cincinnati Bearcats,237,BetOnline.ag,97.11,28.82,58.5,29.7
+Cincinnati Bearcats,Navy Midshipmen,Cincinnati Bearcats,237,LowVig.ag,97.11,28.82,58.5,29.7
+Cincinnati Bearcats,Navy Midshipmen,Cincinnati Bearcats,235,DraftKings,95.94,28.64,58.5,29.9
+Cincinnati Bearcats,Navy Midshipmen,Cincinnati Bearcats,230,BetRivers,93.02,28.19,58.5,30.3
+Texas State Bobcats,Rice Owls,Rice Owls,540,FanDuel,46.56,7.27,22.9,15.6
+Texas State Bobcats,Rice Owls,Rice Owls,505,LowVig.ag,38.54,6.37,22.9,16.5
+Texas State Bobcats,Rice Owls,Rice Owls,505,BetOnline.ag,38.54,6.37,22.9,16.5
+Texas State Bobcats,Rice Owls,Rice Owls,500,BetMGM,37.40,6.23,22.9,16.7
+Texas State Bobcats,Rice Owls,Rice Owls,500,BetUS,37.40,6.23,22.9,16.7
+Texas State Bobcats,Rice Owls,Rice Owls,490,DraftKings,35.11,5.95,22.9,16.9
+Georgia Bulldogs,Ole Miss Rebels,Ole Miss Rebels,210,Bovada,31.91,10.29,42.5,32.3
+Texas State Bobcats,Rice Owls,Rice Owls,475,BetRivers,31.67,5.51,22.9,17.4
+Georgia Bulldogs,Ole Miss Rebels,Ole Miss Rebels,205,DraftKings,29.78,9.76,42.5,32.8
+Georgia Bulldogs,Ole Miss Rebels,Ole Miss Rebels,205,BetUS,29.78,9.76,42.5,32.8
+Georgia Bulldogs,Ole Miss Rebels,Ole Miss Rebels,200,BetMGM,27.65,9.22,42.5,33.3
+Georgia Bulldogs,Ole Miss Rebels,Ole Miss Rebels,200,BetRivers,27.65,9.22,42.5,33.3
+Georgia Bulldogs,Ole Miss Rebels,Ole Miss Rebels,195,BetOnline.ag,25.52,8.65,42.5,33.9
+Georgia Bulldogs,Ole Miss Rebels,Ole Miss Rebels,194,FanDuel,25.10,8.54,42.5,34.0
+Texas State Bobcats,Rice Owls,Rice Owls,430,Bovada,21.37,4.03,22.9,18.9
+Ohio State Buckeyes,Miami Hurricanes,Miami Hurricanes,274,LowVig.ag,17.40,4.65,31.4,26.7
+Ohio State Buckeyes,Miami Hurricanes,Miami Hurricanes,274,BetOnline.ag,17.40,4.65,31.4,26.7
+Ohio State Buckeyes,Miami Hurricanes,Miami Hurricanes,265,FanDuel,14.57,3.99,31.4,27.4
+Mississippi State Bulldogs,Wake Forest Demon Deacons,Wake Forest Demon Deacons,136,DraftKings,13.11,5.56,47.9,42.4
+Ohio State Buckeyes,Miami Hurricanes,Miami Hurricanes,260,DraftKings,13.00,3.61,31.4,27.8
+Ohio State Buckeyes,Miami Hurricanes,Miami Hurricanes,260,BetRivers,13.00,3.61,31.4,27.8
+Ohio State Buckeyes,Miami Hurricanes,Miami Hurricanes,260,BetUS,13.00,3.61,31.4,27.8

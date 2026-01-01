@@ -1,1262 +1,653 @@
 [
   [
     {
-      "id": "5c8cd729caf0f355d662c81900baaae5",
-      "home_team": "Wichita St Shockers",
-      "away_team": "Colorado St Rams",
-      "commence_time": "2025-11-28T01:31:21Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "ba3b9ad54ec8b9a220f3e7e4e954955e",
-      "home_team": "Stanford Cardinal",
-      "away_team": "Minnesota Golden Gophers",
-      "commence_time": "2025-11-28T02:46:01Z",
+      "id": "9cc018d40a32673ecd1d80a809a0d250",
+      "home_team": "UT Rio Grande Valley Vaqueros",
+      "away_team": "Nicholls St Colonels",
+      "commence_time": "2025-12-31T22:44:16Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "ba3b9ad54ec8b9a220f3e7e4e954955e",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Minnesota Golden Gophers",
-            "price": -110
-          },
-          {
-            "team": "Stanford Cardinal",
-            "price": -120
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Minnesota Golden Gophers",
-            "point": 1.5,
-            "price": -135
-          },
-          {
-            "team": "Stanford Cardinal",
-            "point": -1.5,
-            "price": 105
-          }
-        ]
-      },
-      {
-        "game_id": "ba3b9ad54ec8b9a220f3e7e4e954955e",
-        "bookmaker": "BetRivers",
-        "last_update": "2025-11-28T03:39:54Z",
-        "moneyline": [
-          {
-            "team": "Minnesota Golden Gophers",
-            "price": -121
-          },
-          {
-            "team": "Stanford Cardinal",
-            "price": -114
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Minnesota Golden Gophers",
-            "point": 0.5,
-            "price": -122
-          },
-          {
-            "team": "Stanford Cardinal",
-            "point": -0.5,
-            "price": -115
-          }
-        ]
-      },
-      {
-        "game_id": "ba3b9ad54ec8b9a220f3e7e4e954955e",
+        "game_id": "9cc018d40a32673ecd1d80a809a0d250",
         "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Minnesota Golden Gophers",
-            "price": -130
+            "team": "Nicholls St Colonels",
+            "price": -290
           },
           {
-            "team": "Stanford Cardinal",
-            "price": 102
+            "team": "UT Rio Grande Valley Vaqueros",
+            "price": 215
           }
         ],
         "spreads": [
           {
-            "team": "Minnesota Golden Gophers",
-            "point": -1.5,
-            "price": -106
-          },
-          {
-            "team": "Stanford Cardinal",
-            "point": 1.5,
-            "price": -125
-          }
-        ]
-      },
-      {
-        "game_id": "ba3b9ad54ec8b9a220f3e7e4e954955e",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Minnesota Golden Gophers",
-            "price": -110
-          },
-          {
-            "team": "Stanford Cardinal",
-            "price": -110
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Minnesota Golden Gophers",
-            "point": -1.5,
-            "price": 100
-          },
-          {
-            "team": "Stanford Cardinal",
-            "point": 1.5,
-            "price": -130
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "4fe7b33d5ff3894550c8b10721b121cc",
-      "home_team": "Northwestern Wildcats",
-      "away_team": "Oklahoma St Cowboys",
-      "commence_time": "2025-11-28T03:45:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "4fe7b33d5ff3894550c8b10721b121cc",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Northwestern Wildcats",
-            "price": -148
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "price": 124
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northwestern Wildcats",
-            "point": -2.5,
-            "price": -112
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "point": 2.5,
-            "price": -108
-          }
-        ]
-      },
-      {
-        "game_id": "4fe7b33d5ff3894550c8b10721b121cc",
-        "bookmaker": "LowVig.ag",
-        "last_update": "2025-11-28T03:39:53Z",
-        "moneyline": [
-          {
-            "team": "Northwestern Wildcats",
-            "price": -145
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "price": 125
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northwestern Wildcats",
-            "point": -2.5,
-            "price": -106
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "point": 2.5,
-            "price": -106
-          }
-        ]
-      },
-      {
-        "game_id": "4fe7b33d5ff3894550c8b10721b121cc",
-        "bookmaker": "BetOnline.ag",
-        "last_update": "2025-11-28T03:39:13Z",
-        "moneyline": [
-          {
-            "team": "Northwestern Wildcats",
-            "price": -145
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "price": 125
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northwestern Wildcats",
-            "point": -2.5,
-            "price": -110
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "point": 2.5,
-            "price": -110
-          }
-        ]
-      },
-      {
-        "game_id": "4fe7b33d5ff3894550c8b10721b121cc",
-        "bookmaker": "BetUS",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Northwestern Wildcats",
-            "price": -145
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "price": 125
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northwestern Wildcats",
-            "point": -2.5,
-            "price": -110
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "point": 2.5,
-            "price": -110
-          }
-        ]
-      },
-      {
-        "game_id": "4fe7b33d5ff3894550c8b10721b121cc",
-        "bookmaker": "BetRivers",
-        "last_update": "2025-11-28T03:39:54Z",
-        "moneyline": [
-          {
-            "team": "Northwestern Wildcats",
-            "price": -152
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "price": 117
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northwestern Wildcats",
-            "point": -3.0,
-            "price": -109
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "point": 3.0,
-            "price": -114
-          }
-        ]
-      },
-      {
-        "game_id": "4fe7b33d5ff3894550c8b10721b121cc",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Northwestern Wildcats",
-            "price": -156
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "price": 130
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northwestern Wildcats",
-            "point": -2.5,
-            "price": -115
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "point": 2.5,
-            "price": -105
-          }
-        ]
-      },
-      {
-        "game_id": "4fe7b33d5ff3894550c8b10721b121cc",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Northwestern Wildcats",
-            "price": -150
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "price": 125
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northwestern Wildcats",
-            "point": -2.5,
-            "price": -110
-          },
-          {
-            "team": "Oklahoma St Cowboys",
-            "point": 2.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "7d14f221072dcad97c00896eb4fb91b8",
-      "home_team": "Virginia Tech Hokies",
-      "away_team": "VCU Rams",
-      "commence_time": "2025-11-28T15:30:39Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "7d14f221072dcad97c00896eb4fb91b8",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "VCU Rams",
-            "price": -120
-          },
-          {
-            "team": "Virginia Tech Hokies",
-            "price": 100
-          }
-        ],
-        "spreads": [
-          {
-            "team": "VCU Rams",
-            "point": -1.5,
-            "price": -105
-          },
-          {
-            "team": "Virginia Tech Hokies",
-            "point": 1.5,
-            "price": -115
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "a61d41bc2bc1aef98526a80a017c62ad",
-      "home_team": "Purdue Boilermakers",
-      "away_team": "Eastern Illinois Panthers",
-      "commence_time": "2025-11-28T17:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "e060ce258506cd2eeb8a26022f306e5d",
-      "home_team": "Wake Forest Demon Deacons",
-      "away_team": "Northeastern Huskies",
-      "commence_time": "2025-11-28T17:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "e060ce258506cd2eeb8a26022f306e5d",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Northeastern Huskies",
-            "price": 1400
-          },
-          {
-            "team": "Wake Forest Demon Deacons",
-            "price": -4000
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northeastern Huskies",
-            "point": 18.5,
-            "price": -102
-          },
-          {
-            "team": "Wake Forest Demon Deacons",
-            "point": -18.5,
-            "price": -120
-          }
-        ]
-      },
-      {
-        "game_id": "e060ce258506cd2eeb8a26022f306e5d",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Northeastern Huskies",
-            "price": 1200
-          },
-          {
-            "team": "Wake Forest Demon Deacons",
-            "price": -3000
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Northeastern Huskies",
-            "point": 19.5,
-            "price": -115
-          },
-          {
-            "team": "Wake Forest Demon Deacons",
-            "point": -19.5,
-            "price": -105
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "1aa3aa011cc0d32622c1da6e013b3b1d",
-      "home_team": "Gardner-Webb Bulldogs",
-      "away_team": "SE Louisiana Lions",
-      "commence_time": "2025-11-28T17:00:35Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "1aa3aa011cc0d32622c1da6e013b3b1d",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Gardner-Webb Bulldogs",
-            "price": 330
-          },
-          {
-            "team": "SE Louisiana Lions",
-            "price": -430
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Gardner-Webb Bulldogs",
-            "point": 8.5,
-            "price": -120
-          },
-          {
-            "team": "SE Louisiana Lions",
-            "point": -8.5,
-            "price": -102
-          }
-        ]
-      },
-      {
-        "game_id": "1aa3aa011cc0d32622c1da6e013b3b1d",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Gardner-Webb Bulldogs",
-            "price": 300
-          },
-          {
-            "team": "SE Louisiana Lions",
-            "price": -375
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Gardner-Webb Bulldogs",
-            "point": 8.5,
-            "price": -110
-          },
-          {
-            "team": "SE Louisiana Lions",
-            "point": -8.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "8e9b38135b78f78268247e69f85127db",
-      "home_team": "Charlotte 49ers",
-      "away_team": "Richmond Spiders",
-      "commence_time": "2025-11-28T17:30:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "8e9b38135b78f78268247e69f85127db",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Charlotte 49ers",
-            "price": 265
-          },
-          {
-            "team": "Richmond Spiders",
-            "price": -335
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Charlotte 49ers",
-            "point": 7.5,
-            "price": -120
-          },
-          {
-            "team": "Richmond Spiders",
-            "point": -7.5,
-            "price": -102
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "a1cd905be539a3f209ccc5770fb7f066",
-      "home_team": "UConn Huskies",
-      "away_team": "Illinois Fighting Illini",
-      "commence_time": "2025-11-28T17:30:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "a1cd905be539a3f209ccc5770fb7f066",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Illinois Fighting Illini",
-            "price": 130
-          },
-          {
-            "team": "UConn Huskies",
-            "price": -155
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Illinois Fighting Illini",
-            "point": 2.5,
-            "price": -110
-          },
-          {
-            "team": "UConn Huskies",
-            "point": -2.5,
-            "price": -110
-          }
-        ]
-      },
-      {
-        "game_id": "a1cd905be539a3f209ccc5770fb7f066",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Illinois Fighting Illini",
-            "price": 120
-          },
-          {
-            "team": "UConn Huskies",
-            "price": -144
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Illinois Fighting Illini",
-            "point": 2.5,
-            "price": -115
-          },
-          {
-            "team": "UConn Huskies",
-            "point": -2.5,
-            "price": -105
-          }
-        ]
-      },
-      {
-        "game_id": "a1cd905be539a3f209ccc5770fb7f066",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Illinois Fighting Illini",
-            "price": 125
-          },
-          {
-            "team": "UConn Huskies",
-            "price": -150
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Illinois Fighting Illini",
-            "point": 2.5,
-            "price": -110
-          },
-          {
-            "team": "UConn Huskies",
-            "point": -2.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "7046579bb05a6cde5b8038408295856e",
-      "home_team": "Longwood Lancers",
-      "away_team": "Siena Saints",
-      "commence_time": "2025-11-28T18:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "7046579bb05a6cde5b8038408295856e",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Longwood Lancers",
-            "price": 180
-          },
-          {
-            "team": "Siena Saints",
-            "price": -220
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Longwood Lancers",
-            "point": 4.5,
-            "price": -110
-          },
-          {
-            "team": "Siena Saints",
-            "point": -4.5,
-            "price": -110
-          }
-        ]
-      },
-      {
-        "game_id": "7046579bb05a6cde5b8038408295856e",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Longwood Lancers",
-            "price": 150
-          },
-          {
-            "team": "Siena Saints",
-            "price": -185
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Longwood Lancers",
-            "point": 4.5,
-            "price": -115
-          },
-          {
-            "team": "Siena Saints",
-            "point": -4.5,
-            "price": -105
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "13bcd66f177d0390677f8d8d3a98963c",
-      "home_team": "Saint Mary's Gaels",
-      "away_team": "Vanderbilt Commodores",
-      "commence_time": "2025-11-28T18:00:51Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "13bcd66f177d0390677f8d8d3a98963c",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Saint Mary's Gaels",
-            "price": 146
-          },
-          {
-            "team": "Vanderbilt Commodores",
-            "price": -176
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Saint Mary's Gaels",
-            "point": 3.5,
-            "price": -115
-          },
-          {
-            "team": "Vanderbilt Commodores",
+            "team": "Nicholls St Colonels",
             "point": -3.5,
-            "price": -105
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "d986e1f00c9d097c01720cd98b9ad625",
-      "home_team": "Indiana St Sycamores",
-      "away_team": "Alcorn St Braves",
-      "commence_time": "2025-11-28T19:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "786f2fa589fefa591f3966ec5b2de5aa",
-      "home_team": "Monmouth Hawks",
-      "away_team": "Ball State Cardinals",
-      "commence_time": "2025-11-28T19:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "786f2fa589fefa591f3966ec5b2de5aa",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Ball State Cardinals",
-            "price": 164
-          },
-          {
-            "team": "Monmouth Hawks",
-            "price": -198
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Ball State Cardinals",
-            "point": 4.5,
-            "price": -115
-          },
-          {
-            "team": "Monmouth Hawks",
-            "point": -4.5,
-            "price": -105
-          }
-        ]
-      },
-      {
-        "game_id": "786f2fa589fefa591f3966ec5b2de5aa",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Ball State Cardinals",
-            "price": 165
-          },
-          {
-            "team": "Monmouth Hawks",
-            "price": -200
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Ball State Cardinals",
-            "point": 4.5,
-            "price": -115
-          },
-          {
-            "team": "Monmouth Hawks",
-            "point": -4.5,
-            "price": -105
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "8a70bc05999bc02fb9441f6720d23df0",
-      "home_team": "Butler Bulldogs",
-      "away_team": "Wright St Raiders",
-      "commence_time": "2025-11-28T19:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "8a70bc05999bc02fb9441f6720d23df0",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Butler Bulldogs",
-            "price": -2300
-          },
-          {
-            "team": "Wright St Raiders",
-            "price": 1060
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Butler Bulldogs",
-            "point": -15.5,
-            "price": -120
-          },
-          {
-            "team": "Wright St Raiders",
-            "point": 15.5,
-            "price": -102
-          }
-        ]
-      },
-      {
-        "game_id": "8a70bc05999bc02fb9441f6720d23df0",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Butler Bulldogs",
-            "price": -1600
-          },
-          {
-            "team": "Wright St Raiders",
-            "price": 900
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Butler Bulldogs",
-            "point": -16.5,
-            "price": -110
-          },
-          {
-            "team": "Wright St Raiders",
-            "point": 16.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "e2e38d0deed0d2afa37176eec68250bc",
-      "home_team": "Missouri Tigers",
-      "away_team": "Cleveland St Vikings",
-      "commence_time": "2025-11-28T19:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "3462d9a8c9f3ec44550be8946e846bd4",
-      "home_team": "La Salle Explorers",
-      "away_team": "Hofstra Pride",
-      "commence_time": "2025-11-28T19:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "3462d9a8c9f3ec44550be8946e846bd4",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Hofstra Pride",
-            "price": -148
-          },
-          {
-            "team": "La Salle Explorers",
-            "price": 124
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Hofstra Pride",
-            "point": -2.5,
-            "price": -115
-          },
-          {
-            "team": "La Salle Explorers",
-            "point": 2.5,
-            "price": -105
-          }
-        ]
-      },
-      {
-        "game_id": "3462d9a8c9f3ec44550be8946e846bd4",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Hofstra Pride",
-            "price": -150
-          },
-          {
-            "team": "La Salle Explorers",
-            "price": 125
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Hofstra Pride",
-            "point": -2.5,
-            "price": -110
-          },
-          {
-            "team": "La Salle Explorers",
-            "point": 2.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "d231e3b4449f474126d59fd583b17945",
-      "home_team": "Marquette Golden Eagles",
-      "away_team": "Oklahoma Sooners",
-      "commence_time": "2025-11-28T19:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "d231e3b4449f474126d59fd583b17945",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Marquette Golden Eagles",
-            "price": 116
-          },
-          {
-            "team": "Oklahoma Sooners",
-            "price": -140
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Marquette Golden Eagles",
-            "point": 1.5,
             "price": -104
           },
           {
-            "team": "Oklahoma Sooners",
+            "team": "UT Rio Grande Valley Vaqueros",
+            "point": 3.5,
+            "price": -128
+          }
+        ]
+      },
+      {
+        "game_id": "9cc018d40a32673ecd1d80a809a0d250",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Nicholls St Colonels",
+            "price": -270
+          },
+          {
+            "team": "UT Rio Grande Valley Vaqueros",
+            "price": 200
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Nicholls St Colonels",
+            "point": -3.5,
+            "price": -125
+          },
+          {
+            "team": "UT Rio Grande Valley Vaqueros",
+            "point": 3.5,
+            "price": -105
+          }
+        ]
+      },
+      {
+        "game_id": "9cc018d40a32673ecd1d80a809a0d250",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Nicholls St Colonels",
+            "price": -285
+          },
+          {
+            "team": "UT Rio Grande Valley Vaqueros",
+            "price": 210
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Nicholls St Colonels",
+            "point": -3.5,
+            "price": -130
+          },
+          {
+            "team": "UT Rio Grande Valley Vaqueros",
+            "point": 3.5,
+            "price": 100
+          }
+        ]
+      },
+      {
+        "game_id": "9cc018d40a32673ecd1d80a809a0d250",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "Nicholls St Colonels",
+            "price": -278
+          },
+          {
+            "team": "UT Rio Grande Valley Vaqueros",
+            "price": 185
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Nicholls St Colonels",
+            "point": -3.5,
+            "price": -121
+          },
+          {
+            "team": "UT Rio Grande Valley Vaqueros",
+            "point": 3.5,
+            "price": -121
+          }
+        ]
+      },
+      {
+        "game_id": "9cc018d40a32673ecd1d80a809a0d250",
+        "bookmaker": "Bovada",
+        "last_update": "2026-01-01T00:22:10Z",
+        "moneyline": [
+          {
+            "team": "Nicholls St Colonels",
+            "price": -105
+          },
+          {
+            "team": "UT Rio Grande Valley Vaqueros",
+            "price": -125
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Nicholls St Colonels",
+            "point": 1.5,
+            "price": -125
+          },
+          {
+            "team": "UT Rio Grande Valley Vaqueros",
+            "point": -1.5,
+            "price": -105
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "81014deeedb536bf1dfe6bb0a10b5635",
+      "home_team": "Villanova Wildcats",
+      "away_team": "DePaul Blue Demons",
+      "commence_time": "2025-12-31T23:02:19Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "DePaul Blue Demons",
+            "price": 100
+          },
+          {
+            "team": "Villanova Wildcats",
+            "price": -130
+          }
+        ],
+        "spreads": [
+          {
+            "team": "DePaul Blue Demons",
+            "point": 1.5,
+            "price": -115
+          },
+          {
+            "team": "Villanova Wildcats",
+            "point": -1.5,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "DePaul Blue Demons",
+            "price": -106
+          },
+          {
+            "team": "Villanova Wildcats",
+            "price": -120
+          }
+        ],
+        "spreads": [
+          {
+            "team": "DePaul Blue Demons",
+            "point": 1.5,
+            "price": -114
+          },
+          {
+            "team": "Villanova Wildcats",
             "point": -1.5,
             "price": -118
           }
         ]
       },
       {
-        "game_id": "d231e3b4449f474126d59fd583b17945",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
+        "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
+        "bookmaker": "Bovada",
+        "last_update": "2026-01-01T00:22:10Z",
         "moneyline": [
           {
-            "team": "Marquette Golden Eagles",
-            "price": 124
+            "team": "DePaul Blue Demons",
+            "price": 220
           },
           {
-            "team": "Oklahoma Sooners",
+            "team": "Villanova Wildcats",
+            "price": -300
+          }
+        ],
+        "spreads": [
+          {
+            "team": "DePaul Blue Demons",
+            "point": 5.0,
+            "price": -115
+          },
+          {
+            "team": "Villanova Wildcats",
+            "point": -5.0,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "DePaul Blue Demons",
+            "price": 105
+          },
+          {
+            "team": "Villanova Wildcats",
+            "price": -135
+          }
+        ],
+        "spreads": [
+          {
+            "team": "DePaul Blue Demons",
+            "point": 1.5,
+            "price": -125
+          },
+          {
+            "team": "Villanova Wildcats",
+            "point": -1.5,
+            "price": -105
+          }
+        ]
+      },
+      {
+        "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "DePaul Blue Demons",
+            "price": 105
+          },
+          {
+            "team": "Villanova Wildcats",
             "price": -148
           }
         ],
         "spreads": [
           {
-            "team": "Marquette Golden Eagles",
-            "point": 2.5,
+            "team": "DePaul Blue Demons",
+            "point": 1.5,
             "price": -115
           },
           {
-            "team": "Oklahoma Sooners",
-            "point": -2.5,
-            "price": -105
+            "team": "Villanova Wildcats",
+            "point": -1.5,
+            "price": -124
           }
         ]
-      },
+      }
+    ]
+  ],
+  [
+    {
+      "id": "75f5866a019b86e7264f355bd306321b",
+      "home_team": "UNC Wilmington Seahawks",
+      "away_team": "Drexel Dragons",
+      "commence_time": "2026-01-01T00:06:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
       {
-        "game_id": "d231e3b4449f474126d59fd583b17945",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
+        "game_id": "75f5866a019b86e7264f355bd306321b",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Marquette Golden Eagles",
-            "price": 120
+            "team": "Drexel Dragons",
+            "price": 500
           },
           {
-            "team": "Oklahoma Sooners",
-            "price": -145
+            "team": "UNC Wilmington Seahawks",
+            "price": -850
           }
         ],
         "spreads": [
           {
-            "team": "Marquette Golden Eagles",
-            "point": 2.5,
-            "price": -115
+            "team": "Drexel Dragons",
+            "point": 9.5,
+            "price": -108
           },
           {
-            "team": "Oklahoma Sooners",
-            "point": -2.5,
+            "team": "UNC Wilmington Seahawks",
+            "point": -9.5,
+            "price": -122
+          }
+        ]
+      },
+      {
+        "game_id": "75f5866a019b86e7264f355bd306321b",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Drexel Dragons",
+            "price": 360
+          },
+          {
+            "team": "UNC Wilmington Seahawks",
+            "price": -540
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Drexel Dragons",
+            "point": 10.5,
+            "price": -125
+          },
+          {
+            "team": "UNC Wilmington Seahawks",
+            "point": -10.5,
             "price": -105
           }
         ]
       },
       {
-        "game_id": "d231e3b4449f474126d59fd583b17945",
-        "bookmaker": "BetRivers",
-        "last_update": "2025-11-28T03:39:54Z",
+        "game_id": "75f5866a019b86e7264f355bd306321b",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Marquette Golden Eagles",
+            "team": "Drexel Dragons",
+            "price": 350
+          },
+          {
+            "team": "UNC Wilmington Seahawks",
+            "price": -525
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Drexel Dragons",
+            "point": 8.5,
+            "price": -115
+          },
+          {
+            "team": "UNC Wilmington Seahawks",
+            "point": -8.5,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "75f5866a019b86e7264f355bd306321b",
+        "bookmaker": "Bovada",
+        "last_update": "2026-01-01T00:22:10Z",
+        "moneyline": [
+          {
+            "team": "Drexel Dragons",
+            "price": 500
+          },
+          {
+            "team": "UNC Wilmington Seahawks",
+            "price": -900
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Drexel Dragons",
+            "point": 12.5,
+            "price": -120
+          },
+          {
+            "team": "UNC Wilmington Seahawks",
+            "point": -12.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "75f5866a019b86e7264f355bd306321b",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "Drexel Dragons",
+            "price": 325
+          },
+          {
+            "team": "UNC Wilmington Seahawks",
+            "price": -910
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Drexel Dragons",
+            "point": 9.5,
+            "price": -118
+          },
+          {
+            "team": "UNC Wilmington Seahawks",
+            "point": -9.5,
+            "price": -127
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "5d2a78e6a7b982c2915030b09fa717be",
+      "home_team": "Georgetown Hoyas",
+      "away_team": "St. John's Red Storm",
+      "commence_time": "2026-01-01T01:00:07Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "5d2a78e6a7b982c2915030b09fa717be",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Georgetown Hoyas",
+            "price": 285
+          },
+          {
+            "team": "St. John's Red Storm",
+            "price": -350
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Georgetown Hoyas",
+            "point": 7.5,
+            "price": -105
+          },
+          {
+            "team": "St. John's Red Storm",
+            "point": -7.5,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "5d2a78e6a7b982c2915030b09fa717be",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Georgetown Hoyas",
+            "price": 300
+          },
+          {
+            "team": "St. John's Red Storm",
+            "price": -380
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Georgetown Hoyas",
+            "point": 7.5,
+            "price": -108
+          },
+          {
+            "team": "St. John's Red Storm",
+            "point": -7.5,
+            "price": -112
+          }
+        ]
+      },
+      {
+        "game_id": "5d2a78e6a7b982c2915030b09fa717be",
+        "bookmaker": "BetOnline.ag",
+        "last_update": "2026-01-01T00:22:12Z",
+        "moneyline": [
+          {
+            "team": "Georgetown Hoyas",
+            "price": 306
+          },
+          {
+            "team": "St. John's Red Storm",
+            "price": -385
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Georgetown Hoyas",
+            "point": 8.0,
+            "price": -107
+          },
+          {
+            "team": "St. John's Red Storm",
+            "point": -8.0,
+            "price": -113
+          }
+        ]
+      },
+      {
+        "game_id": "5d2a78e6a7b982c2915030b09fa717be",
+        "bookmaker": "LowVig.ag",
+        "last_update": "2026-01-01T00:21:56Z",
+        "moneyline": [
+          {
+            "team": "Georgetown Hoyas",
+            "price": 306
+          },
+          {
+            "team": "St. John's Red Storm",
+            "price": -385
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Georgetown Hoyas",
+            "point": 8.0,
             "price": -103
           },
           {
-            "team": "Oklahoma Sooners",
-            "price": -125
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Marquette Golden Eagles",
-            "point": 1.5,
-            "price": -114
-          },
-          {
-            "team": "Oklahoma Sooners",
-            "point": -1.5,
-            "price": -112
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "14df49206608dcfdd28089b0c0092807",
-      "home_team": "Robert Morris Colonials",
-      "away_team": "Southern Utah Thunderbirds",
-      "commence_time": "2025-11-28T19:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "14df49206608dcfdd28089b0c0092807",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Robert Morris Colonials",
-            "price": -475
-          },
-          {
-            "team": "Southern Utah Thunderbirds",
-            "price": 360
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Robert Morris Colonials",
-            "point": -9.5,
-            "price": -115
-          },
-          {
-            "team": "Southern Utah Thunderbirds",
-            "point": 9.5,
-            "price": -105
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "77a3e3a668d8256ebca851ca7edbf0f1",
-      "home_team": "Seattle Redhawks",
-      "away_team": "Texas State Bobcats",
-      "commence_time": "2025-11-28T19:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "77a3e3a668d8256ebca851ca7edbf0f1",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Seattle Redhawks",
-            "price": -235
-          },
-          {
-            "team": "Texas State Bobcats",
-            "price": 195
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Seattle Redhawks",
-            "point": -5.5,
-            "price": -115
-          },
-          {
-            "team": "Texas State Bobcats",
-            "point": 5.5,
-            "price": -105
+            "team": "St. John's Red Storm",
+            "point": -8.0,
+            "price": -109
           }
         ]
       },
       {
-        "game_id": "77a3e3a668d8256ebca851ca7edbf0f1",
+        "game_id": "5d2a78e6a7b982c2915030b09fa717be",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Georgetown Hoyas",
+            "price": 290
+          },
+          {
+            "team": "St. John's Red Storm",
+            "price": -375
+          }
+        ],
+        "spreads": []
+      },
+      {
+        "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "BetRivers",
-        "last_update": "2025-11-28T03:39:54Z",
+        "last_update": "2026-01-01T00:22:08Z",
         "moneyline": [
           {
-            "team": "Seattle Redhawks",
-            "price": -275
+            "team": "Georgetown Hoyas",
+            "price": 245
           },
           {
-            "team": "Texas State Bobcats",
-            "price": 205
+            "team": "St. John's Red Storm",
+            "price": -360
           }
         ],
         "spreads": [
           {
-            "team": "Seattle Redhawks",
-            "point": -5.5,
-            "price": -114
-          },
-          {
-            "team": "Texas State Bobcats",
-            "point": 5.5,
-            "price": -112
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "ee424459ae9a6643825eaad0ff114549",
-      "home_team": "San Francisco Dons",
-      "away_team": "Nevada Wolf Pack",
-      "commence_time": "2025-11-28T19:00:19Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "ee424459ae9a6643825eaad0ff114549",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Nevada Wolf Pack",
-            "price": 188
-          },
-          {
-            "team": "San Francisco Dons",
-            "price": -230
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Nevada Wolf Pack",
-            "point": 4.5,
-            "price": -110
-          },
-          {
-            "team": "San Francisco Dons",
-            "point": -4.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "9ecbce2aee4864d048d91856363168cf",
-      "home_team": "Youngstown St Penguins",
-      "away_team": "Chicago St Cougars",
-      "commence_time": "2025-11-28T20:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "2068cab487bf0646026f7da203cf283c",
-      "home_team": "Illinois St Redbirds",
-      "away_team": "Furman Paladins",
-      "commence_time": "2025-11-28T20:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "2068cab487bf0646026f7da203cf283c",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Furman Paladins",
-            "price": 172
-          },
-          {
-            "team": "Illinois St Redbirds",
-            "price": -210
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Furman Paladins",
-            "point": 4.5,
-            "price": -114
-          },
-          {
-            "team": "Illinois St Redbirds",
-            "point": -4.5,
+            "team": "Georgetown Hoyas",
+            "point": 7.5,
             "price": -106
+          },
+          {
+            "team": "St. John's Red Storm",
+            "point": -7.5,
+            "price": -117
+          }
+        ]
+      },
+      {
+        "game_id": "5d2a78e6a7b982c2915030b09fa717be",
+        "bookmaker": "BetUS",
+        "last_update": "2026-01-01T00:21:56Z",
+        "moneyline": [
+          {
+            "team": "Georgetown Hoyas",
+            "price": 305
+          },
+          {
+            "team": "St. John's Red Storm",
+            "price": -380
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Georgetown Hoyas",
+            "point": 7.5,
+            "price": -110
+          },
+          {
+            "team": "St. John's Red Storm",
+            "point": -7.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "5d2a78e6a7b982c2915030b09fa717be",
+        "bookmaker": "Bovada",
+        "last_update": "2026-01-01T00:22:10Z",
+        "moneyline": [
+          {
+            "team": "Georgetown Hoyas",
+            "price": 275
+          },
+          {
+            "team": "St. John's Red Storm",
+            "price": -350
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Georgetown Hoyas",
+            "point": 7.5,
+            "price": -115
+          },
+          {
+            "team": "St. John's Red Storm",
+            "point": -7.5,
+            "price": -105
           }
         ]
       }
@@ -1264,177 +655,1055 @@
   ],
   [
     {
-      "id": "a11f8d79d1d5c165543df0fac4e1d346",
-      "home_team": "UNC Wilmington Seahawks",
-      "away_team": "Navy Midshipmen",
-      "commence_time": "2025-11-28T20:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "8a1876e496aa71a2d1fca786285fe993",
-      "home_team": "Tulane Green Wave",
-      "away_team": "Nicholls St Colonels",
-      "commence_time": "2025-11-28T20:00:00Z",
+      "id": "f1a92cb4fe82c07c00392e1196fe92b6",
+      "home_team": "Coastal Carolina Chanticleers",
+      "away_team": "Georgia Southern Eagles",
+      "commence_time": "2026-01-01T18:00:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "8a1876e496aa71a2d1fca786285fe993",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
         "moneyline": [
           {
-            "team": "Nicholls St Colonels",
-            "price": 440
+            "team": "Coastal Carolina Chanticleers",
+            "price": -130
           },
           {
-            "team": "Tulane Green Wave",
-            "price": -610
+            "team": "Georgia Southern Eagles",
+            "price": 110
           }
         ],
         "spreads": [
           {
-            "team": "Nicholls St Colonels",
-            "point": 9.5,
+            "team": "Coastal Carolina Chanticleers",
+            "point": -1.5,
+            "price": -118
+          },
+          {
+            "team": "Georgia Southern Eagles",
+            "point": 1.5,
+            "price": -102
+          }
+        ]
+      },
+      {
+        "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Coastal Carolina Chanticleers",
+            "price": -135
+          },
+          {
+            "team": "Georgia Southern Eagles",
+            "price": 110
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Coastal Carolina Chanticleers",
+            "point": -2.5,
             "price": -102
           },
           {
-            "team": "Tulane Green Wave",
-            "point": -9.5,
-            "price": -120
+            "team": "Georgia Southern Eagles",
+            "point": 2.5,
+            "price": -118
           }
         ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "1e88ce797721401ee9d3f83bd5b6ea02",
-      "home_team": "Arkansas St Red Wolves",
-      "away_team": "North Dakota St Bison",
-      "commence_time": "2025-11-28T20:00:09Z",
-      "sport_title": "NCAAB"
-    },
-    [
+      },
       {
-        "game_id": "1e88ce797721401ee9d3f83bd5b6ea02",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
         "moneyline": [
           {
-            "team": "Arkansas St Red Wolves",
+            "team": "Coastal Carolina Chanticleers",
+            "price": -132
+          },
+          {
+            "team": "Georgia Southern Eagles",
+            "price": 104
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Coastal Carolina Chanticleers",
+            "point": -1.5,
+            "price": -117
+          },
+          {
+            "team": "Georgia Southern Eagles",
+            "point": 1.5,
+            "price": -109
+          }
+        ]
+      },
+      {
+        "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Coastal Carolina Chanticleers",
             "price": -140
           },
           {
-            "team": "North Dakota St Bison",
+            "team": "Georgia Southern Eagles",
             "price": 116
           }
         ],
         "spreads": [
           {
-            "team": "Arkansas St Red Wolves",
+            "team": "Coastal Carolina Chanticleers",
             "point": -1.5,
             "price": -120
           },
           {
-            "team": "North Dakota St Bison",
+            "team": "Georgia Southern Eagles",
             "point": 1.5,
+            "price": -102
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "d570f00169500235337ba35bf3525587",
+      "home_team": "North Alabama Lions",
+      "away_team": "Stetson Hatters",
+      "commence_time": "2026-01-01T18:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "d570f00169500235337ba35bf3525587",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "North Alabama Lions",
+            "price": -475
+          },
+          {
+            "team": "Stetson Hatters",
+            "price": 350
+          }
+        ],
+        "spreads": [
+          {
+            "team": "North Alabama Lions",
+            "point": -9.5,
+            "price": -110
+          },
+          {
+            "team": "Stetson Hatters",
+            "point": 9.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "d570f00169500235337ba35bf3525587",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "North Alabama Lions",
+            "price": -580
+          },
+          {
+            "team": "Stetson Hatters",
+            "price": 420
+          }
+        ],
+        "spreads": [
+          {
+            "team": "North Alabama Lions",
+            "point": -9.5,
+            "price": -110
+          },
+          {
+            "team": "Stetson Hatters",
+            "point": 9.5,
+            "price": -110
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "64ecafd31204cd582817cc0de3e79e12",
+      "home_team": "Youngstown St Penguins",
+      "away_team": "Oakland Golden Grizzlies",
+      "commence_time": "2026-01-01T18:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "64ecafd31204cd582817cc0de3e79e12",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Oakland Golden Grizzlies",
+            "price": -105
+          },
+          {
+            "team": "Youngstown St Penguins",
+            "price": -115
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Oakland Golden Grizzlies",
+            "point": 1.5,
+            "price": -118
+          },
+          {
+            "team": "Youngstown St Penguins",
+            "point": -1.5,
             "price": -102
           }
         ]
       },
       {
-        "game_id": "1e88ce797721401ee9d3f83bd5b6ea02",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
+        "game_id": "64ecafd31204cd582817cc0de3e79e12",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Arkansas St Red Wolves",
+            "team": "Oakland Golden Grizzlies",
+            "price": -110
+          },
+          {
+            "team": "Youngstown St Penguins",
+            "price": -110
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Oakland Golden Grizzlies",
+            "point": -1.5,
+            "price": 100
+          },
+          {
+            "team": "Youngstown St Penguins",
+            "point": 1.5,
+            "price": -120
+          }
+        ]
+      },
+      {
+        "game_id": "64ecafd31204cd582817cc0de3e79e12",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "Oakland Golden Grizzlies",
+            "price": -110
+          },
+          {
+            "team": "Youngstown St Penguins",
+            "price": -115
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Oakland Golden Grizzlies",
+            "point": 1.5,
             "price": -122
           },
           {
-            "team": "North Dakota St Bison",
+            "team": "Youngstown St Penguins",
+            "point": -1.5,
+            "price": -104
+          }
+        ]
+      },
+      {
+        "game_id": "64ecafd31204cd582817cc0de3e79e12",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Oakland Golden Grizzlies",
+            "price": -102
+          },
+          {
+            "team": "Youngstown St Penguins",
+            "price": -118
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Oakland Golden Grizzlies",
+            "point": 1.5,
+            "price": -120
+          },
+          {
+            "team": "Youngstown St Penguins",
+            "point": -1.5,
+            "price": -102
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "95b5bff18a22905aa149317711407b59",
+      "home_team": "VMI Keydets",
+      "away_team": "Samford Bulldogs",
+      "commence_time": "2026-01-01T18:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "95b5bff18a22905aa149317711407b59",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Samford Bulldogs",
+            "price": -180
+          },
+          {
+            "team": "VMI Keydets",
+            "price": 150
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Samford Bulldogs",
+            "point": -4.5,
+            "price": -105
+          },
+          {
+            "team": "VMI Keydets",
+            "point": 4.5,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "95b5bff18a22905aa149317711407b59",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Samford Bulldogs",
+            "price": -185
+          },
+          {
+            "team": "VMI Keydets",
+            "price": 150
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Samford Bulldogs",
+            "point": -4.5,
+            "price": -110
+          },
+          {
+            "team": "VMI Keydets",
+            "point": 4.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "95b5bff18a22905aa149317711407b59",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "Samford Bulldogs",
+            "price": -200
+          },
+          {
+            "team": "VMI Keydets",
+            "price": 155
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Samford Bulldogs",
+            "point": -4.5,
+            "price": -112
+          },
+          {
+            "team": "VMI Keydets",
+            "point": 4.5,
+            "price": -114
+          }
+        ]
+      },
+      {
+        "game_id": "95b5bff18a22905aa149317711407b59",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Samford Bulldogs",
+            "price": -215
+          },
+          {
+            "team": "VMI Keydets",
+            "price": 176
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Samford Bulldogs",
+            "point": -4.5,
+            "price": -108
+          },
+          {
+            "team": "VMI Keydets",
+            "point": 4.5,
+            "price": -112
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "454f52567c6b33f5097a33d7ec221346",
+      "home_team": "Central Arkansas Bears",
+      "away_team": "Florida Gulf Coast Eagles",
+      "commence_time": "2026-01-01T19:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "454f52567c6b33f5097a33d7ec221346",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Central Arkansas Bears",
+            "price": 110
+          },
+          {
+            "team": "Florida Gulf Coast Eagles",
+            "price": -135
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Central Arkansas Bears",
+            "point": 1.5,
+            "price": -105
+          },
+          {
+            "team": "Florida Gulf Coast Eagles",
+            "point": -1.5,
+            "price": -115
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "eff20371c60c1096a4f6e848d79ba0e3",
+      "home_team": "Fort Wayne Mastodons",
+      "away_team": "Green Bay Phoenix",
+      "commence_time": "2026-01-01T19:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "eff20371c60c1096a4f6e848d79ba0e3",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Fort Wayne Mastodons",
+            "price": -325
+          },
+          {
+            "team": "Green Bay Phoenix",
+            "price": 260
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Fort Wayne Mastodons",
+            "point": -7.5,
+            "price": -110
+          },
+          {
+            "team": "Green Bay Phoenix",
+            "point": 7.5,
+            "price": -110
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "9a20ad576e1ffb6d9ed79f71e40827ca",
+      "home_team": "Northern Kentucky Norse",
+      "away_team": "IUPUI Jaguars",
+      "commence_time": "2026-01-01T19:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "9a20ad576e1ffb6d9ed79f71e40827ca",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "IUPUI Jaguars",
+            "price": 650
+          },
+          {
+            "team": "Northern Kentucky Norse",
+            "price": -1000
+          }
+        ],
+        "spreads": [
+          {
+            "team": "IUPUI Jaguars",
+            "point": 14.5,
+            "price": -118
+          },
+          {
+            "team": "Northern Kentucky Norse",
+            "point": -14.5,
+            "price": -102
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "a69e4eadb6175ba9739853cd0f7e6140",
+      "home_team": "Lipscomb Bisons",
+      "away_team": "Jacksonville Dolphins",
+      "commence_time": "2026-01-01T19:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "a69e4eadb6175ba9739853cd0f7e6140",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Jacksonville Dolphins",
+            "price": 550
+          },
+          {
+            "team": "Lipscomb Bisons",
+            "price": -800
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Jacksonville Dolphins",
+            "point": 11.5,
+            "price": -102
+          },
+          {
+            "team": "Lipscomb Bisons",
+            "point": -11.5,
+            "price": -118
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "bb437f5af9d1e2e9eda3c362e3aa591e",
+      "home_team": "Wright St Raiders",
+      "away_team": "Milwaukee Panthers",
+      "commence_time": "2026-01-01T19:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "bb437f5af9d1e2e9eda3c362e3aa591e",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Milwaukee Panthers",
+            "price": 190
+          },
+          {
+            "team": "Wright St Raiders",
+            "price": -235
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Milwaukee Panthers",
+            "point": 5.5,
+            "price": -105
+          },
+          {
+            "team": "Wright St Raiders",
+            "point": -5.5,
+            "price": -115
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "78f1638a598dd5c2da1c463cf5511c3d",
+      "home_team": "North Dakota Fighting Hawks",
+      "away_team": "Oral Roberts Golden Eagles",
+      "commence_time": "2026-01-01T19:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "78f1638a598dd5c2da1c463cf5511c3d",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "North Dakota Fighting Hawks",
+            "price": -135
+          },
+          {
+            "team": "Oral Roberts Golden Eagles",
+            "price": 114
+          }
+        ],
+        "spreads": [
+          {
+            "team": "North Dakota Fighting Hawks",
+            "point": -2.5,
+            "price": -105
+          },
+          {
+            "team": "Oral Roberts Golden Eagles",
+            "point": 2.5,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "78f1638a598dd5c2da1c463cf5511c3d",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "North Dakota Fighting Hawks",
+            "price": -140
+          },
+          {
+            "team": "Oral Roberts Golden Eagles",
+            "price": 115
+          }
+        ],
+        "spreads": [
+          {
+            "team": "North Dakota Fighting Hawks",
+            "point": -2.5,
+            "price": -110
+          },
+          {
+            "team": "Oral Roberts Golden Eagles",
+            "point": 2.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "78f1638a598dd5c2da1c463cf5511c3d",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "North Dakota Fighting Hawks",
+            "price": -125
+          },
+          {
+            "team": "Oral Roberts Golden Eagles",
+            "price": -103
+          }
+        ],
+        "spreads": [
+          {
+            "team": "North Dakota Fighting Hawks",
+            "point": -1.5,
+            "price": -112
+          },
+          {
+            "team": "Oral Roberts Golden Eagles",
+            "point": 1.5,
+            "price": -114
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "33a1dcf3ea497d1217f7696e4436bcb7",
+      "home_team": "UT-Arlington Mavericks",
+      "away_team": "Cal Baptist Lancers",
+      "commence_time": "2026-01-01T20:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "33a1dcf3ea497d1217f7696e4436bcb7",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Cal Baptist Lancers",
+            "price": -120
+          },
+          {
+            "team": "UT-Arlington Mavericks",
+            "price": 100
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Cal Baptist Lancers",
+            "point": -1.5,
+            "price": -110
+          },
+          {
+            "team": "UT-Arlington Mavericks",
+            "point": 1.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "33a1dcf3ea497d1217f7696e4436bcb7",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Cal Baptist Lancers",
+            "price": -120
+          },
+          {
+            "team": "UT-Arlington Mavericks",
+            "price": 100
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Cal Baptist Lancers",
+            "point": -1.5,
+            "price": -105
+          },
+          {
+            "team": "UT-Arlington Mavericks",
+            "point": 1.5,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "33a1dcf3ea497d1217f7696e4436bcb7",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "Cal Baptist Lancers",
+            "price": -130
+          },
+          {
+            "team": "UT-Arlington Mavericks",
             "price": 102
           }
         ],
         "spreads": [
           {
-            "team": "Arkansas St Red Wolves",
+            "team": "Cal Baptist Lancers",
+            "point": -1.5,
+            "price": -113
+          },
+          {
+            "team": "UT-Arlington Mavericks",
+            "point": 1.5,
+            "price": -113
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "2a1cb22fbdf06a270e9d429eefa3e6d8",
+      "home_team": "Illinois St Redbirds",
+      "away_team": "Evansville Purple Aces",
+      "commence_time": "2026-01-01T20:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "2a1cb22fbdf06a270e9d429eefa3e6d8",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Evansville Purple Aces",
+            "price": 800
+          },
+          {
+            "team": "Illinois St Redbirds",
+            "price": -1400
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Evansville Purple Aces",
+            "point": 14.5,
+            "price": -102
+          },
+          {
+            "team": "Illinois St Redbirds",
+            "point": -14.5,
+            "price": -118
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "aa0e9b345aa7109c1c490f8ad2a4fb22",
+      "home_team": "Southern Illinois Salukis",
+      "away_team": "Valparaiso Beacons",
+      "commence_time": "2026-01-01T20:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "aa0e9b345aa7109c1c490f8ad2a4fb22",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Southern Illinois Salukis",
+            "price": -350
+          },
+          {
+            "team": "Valparaiso Beacons",
+            "price": 280
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Southern Illinois Salukis",
+            "point": -8.5,
+            "price": -105
+          },
+          {
+            "team": "Valparaiso Beacons",
+            "point": 8.5,
+            "price": -115
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "9fee1a532ae97ad4affb8e2effe8b1d9",
+      "home_team": "UNC Greensboro Spartans",
+      "away_team": "Chattanooga Mocs",
+      "commence_time": "2026-01-01T21:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "9fee1a532ae97ad4affb8e2effe8b1d9",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Chattanooga Mocs",
+            "price": -122
+          },
+          {
+            "team": "UNC Greensboro Spartans",
+            "price": 102
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Chattanooga Mocs",
             "point": -1.5,
             "price": -112
           },
           {
-            "team": "North Dakota St Bison",
+            "team": "UNC Greensboro Spartans",
             "point": 1.5,
             "price": -108
           }
         ]
       },
       {
-        "game_id": "1e88ce797721401ee9d3f83bd5b6ea02",
+        "game_id": "9fee1a532ae97ad4affb8e2effe8b1d9",
         "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Arkansas St Red Wolves",
+            "team": "Chattanooga Mocs",
             "price": -130
           },
           {
-            "team": "North Dakota St Bison",
+            "team": "UNC Greensboro Spartans",
             "price": 105
           }
         ],
         "spreads": [
           {
-            "team": "Arkansas St Red Wolves",
+            "team": "Chattanooga Mocs",
             "point": -1.5,
             "price": -115
           },
           {
-            "team": "North Dakota St Bison",
+            "team": "UNC Greensboro Spartans",
             "point": 1.5,
             "price": -105
           }
         ]
+      },
+      {
+        "game_id": "9fee1a532ae97ad4affb8e2effe8b1d9",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "Chattanooga Mocs",
+            "price": -129
+          },
+          {
+            "team": "UNC Greensboro Spartans",
+            "price": 100
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Chattanooga Mocs",
+            "point": -1.5,
+            "price": -113
+          },
+          {
+            "team": "UNC Greensboro Spartans",
+            "point": 1.5,
+            "price": -113
+          }
+        ]
       }
     ]
   ],
   [
     {
-      "id": "84b992ca2260c169cee36f0dc1a8dcb7",
-      "home_team": "Florida Gators",
-      "away_team": "Providence Friars",
-      "commence_time": "2025-11-28T20:00:44Z",
+      "id": "e6707873eea3b561499fc14ef9828239",
+      "home_team": "Weber State Wildcats",
+      "away_team": "Portland St Vikings",
+      "commence_time": "2026-01-01T21:00:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "84b992ca2260c169cee36f0dc1a8dcb7",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "e6707873eea3b561499fc14ef9828239",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
         "moneyline": [
           {
-            "team": "Florida Gators",
-            "price": -720
-          },
-          {
-            "team": "Providence Friars",
-            "price": 500
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Florida Gators",
-            "point": -10.5,
+            "team": "Portland St Vikings",
             "price": -115
           },
           {
-            "team": "Providence Friars",
-            "point": 10.5,
+            "team": "Weber State Wildcats",
             "price": -105
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Portland St Vikings",
+            "point": -1.5,
+            "price": -105
+          },
+          {
+            "team": "Weber State Wildcats",
+            "point": 1.5,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "e6707873eea3b561499fc14ef9828239",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Portland St Vikings",
+            "price": -120
+          },
+          {
+            "team": "Weber State Wildcats",
+            "price": 100
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Portland St Vikings",
+            "point": -1.5,
+            "price": -110
+          },
+          {
+            "team": "Weber State Wildcats",
+            "point": 1.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "e6707873eea3b561499fc14ef9828239",
+        "bookmaker": "BetRivers",
+        "last_update": "2026-01-01T00:22:08Z",
+        "moneyline": [
+          {
+            "team": "Portland St Vikings",
+            "price": -122
+          },
+          {
+            "team": "Weber State Wildcats",
+            "price": -105
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Portland St Vikings",
+            "point": -1.5,
+            "price": -108
+          },
+          {
+            "team": "Weber State Wildcats",
+            "point": 1.5,
+            "price": -118
           }
         ]
       }
@@ -1442,47 +1711,75 @@
   ],
   [
     {
-      "id": "b47070ec6e3344c727e8a4c9ce0db944",
-      "home_team": "American Eagles",
-      "away_team": "Maine Black Bears",
-      "commence_time": "2025-11-28T21:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "fcb75dc8a39f99789e18ef41b6ce4409",
-      "home_team": "South Carolina Gamecocks",
-      "away_team": "Charleston Southern Buccaneers",
-      "commence_time": "2025-11-28T21:00:00Z",
+      "id": "2e4ce15f70fb157a705f87b4a6394d29",
+      "home_team": "Lindenwood Lions",
+      "away_team": "Morehead St Eagles",
+      "commence_time": "2026-01-01T21:30:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "fcb75dc8a39f99789e18ef41b6ce4409",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "2e4ce15f70fb157a705f87b4a6394d29",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Charleston Southern Buccaneers",
-            "price": 1280
+            "team": "Lindenwood Lions",
+            "price": -325
           },
           {
-            "team": "South Carolina Gamecocks",
-            "price": -3500
+            "team": "Morehead St Eagles",
+            "price": 260
           }
         ],
         "spreads": [
           {
-            "team": "Charleston Southern Buccaneers",
-            "point": 17.5,
+            "team": "Lindenwood Lions",
+            "point": -7.5,
+            "price": -110
+          },
+          {
+            "team": "Morehead St Eagles",
+            "point": 7.5,
+            "price": -110
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "67e91238d6571dfdc08214223a81c592",
+      "home_team": "SIU-Edwardsville Cougars",
+      "away_team": "Southern Indiana Screaming Eagles",
+      "commence_time": "2026-01-01T21:30:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "67e91238d6571dfdc08214223a81c592",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "SIU-Edwardsville Cougars",
+            "price": -650
+          },
+          {
+            "team": "Southern Indiana Screaming Eagles",
+            "price": 475
+          }
+        ],
+        "spreads": [
+          {
+            "team": "SIU-Edwardsville Cougars",
+            "point": -11.5,
             "price": -102
           },
           {
-            "team": "South Carolina Gamecocks",
-            "point": -17.5,
-            "price": -120
+            "team": "Southern Indiana Screaming Eagles",
+            "point": 11.5,
+            "price": -118
           }
         ]
       }
@@ -1490,35 +1787,35 @@
   ],
   [
     {
-      "id": "17f0177dfb104bfba04fb3484fb81026",
-      "home_team": "Davidson Wildcats",
-      "away_team": "North Carolina A&T Aggies",
-      "commence_time": "2025-11-28T21:00:00Z",
+      "id": "67060e3b509cc99d0d3a1d62a7dcbd71",
+      "home_team": "Tenn-Martin Skyhawks",
+      "away_team": "Western Illinois Leathernecks",
+      "commence_time": "2026-01-01T21:30:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "17f0177dfb104bfba04fb3484fb81026",
+        "game_id": "67060e3b509cc99d0d3a1d62a7dcbd71",
         "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Davidson Wildcats",
-            "price": -1200
+            "team": "Tenn-Martin Skyhawks",
+            "price": -1400
           },
           {
-            "team": "North Carolina A&T Aggies",
-            "price": 750
+            "team": "Western Illinois Leathernecks",
+            "price": 775
           }
         ],
         "spreads": [
           {
-            "team": "Davidson Wildcats",
+            "team": "Tenn-Martin Skyhawks",
             "point": -14.5,
             "price": -110
           },
           {
-            "team": "North Carolina A&T Aggies",
+            "team": "Western Illinois Leathernecks",
             "point": 14.5,
             "price": -110
           }
@@ -1528,46 +1825,166 @@
   ],
   [
     {
-      "id": "c298a4d2c0ebc37b6986cf92cc561bd0",
-      "home_team": "Eastern Michigan Eagles",
-      "away_team": "NJIT Highlanders",
-      "commence_time": "2025-11-28T21:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "da5b2dd4353cbbb308442838243e72cb",
-      "home_team": "Virginia Cavaliers",
-      "away_team": "Queens University Royals",
-      "commence_time": "2025-11-28T21:00:00Z",
+      "id": "4629c97b05950ab418b6cb182dffbee1",
+      "home_team": "CSU Bakersfield Roadrunners",
+      "away_team": "UC Irvine Anteaters",
+      "commence_time": "2026-01-01T22:00:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "da5b2dd4353cbbb308442838243e72cb",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "4629c97b05950ab418b6cb182dffbee1",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Queens University Royals",
-            "price": 2400
+            "team": "CSU Bakersfield Roadrunners",
+            "price": 400
           },
           {
-            "team": "Virginia Cavaliers",
-            "price": -10000
+            "team": "UC Irvine Anteaters",
+            "price": -550
           }
         ],
         "spreads": [
           {
-            "team": "Queens University Royals",
-            "point": 23.5,
+            "team": "CSU Bakersfield Roadrunners",
+            "point": 10.5,
+            "price": -115
+          },
+          {
+            "team": "UC Irvine Anteaters",
+            "point": -10.5,
+            "price": -105
+          }
+        ]
+      },
+      {
+        "game_id": "4629c97b05950ab418b6cb182dffbee1",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "CSU Bakersfield Roadrunners",
+            "price": 460
+          },
+          {
+            "team": "UC Irvine Anteaters",
+            "price": -650
+          }
+        ],
+        "spreads": [
+          {
+            "team": "CSU Bakersfield Roadrunners",
+            "point": 10.5,
+            "price": -120
+          },
+          {
+            "team": "UC Irvine Anteaters",
+            "point": -10.5,
+            "price": -102
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "a8e6d9b5ccd524e26cbd93c62b144de7",
+      "home_team": "UC Davis Aggies",
+      "away_team": "CSU Northridge Matadors",
+      "commence_time": "2026-01-01T22:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "a8e6d9b5ccd524e26cbd93c62b144de7",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "CSU Northridge Matadors",
+            "price": 150
+          },
+          {
+            "team": "UC Davis Aggies",
+            "price": -180
+          }
+        ],
+        "spreads": [
+          {
+            "team": "CSU Northridge Matadors",
+            "point": 3.5,
+            "price": -102
+          },
+          {
+            "team": "UC Davis Aggies",
+            "point": -3.5,
+            "price": -118
+          }
+        ]
+      },
+      {
+        "game_id": "a8e6d9b5ccd524e26cbd93c62b144de7",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "CSU Northridge Matadors",
+            "price": 150
+          },
+          {
+            "team": "UC Davis Aggies",
+            "price": -185
+          }
+        ],
+        "spreads": [
+          {
+            "team": "CSU Northridge Matadors",
+            "point": 3.5,
+            "price": -102
+          },
+          {
+            "team": "UC Davis Aggies",
+            "point": -3.5,
+            "price": -118
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "b42a1c0208946edcf9f0de89281b1cdf",
+      "home_team": "UL Monroe Warhawks",
+      "away_team": "Southern Miss Golden Eagles",
+      "commence_time": "2026-01-01T22:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "b42a1c0208946edcf9f0de89281b1cdf",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Southern Miss Golden Eagles",
+            "price": -375
+          },
+          {
+            "team": "UL Monroe Warhawks",
+            "price": 290
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Southern Miss Golden Eagles",
+            "point": -8.5,
             "price": -110
           },
           {
-            "team": "Virginia Cavaliers",
-            "point": -23.5,
+            "team": "UL Monroe Warhawks",
+            "point": 8.5,
             "price": -110
           }
         ]
@@ -1576,129 +1993,371 @@
   ],
   [
     {
-      "id": "80aa8c7f4af4555ff8ff128afdeacbca",
-      "home_team": "Lafayette Leopards",
-      "away_team": "Le Moyne Dolphins",
-      "commence_time": "2025-11-28T21:30:00Z",
+      "id": "bf8e018abaa68d3c3586324cb1155759",
+      "home_team": "South Dakota St Jackrabbits",
+      "away_team": "Omaha Mavericks",
+      "commence_time": "2026-01-01T22:15:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "80aa8c7f4af4555ff8ff128afdeacbca",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "bf8e018abaa68d3c3586324cb1155759",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Lafayette Leopards",
-            "price": -188
+            "team": "Omaha Mavericks",
+            "price": 333
           },
           {
-            "team": "Le Moyne Dolphins",
-            "price": 155
+            "team": "South Dakota St Jackrabbits",
+            "price": -450
           }
         ],
         "spreads": [
           {
-            "team": "Lafayette Leopards",
-            "point": -3.5,
-            "price": -110
+            "team": "Omaha Mavericks",
+            "point": 9.5,
+            "price": -115
           },
           {
-            "team": "Le Moyne Dolphins",
-            "point": 3.5,
-            "price": -110
+            "team": "South Dakota St Jackrabbits",
+            "point": -9.5,
+            "price": -105
           }
         ]
       },
       {
-        "game_id": "80aa8c7f4af4555ff8ff128afdeacbca",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
+        "game_id": "bf8e018abaa68d3c3586324cb1155759",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Lafayette Leopards",
+            "team": "Omaha Mavericks",
+            "price": 375
+          },
+          {
+            "team": "South Dakota St Jackrabbits",
+            "price": -500
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Omaha Mavericks",
+            "point": 8.5,
+            "price": -102
+          },
+          {
+            "team": "South Dakota St Jackrabbits",
+            "point": -8.5,
+            "price": -120
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "ec665baa6f6e1813ff65e44a0894e197",
+      "home_team": "Arkansas-Little Rock Trojans",
+      "away_team": "Tennessee Tech Golden Eagles",
+      "commence_time": "2026-01-01T23:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "ec665baa6f6e1813ff65e44a0894e197",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Arkansas-Little Rock Trojans",
+            "price": -122
+          },
+          {
+            "team": "Tennessee Tech Golden Eagles",
+            "price": 102
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Arkansas-Little Rock Trojans",
+            "point": -1.5,
+            "price": -112
+          },
+          {
+            "team": "Tennessee Tech Golden Eagles",
+            "point": 1.5,
+            "price": -108
+          }
+        ]
+      },
+      {
+        "game_id": "ec665baa6f6e1813ff65e44a0894e197",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Arkansas-Little Rock Trojans",
+            "price": -130
+          },
+          {
+            "team": "Tennessee Tech Golden Eagles",
+            "price": 105
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Arkansas-Little Rock Trojans",
+            "point": -1.5,
+            "price": -115
+          },
+          {
+            "team": "Tennessee Tech Golden Eagles",
+            "point": 1.5,
+            "price": -105
+          }
+        ]
+      },
+      {
+        "game_id": "ec665baa6f6e1813ff65e44a0894e197",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Arkansas-Little Rock Trojans",
+            "price": -128
+          },
+          {
+            "team": "Tennessee Tech Golden Eagles",
+            "price": 106
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Arkansas-Little Rock Trojans",
+            "point": -1.5,
+            "price": -110
+          },
+          {
+            "team": "Tennessee Tech Golden Eagles",
+            "point": 1.5,
+            "price": -110
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "460ac5b24d2bb2d2e828e671913a0528",
+      "home_team": "Montana Grizzlies",
+      "away_team": "Northern Arizona Lumberjacks",
+      "commence_time": "2026-01-01T23:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "460ac5b24d2bb2d2e828e671913a0528",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Montana Grizzlies",
+            "price": -295
+          },
+          {
+            "team": "Northern Arizona Lumberjacks",
+            "price": 230
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Montana Grizzlies",
+            "point": -7.5,
+            "price": -102
+          },
+          {
+            "team": "Northern Arizona Lumberjacks",
+            "point": 7.5,
+            "price": -118
+          }
+        ]
+      },
+      {
+        "game_id": "460ac5b24d2bb2d2e828e671913a0528",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Montana Grizzlies",
+            "price": -345
+          },
+          {
+            "team": "Northern Arizona Lumberjacks",
+            "price": 270
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Montana Grizzlies",
+            "point": -6.5,
+            "price": -120
+          },
+          {
+            "team": "Northern Arizona Lumberjacks",
+            "point": 6.5,
+            "price": -102
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "54561c84c75a4e765dcc2a0607e56ba4",
+      "home_team": "West Georgia Wolves",
+      "away_team": "Bellarmine Knights",
+      "commence_time": "2026-01-02T00:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    []
+  ],
+  [
+    {
+      "id": "ddf162705cef4c1b517ea7768fbd0f76",
+      "home_team": "Belmont Bruins",
+      "away_team": "Bradley Braves",
+      "commence_time": "2026-01-02T00:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "ddf162705cef4c1b517ea7768fbd0f76",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Belmont Bruins",
+            "price": -210
+          },
+          {
+            "team": "Bradley Braves",
+            "price": 170
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Belmont Bruins",
+            "point": -5.5,
+            "price": -102
+          },
+          {
+            "team": "Bradley Braves",
+            "point": 5.5,
+            "price": -118
+          }
+        ]
+      },
+      {
+        "game_id": "ddf162705cef4c1b517ea7768fbd0f76",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Belmont Bruins",
+            "price": -245
+          },
+          {
+            "team": "Bradley Braves",
+            "price": 198
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Belmont Bruins",
+            "point": -4.5,
+            "price": -120
+          },
+          {
+            "team": "Bradley Braves",
+            "point": 4.5,
+            "price": -102
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "ff567a7b364217b63069fec954167ab3",
+      "home_team": "Queens University Royals",
+      "away_team": "Eastern Kentucky Colonels",
+      "commence_time": "2026-01-02T00:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    []
+  ],
+  [
+    {
+      "id": "438f3f15505bba57b87aec263aa7f7aa",
+      "home_team": "Abilene Christian Wildcats",
+      "away_team": "Utah Tech Trailblazers",
+      "commence_time": "2026-01-02T01:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "438f3f15505bba57b87aec263aa7f7aa",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Abilene Christian Wildcats",
             "price": -198
           },
           {
-            "team": "Le Moyne Dolphins",
+            "team": "Utah Tech Trailblazers",
             "price": 164
           }
         ],
         "spreads": [
           {
-            "team": "Lafayette Leopards",
-            "point": -4.5,
-            "price": -108
-          },
-          {
-            "team": "Le Moyne Dolphins",
-            "point": 4.5,
-            "price": -112
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "ae6d0d8b60aa969e31149d982e0104ff",
-      "home_team": "Pennsylvania Quakers",
-      "away_team": "Merrimack Warriors",
-      "commence_time": "2025-11-28T21:30:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "ae6d0d8b60aa969e31149d982e0104ff",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Merrimack Warriors",
-            "price": 215
-          },
-          {
-            "team": "Pennsylvania Quakers",
-            "price": -265
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Merrimack Warriors",
-            "point": 5.5,
-            "price": -110
-          },
-          {
-            "team": "Pennsylvania Quakers",
+            "team": "Abilene Christian Wildcats",
             "point": -5.5,
-            "price": -110
-          }
-        ]
-      },
-      {
-        "game_id": "ae6d0d8b60aa969e31149d982e0104ff",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Merrimack Warriors",
-            "price": 180
+            "price": -102
           },
           {
-            "team": "Pennsylvania Quakers",
-            "price": -218
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Merrimack Warriors",
+            "team": "Utah Tech Trailblazers",
             "point": 5.5,
-            "price": -115
+            "price": -118
+          }
+        ]
+      },
+      {
+        "game_id": "438f3f15505bba57b87aec263aa7f7aa",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Abilene Christian Wildcats",
+            "price": -200
           },
           {
-            "team": "Pennsylvania Quakers",
-            "point": -5.5,
-            "price": -105
+            "team": "Utah Tech Trailblazers",
+            "price": 165
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Abilene Christian Wildcats",
+            "point": -4.5,
+            "price": -118
+          },
+          {
+            "team": "Utah Tech Trailblazers",
+            "point": 4.5,
+            "price": -102
           }
         ]
       }
@@ -1706,63 +2365,63 @@
   ],
   [
     {
-      "id": "a656a0786ffc8f31362b73e457e8aa74",
-      "home_team": "Lehigh Mountain Hawks",
-      "away_team": "UC Santa Barbara Gauchos",
-      "commence_time": "2025-11-28T21:30:12Z",
+      "id": "e42a5a463e04cbc1717616f3f97b7a26",
+      "home_team": "Austin Peay Governors",
+      "away_team": "North Florida Ospreys",
+      "commence_time": "2026-01-02T01:00:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "a656a0786ffc8f31362b73e457e8aa74",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "e42a5a463e04cbc1717616f3f97b7a26",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Lehigh Mountain Hawks",
-            "price": 570
+            "team": "Austin Peay Governors",
+            "price": -1000
           },
           {
-            "team": "UC Santa Barbara Gauchos",
-            "price": -850
+            "team": "North Florida Ospreys",
+            "price": 650
           }
         ],
         "spreads": [
           {
-            "team": "Lehigh Mountain Hawks",
-            "point": 11.5,
+            "team": "Austin Peay Governors",
+            "point": -13.5,
             "price": -110
           },
           {
-            "team": "UC Santa Barbara Gauchos",
-            "point": -11.5,
+            "team": "North Florida Ospreys",
+            "point": 13.5,
             "price": -110
           }
         ]
       },
       {
-        "game_id": "a656a0786ffc8f31362b73e457e8aa74",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
+        "game_id": "e42a5a463e04cbc1717616f3f97b7a26",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Lehigh Mountain Hawks",
-            "price": 500
+            "team": "Austin Peay Governors",
+            "price": -1400
           },
           {
-            "team": "UC Santa Barbara Gauchos",
-            "price": -700
+            "team": "North Florida Ospreys",
+            "price": 800
           }
         ],
         "spreads": [
           {
-            "team": "Lehigh Mountain Hawks",
-            "point": 11.5,
+            "team": "Austin Peay Governors",
+            "point": -13.5,
             "price": -110
           },
           {
-            "team": "UC Santa Barbara Gauchos",
-            "point": -11.5,
+            "team": "North Florida Ospreys",
+            "point": 13.5,
             "price": -110
           }
         ]
@@ -1771,35 +2430,219 @@
   ],
   [
     {
-      "id": "2efe1c6a4b91074fd96ace226794a287",
-      "home_team": "Colorado Buffaloes",
-      "away_team": "Washington Huskies",
-      "commence_time": "2025-11-28T21:30:34Z",
+      "id": "f252271606ab149e4630f110d72e2055",
+      "home_team": "UC Riverside Highlanders",
+      "away_team": "Hawai'i Rainbow Warriors",
+      "commence_time": "2026-01-02T01:00:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "2efe1c6a4b91074fd96ace226794a287",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "f252271606ab149e4630f110d72e2055",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Colorado Buffaloes",
-            "price": 172
+            "team": "Hawai'i Rainbow Warriors",
+            "price": -375
           },
           {
-            "team": "Washington Huskies",
-            "price": -210
+            "team": "UC Riverside Highlanders",
+            "price": 290
           }
         ],
         "spreads": [
           {
-            "team": "Colorado Buffaloes",
+            "team": "Hawai'i Rainbow Warriors",
+            "point": -8.5,
+            "price": -110
+          },
+          {
+            "team": "UC Riverside Highlanders",
+            "point": 8.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "f252271606ab149e4630f110d72e2055",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Hawai'i Rainbow Warriors",
+            "price": -480
+          },
+          {
+            "team": "UC Riverside Highlanders",
+            "price": 360
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Hawai'i Rainbow Warriors",
+            "point": -8.5,
+            "price": -110
+          },
+          {
+            "team": "UC Riverside Highlanders",
+            "point": 8.5,
+            "price": -110
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "e343557fd64448ffbb6e8f34c27af1ae",
+      "home_team": "Northern Iowa Panthers",
+      "away_team": "Indiana St Sycamores",
+      "commence_time": "2026-01-02T01:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "e343557fd64448ffbb6e8f34c27af1ae",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Indiana St Sycamores",
+            "price": 450
+          },
+          {
+            "team": "Northern Iowa Panthers",
+            "price": -625
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Indiana St Sycamores",
+            "point": 10.5,
+            "price": -110
+          },
+          {
+            "team": "Northern Iowa Panthers",
+            "point": -10.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "e343557fd64448ffbb6e8f34c27af1ae",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Indiana St Sycamores",
+            "price": 480
+          },
+          {
+            "team": "Northern Iowa Panthers",
+            "price": -690
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Indiana St Sycamores",
+            "point": 10.5,
+            "price": -110
+          },
+          {
+            "team": "Northern Iowa Panthers",
+            "point": -10.5,
+            "price": -110
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "7f675d02d5c078ffd90a370781abcef9",
+      "home_team": "Tarleton State Texans",
+      "away_team": "Utah Valley Wolverines",
+      "commence_time": "2026-01-02T01:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "7f675d02d5c078ffd90a370781abcef9",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Tarleton State Texans",
+            "price": 145
+          },
+          {
+            "team": "Utah Valley Wolverines",
+            "price": -175
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Tarleton State Texans",
+            "point": 3.5,
+            "price": -105
+          },
+          {
+            "team": "Utah Valley Wolverines",
+            "point": -3.5,
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "7f675d02d5c078ffd90a370781abcef9",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Tarleton State Texans",
+            "price": 145
+          },
+          {
+            "team": "Utah Valley Wolverines",
+            "price": -175
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Tarleton State Texans",
+            "point": 3.5,
+            "price": -110
+          },
+          {
+            "team": "Utah Valley Wolverines",
+            "point": -3.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "7f675d02d5c078ffd90a370781abcef9",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Tarleton State Texans",
+            "price": 168
+          },
+          {
+            "team": "Utah Valley Wolverines",
+            "price": -205
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Tarleton State Texans",
             "point": 4.5,
             "price": -120
           },
           {
-            "team": "Washington Huskies",
+            "team": "Utah Valley Wolverines",
             "point": -4.5,
             "price": -102
           }
@@ -1809,794 +2652,37 @@
   ],
   [
     {
-      "id": "3fe78fc8ef5631f436f4d4fa5b6d8369",
-      "home_team": "Florida St Seminoles",
-      "away_team": "Texas A&M Aggies",
-      "commence_time": "2025-11-28T22:00:00Z",
+      "id": "1914aa724ac475d5403dfb00a16276da",
+      "home_team": "SE Missouri St Redhawks",
+      "away_team": "Eastern Illinois Panthers",
+      "commence_time": "2026-01-02T01:30:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "3fe78fc8ef5631f436f4d4fa5b6d8369",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Florida St Seminoles",
-            "price": -125
-          },
-          {
-            "team": "Texas A&M Aggies",
-            "price": 105
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Florida St Seminoles",
-            "point": -1.5,
-            "price": -110
-          },
-          {
-            "team": "Texas A&M Aggies",
-            "point": 1.5,
-            "price": -110
-          }
-        ]
-      },
-      {
-        "game_id": "3fe78fc8ef5631f436f4d4fa5b6d8369",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Florida St Seminoles",
-            "price": -120
-          },
-          {
-            "team": "Texas A&M Aggies",
-            "price": 100
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Florida St Seminoles",
-            "point": -1.5,
-            "price": -105
-          },
-          {
-            "team": "Texas A&M Aggies",
-            "point": 1.5,
-            "price": -115
-          }
-        ]
-      },
-      {
-        "game_id": "3fe78fc8ef5631f436f4d4fa5b6d8369",
+        "game_id": "1914aa724ac475d5403dfb00a16276da",
         "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Florida St Seminoles",
-            "price": -125
+            "team": "Eastern Illinois Panthers",
+            "price": 575
           },
           {
-            "team": "Texas A&M Aggies",
-            "price": 105
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Florida St Seminoles",
-            "point": -1.5,
-            "price": -110
-          },
-          {
-            "team": "Texas A&M Aggies",
-            "point": 1.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "6d4ba4857520d3795499e6ac91980311",
-      "home_team": "Xavier Musketeers",
-      "away_team": "Texas A&M-CC Islanders",
-      "commence_time": "2025-11-28T22:30:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "6d4ba4857520d3795499e6ac91980311",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Texas A&M-CC Islanders",
-            "price": 1000
-          },
-          {
-            "team": "Xavier Musketeers",
-            "price": -2100
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Texas A&M-CC Islanders",
-            "point": 15.5,
-            "price": -110
-          },
-          {
-            "team": "Xavier Musketeers",
-            "point": -15.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "cc25a9d249b83346bc277e2651af8e0b",
-      "home_team": "TCU Horned Frogs",
-      "away_team": "Wisconsin Badgers",
-      "commence_time": "2025-11-28T22:30:07Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "cc25a9d249b83346bc277e2651af8e0b",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "TCU Horned Frogs",
-            "price": 250
-          },
-          {
-            "team": "Wisconsin Badgers",
-            "price": -315
-          }
-        ],
-        "spreads": [
-          {
-            "team": "TCU Horned Frogs",
-            "point": 6.5,
-            "price": -110
-          },
-          {
-            "team": "Wisconsin Badgers",
-            "point": -6.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "7b437271e85d85cc2681acddef5632c3",
-      "home_team": "Idaho State Bengals",
-      "away_team": "CSU Northridge Matadors",
-      "commence_time": "2025-11-28T23:30:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "7b437271e85d85cc2681acddef5632c3",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "CSU Northridge Matadors",
-            "price": -108
-          },
-          {
-            "team": "Idaho State Bengals",
-            "price": -112
-          }
-        ],
-        "spreads": [
-          {
-            "team": "CSU Northridge Matadors",
-            "point": -1.5,
-            "price": 105
-          },
-          {
-            "team": "Idaho State Bengals",
-            "point": 1.5,
-            "price": -125
-          }
-        ]
-      },
-      {
-        "game_id": "7b437271e85d85cc2681acddef5632c3",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "CSU Northridge Matadors",
-            "price": -102
-          },
-          {
-            "team": "Idaho State Bengals",
-            "price": -118
-          }
-        ],
-        "spreads": [
-          {
-            "team": "CSU Northridge Matadors",
-            "point": 1.5,
-            "price": -122
-          },
-          {
-            "team": "Idaho State Bengals",
-            "point": -1.5,
-            "price": 100
-          }
-        ]
-      },
-      {
-        "game_id": "7b437271e85d85cc2681acddef5632c3",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "CSU Northridge Matadors",
-            "price": -102
-          },
-          {
-            "team": "Idaho State Bengals",
-            "price": -118
-          }
-        ],
-        "spreads": [
-          {
-            "team": "CSU Northridge Matadors",
-            "point": 1.5,
-            "price": -110
-          },
-          {
-            "team": "Idaho State Bengals",
-            "point": -1.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "1cba2fab043444805e19204a7bfa2f00",
-      "home_team": "Clemson Tigers",
-      "away_team": "Alabama A&M Bulldogs",
-      "commence_time": "2025-11-29T00:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    []
-  ],
-  [
-    {
-      "id": "30b1f7ec166c07278b6db679ca6c6444",
-      "home_team": "Mississippi St Bulldogs",
-      "away_team": "SMU Mustangs",
-      "commence_time": "2025-11-29T00:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "30b1f7ec166c07278b6db679ca6c6444",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Mississippi St Bulldogs",
-            "price": -104
-          },
-          {
-            "team": "SMU Mustangs",
-            "price": -115
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Mississippi St Bulldogs",
-            "point": 1.5,
-            "price": -122
-          },
-          {
-            "team": "SMU Mustangs",
-            "point": -1.5,
-            "price": 100
-          }
-        ]
-      },
-      {
-        "game_id": "30b1f7ec166c07278b6db679ca6c6444",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Mississippi St Bulldogs",
-            "price": -102
-          },
-          {
-            "team": "SMU Mustangs",
-            "price": -118
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Mississippi St Bulldogs",
-            "point": 1.5,
-            "price": -118
-          },
-          {
-            "team": "SMU Mustangs",
-            "point": -1.5,
-            "price": -102
-          }
-        ]
-      },
-      {
-        "game_id": "30b1f7ec166c07278b6db679ca6c6444",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Mississippi St Bulldogs",
-            "price": -102
-          },
-          {
-            "team": "SMU Mustangs",
-            "price": -118
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Mississippi St Bulldogs",
-            "point": 1.5,
-            "price": -118
-          },
-          {
-            "team": "SMU Mustangs",
-            "point": -1.5,
-            "price": -102
-          }
-        ]
-      },
-      {
-        "game_id": "30b1f7ec166c07278b6db679ca6c6444",
-        "bookmaker": "BetRivers",
-        "last_update": "2025-11-28T03:39:54Z",
-        "moneyline": [
-          {
-            "team": "Mississippi St Bulldogs",
-            "price": -106
-          },
-          {
-            "team": "SMU Mustangs",
-            "price": -121
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Mississippi St Bulldogs",
-            "point": 1.5,
-            "price": -118
-          },
-          {
-            "team": "SMU Mustangs",
-            "point": -1.5,
-            "price": -107
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "e25d36ee9a5cf7b5137d5cab13b67e72",
-      "home_team": "Pittsburgh Panthers",
-      "away_team": "Ohio State Buckeyes",
-      "commence_time": "2025-11-29T00:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "e25d36ee9a5cf7b5137d5cab13b67e72",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Ohio State Buckeyes",
-            "price": -265
-          },
-          {
-            "team": "Pittsburgh Panthers",
-            "price": 215
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Ohio State Buckeyes",
-            "point": -5.5,
-            "price": -110
-          },
-          {
-            "team": "Pittsburgh Panthers",
-            "point": 5.5,
-            "price": -110
-          }
-        ]
-      },
-      {
-        "game_id": "e25d36ee9a5cf7b5137d5cab13b67e72",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Ohio State Buckeyes",
-            "price": -225
-          },
-          {
-            "team": "Pittsburgh Panthers",
-            "price": 185
-          }
-        ],
-        "spreads": []
-      }
-    ]
-  ],
-  [
-    {
-      "id": "c7500f1f1a7cd971da939a8366de7112",
-      "home_team": "Georgia Tech Yellow Jackets",
-      "away_team": "DePaul Blue Demons",
-      "commence_time": "2025-11-29T00:00:50Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "c7500f1f1a7cd971da939a8366de7112",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "DePaul Blue Demons",
-            "price": -115
-          },
-          {
-            "team": "Georgia Tech Yellow Jackets",
-            "price": -104
-          }
-        ],
-        "spreads": [
-          {
-            "team": "DePaul Blue Demons",
-            "point": -1.5,
-            "price": 100
-          },
-          {
-            "team": "Georgia Tech Yellow Jackets",
-            "point": 1.5,
-            "price": -122
-          }
-        ]
-      },
-      {
-        "game_id": "c7500f1f1a7cd971da939a8366de7112",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "DePaul Blue Demons",
-            "price": -120
-          },
-          {
-            "team": "Georgia Tech Yellow Jackets",
-            "price": 100
-          }
-        ],
-        "spreads": [
-          {
-            "team": "DePaul Blue Demons",
-            "point": -1.5,
-            "price": -105
-          },
-          {
-            "team": "Georgia Tech Yellow Jackets",
-            "point": 1.5,
-            "price": -115
-          }
-        ]
-      },
-      {
-        "game_id": "c7500f1f1a7cd971da939a8366de7112",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "DePaul Blue Demons",
-            "price": -120
-          },
-          {
-            "team": "Georgia Tech Yellow Jackets",
-            "price": 100
-          }
-        ],
-        "spreads": [
-          {
-            "team": "DePaul Blue Demons",
-            "point": -1.5,
-            "price": -105
-          },
-          {
-            "team": "Georgia Tech Yellow Jackets",
-            "point": 1.5,
-            "price": -115
-          }
-        ]
-      },
-      {
-        "game_id": "c7500f1f1a7cd971da939a8366de7112",
-        "bookmaker": "Bovada",
-        "last_update": "2025-11-28T03:39:57Z",
-        "moneyline": [
-          {
-            "team": "DePaul Blue Demons",
-            "price": -120
-          },
-          {
-            "team": "Georgia Tech Yellow Jackets",
-            "price": 100
-          }
-        ],
-        "spreads": [
-          {
-            "team": "DePaul Blue Demons",
-            "point": -1.5,
-            "price": -105
-          },
-          {
-            "team": "Georgia Tech Yellow Jackets",
-            "point": 1.5,
-            "price": -115
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "a5e2eb304b758984c41e94878c43b715",
-      "home_team": "Albany Great Danes",
-      "away_team": "Colgate Raiders",
-      "commence_time": "2025-11-29T00:30:33Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "a5e2eb304b758984c41e94878c43b715",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Albany Great Danes",
-            "price": 230
-          },
-          {
-            "team": "Colgate Raiders",
-            "price": -285
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Albany Great Danes",
-            "point": 6.5,
-            "price": -120
-          },
-          {
-            "team": "Colgate Raiders",
-            "point": -6.5,
-            "price": -102
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "8e6613fd5c0ec70050ef634fb9882a05",
-      "home_team": "Louisiana Ragin' Cajuns",
-      "away_team": "Jackson St Tigers",
-      "commence_time": "2025-11-29T01:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "8e6613fd5c0ec70050ef634fb9882a05",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Jackson St Tigers",
-            "price": 180
-          },
-          {
-            "team": "Louisiana Ragin' Cajuns",
-            "price": -220
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Jackson St Tigers",
-            "point": 4.5,
-            "price": -115
-          },
-          {
-            "team": "Louisiana Ragin' Cajuns",
-            "point": -4.5,
-            "price": -105
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "d89d2547e14271f25f8e6ba1be6568ec",
-      "home_team": "Idaho Vandals",
-      "away_team": "Sam Houston St Bearkats",
-      "commence_time": "2025-11-29T02:00:00Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "d89d2547e14271f25f8e6ba1be6568ec",
-        "bookmaker": "DraftKings",
-        "last_update": "2025-11-28T03:39:25Z",
-        "moneyline": [
-          {
-            "team": "Idaho Vandals",
-            "price": -110
-          },
-          {
-            "team": "Sam Houston St Bearkats",
-            "price": -110
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Idaho Vandals",
-            "point": -1.5,
-            "price": 105
-          },
-          {
-            "team": "Sam Houston St Bearkats",
-            "point": 1.5,
-            "price": -125
-          }
-        ]
-      },
-      {
-        "game_id": "d89d2547e14271f25f8e6ba1be6568ec",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Idaho Vandals",
-            "price": -105
-          },
-          {
-            "team": "Sam Houston St Bearkats",
-            "price": -114
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Idaho Vandals",
-            "point": 1.5,
-            "price": -122
-          },
-          {
-            "team": "Sam Houston St Bearkats",
-            "point": -1.5,
-            "price": 100
-          }
-        ]
-      },
-      {
-        "game_id": "d89d2547e14271f25f8e6ba1be6568ec",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Idaho Vandals",
-            "price": -102
-          },
-          {
-            "team": "Sam Houston St Bearkats",
-            "price": -118
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Idaho Vandals",
-            "point": 1.5,
-            "price": -110
-          },
-          {
-            "team": "Sam Houston St Bearkats",
-            "point": -1.5,
-            "price": -110
-          }
-        ]
-      }
-    ]
-  ],
-  [
-    {
-      "id": "6ee4c4639173d3e7b9bd4cbfaf88268c",
-      "home_team": "LSU Tigers",
-      "away_team": "Drake Bulldogs",
-      "commence_time": "2025-11-29T02:30:13Z",
-      "sport_title": "NCAAB"
-    },
-    [
-      {
-        "game_id": "6ee4c4639173d3e7b9bd4cbfaf88268c",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
-        "moneyline": [
-          {
-            "team": "Drake Bulldogs",
-            "price": 590
-          },
-          {
-            "team": "LSU Tigers",
+            "team": "SE Missouri St Redhawks",
             "price": -900
           }
         ],
         "spreads": [
           {
-            "team": "Drake Bulldogs",
-            "point": 11.5,
-            "price": -102
+            "team": "Eastern Illinois Panthers",
+            "point": 12.5,
+            "price": -115
           },
           {
-            "team": "LSU Tigers",
-            "point": -11.5,
-            "price": -120
-          }
-        ]
-      },
-      {
-        "game_id": "6ee4c4639173d3e7b9bd4cbfaf88268c",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
-        "moneyline": [
-          {
-            "team": "Drake Bulldogs",
-            "price": 500
-          },
-          {
-            "team": "LSU Tigers",
-            "price": -700
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Drake Bulldogs",
-            "point": 11.5,
-            "price": -110
-          },
-          {
-            "team": "LSU Tigers",
-            "point": -11.5,
-            "price": -110
+            "team": "SE Missouri St Redhawks",
+            "point": -12.5,
+            "price": -105
           }
         ]
       }
@@ -2604,90 +2690,220 @@
   ],
   [
     {
-      "id": "1399f0815dafe4c236b92113e2d561ea",
-      "home_team": "Loyola Marymount Lions",
-      "away_team": "Stony Brook Seawolves",
-      "commence_time": "2025-11-29T03:00:00Z",
+      "id": "2281c87721e672f9c3da10bdcd217670",
+      "home_team": "Idaho State Bengals",
+      "away_team": "Sacramento St Hornets",
+      "commence_time": "2026-01-02T02:00:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "1399f0815dafe4c236b92113e2d561ea",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "2281c87721e672f9c3da10bdcd217670",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Loyola Marymount Lions",
-            "price": -630
+            "team": "Idaho State Bengals",
+            "price": -625
           },
           {
-            "team": "Stony Brook Seawolves",
+            "team": "Sacramento St Hornets",
             "price": 450
           }
         ],
         "spreads": [
           {
-            "team": "Loyola Marymount Lions",
-            "point": -9.5,
-            "price": -120
+            "team": "Idaho State Bengals",
+            "point": -10.5,
+            "price": -118
           },
           {
-            "team": "Stony Brook Seawolves",
-            "point": 9.5,
+            "team": "Sacramento St Hornets",
+            "point": 10.5,
             "price": -102
           }
         ]
       },
       {
-        "game_id": "1399f0815dafe4c236b92113e2d561ea",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
+        "game_id": "2281c87721e672f9c3da10bdcd217670",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Loyola Marymount Lions",
-            "price": -500
+            "team": "Idaho State Bengals",
+            "price": -720
           },
           {
-            "team": "Stony Brook Seawolves",
-            "price": 375
+            "team": "Sacramento St Hornets",
+            "price": 500
           }
         ],
         "spreads": [
           {
-            "team": "Loyola Marymount Lions",
-            "point": -9.5,
-            "price": -115
+            "team": "Idaho State Bengals",
+            "point": -10.5,
+            "price": -120
           },
           {
-            "team": "Stony Brook Seawolves",
-            "point": 9.5,
-            "price": -105
+            "team": "Sacramento St Hornets",
+            "point": 10.5,
+            "price": -102
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "d64bca22f83017cf37cfd7390a3c972e",
+      "home_team": "Montana St Bobcats",
+      "away_team": "N Colorado Bears",
+      "commence_time": "2026-01-02T02:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "d64bca22f83017cf37cfd7390a3c972e",
+        "bookmaker": "DraftKings",
+        "last_update": "2026-01-01T00:22:22Z",
+        "moneyline": [
+          {
+            "team": "Montana St Bobcats",
+            "price": -155
+          },
+          {
+            "team": "N Colorado Bears",
+            "price": 130
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Montana St Bobcats",
+            "point": -3.5,
+            "price": -102
+          },
+          {
+            "team": "N Colorado Bears",
+            "point": 3.5,
+            "price": -118
           }
         ]
       },
       {
-        "game_id": "1399f0815dafe4c236b92113e2d561ea",
-        "bookmaker": "BetRivers",
-        "last_update": "2025-11-28T03:39:54Z",
+        "game_id": "d64bca22f83017cf37cfd7390a3c972e",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Loyola Marymount Lions",
-            "price": -530
+            "team": "Montana St Bobcats",
+            "price": -150
           },
           {
-            "team": "Stony Brook Seawolves",
-            "price": 350
+            "team": "N Colorado Bears",
+            "price": 125
           }
         ],
         "spreads": [
           {
-            "team": "Loyola Marymount Lions",
-            "point": -9.5,
-            "price": -115
+            "team": "Montana St Bobcats",
+            "point": -2.5,
+            "price": -118
           },
           {
-            "team": "Stony Brook Seawolves",
-            "point": 9.5,
+            "team": "N Colorado Bears",
+            "point": 2.5,
+            "price": -102
+          }
+        ]
+      },
+      {
+        "game_id": "d64bca22f83017cf37cfd7390a3c972e",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Montana St Bobcats",
+            "price": -172
+          },
+          {
+            "team": "N Colorado Bears",
+            "price": 142
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Montana St Bobcats",
+            "point": -2.5,
+            "price": -120
+          },
+          {
+            "team": "N Colorado Bears",
+            "point": 2.5,
+            "price": -102
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "d4f8d1a673841993c013e26612c88271",
+      "home_team": "UIC Flames",
+      "away_team": "Murray St Racers",
+      "commence_time": "2026-01-02T02:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "d4f8d1a673841993c013e26612c88271",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Murray St Racers",
+            "price": -275
+          },
+          {
+            "team": "UIC Flames",
+            "price": 220
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Murray St Racers",
+            "point": -6.5,
+            "price": -110
+          },
+          {
+            "team": "UIC Flames",
+            "point": 6.5,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "d4f8d1a673841993c013e26612c88271",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Murray St Racers",
+            "price": -330
+          },
+          {
+            "team": "UIC Flames",
+            "price": 260
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Murray St Racers",
+            "point": -6.5,
+            "price": -110
+          },
+          {
+            "team": "UIC Flames",
+            "point": 6.5,
             "price": -110
           }
         ]
@@ -2696,66 +2912,93 @@
   ],
   [
     {
-      "id": "983e8cedee951a8b9d0bae9c30710936",
-      "home_team": "Hawai'i Rainbow Warriors",
-      "away_team": "North Dakota Fighting Hawks",
-      "commence_time": "2025-11-29T05:00:00Z",
+      "id": "b214bab106dfefad04366932bcc015a0",
+      "home_team": "CSU Fullerton Titans",
+      "away_team": "UC Santa Barbara Gauchos",
+      "commence_time": "2026-01-02T03:00:00Z",
       "sport_title": "NCAAB"
     },
     [
       {
-        "game_id": "983e8cedee951a8b9d0bae9c30710936",
-        "bookmaker": "FanDuel",
-        "last_update": "2025-11-28T03:39:14Z",
+        "game_id": "b214bab106dfefad04366932bcc015a0",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Hawai'i Rainbow Warriors",
-            "price": -2800
+            "team": "CSU Fullerton Titans",
+            "price": 155
           },
           {
-            "team": "North Dakota Fighting Hawks",
-            "price": 1160
+            "team": "UC Santa Barbara Gauchos",
+            "price": -190
           }
         ],
         "spreads": [
           {
-            "team": "Hawai'i Rainbow Warriors",
-            "point": -16.5,
+            "team": "CSU Fullerton Titans",
+            "point": 4.5,
             "price": -110
           },
           {
-            "team": "North Dakota Fighting Hawks",
-            "point": 16.5,
+            "team": "UC Santa Barbara Gauchos",
+            "point": -4.5,
             "price": -110
           }
         ]
       },
       {
-        "game_id": "983e8cedee951a8b9d0bae9c30710936",
-        "bookmaker": "BetMGM",
-        "last_update": "2025-11-28T03:39:39Z",
+        "game_id": "b214bab106dfefad04366932bcc015a0",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:22:21Z",
         "moneyline": [
           {
-            "team": "Hawai'i Rainbow Warriors",
-            "price": -2000
+            "team": "CSU Fullerton Titans",
+            "price": 198
           },
           {
-            "team": "North Dakota Fighting Hawks",
-            "price": 950
+            "team": "UC Santa Barbara Gauchos",
+            "price": -245
           }
         ],
         "spreads": [
           {
-            "team": "Hawai'i Rainbow Warriors",
-            "point": -16.5,
-            "price": -110
+            "team": "CSU Fullerton Titans",
+            "point": 5.5,
+            "price": -120
           },
           {
-            "team": "North Dakota Fighting Hawks",
-            "point": 16.5,
-            "price": -110
+            "team": "UC Santa Barbara Gauchos",
+            "point": -5.5,
+            "price": -102
           }
         ]
+      }
+    ]
+  ],
+  [
+    {
+      "id": "947638afe5c7a210ac5d8a6d04e92fcd",
+      "home_team": "Cal Poly Mustangs",
+      "away_team": "UC San Diego Tritons",
+      "commence_time": "2026-01-02T03:00:00Z",
+      "sport_title": "NCAAB"
+    },
+    [
+      {
+        "game_id": "947638afe5c7a210ac5d8a6d04e92fcd",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:22:21Z",
+        "moneyline": [
+          {
+            "team": "Cal Poly Mustangs",
+            "price": 280
+          },
+          {
+            "team": "UC San Diego Tritons",
+            "price": -350
+          }
+        ],
+        "spreads": []
       }
     ]
   ]

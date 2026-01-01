@@ -1,11 +1,16 @@
 use anyhow::{Context, Result};
 use cfb_betting_ev::arbitrage::{find_moneyline_arbitrage, find_spread_arbitrage};
 use cfb_betting_ev::data::{
-    load_from_cache, save_moneyline_arbitrage_to_csv, save_moneyline_bets_to_csv,
-    save_spread_arbitrage_to_csv, save_spread_bets_to_csv, save_to_cache,
+    load_from_cache, load_moneyline_bets_from_csv, load_spread_bets_from_csv,
+    save_moneyline_arbitrage_to_csv, save_moneyline_bets_to_csv, save_spread_arbitrage_to_csv,
+    save_spread_bets_to_csv, save_to_cache,
 };
-use cfb_betting_ev::ev_analysis::{find_top_ev_bets, find_top_spread_ev_bets};
+use cfb_betting_ev::ev_analysis::{
+    compare_ev_bets_to_results, compare_spread_ev_bets_to_results, find_top_ev_bets,
+    find_top_spread_ev_bets,
+};
 use cfb_betting_ev::{GameResultsApiClient, OddsApiClient, PredictionTrackerScraper, Sport};
+use chrono::{Datelike, Local};
 use clap::{Parser, Subcommand};
 use std::path::Path;
 
@@ -28,6 +33,24 @@ enum Commands {
         /// Check College Football Data API usage
         #[arg(long)]
         cfb_data: bool,
+    },
+    /// Compare saved bet recommendations with actual game results
+    CompareBets {
+        /// Path to moneyline bets CSV file
+        #[arg(long, default_value = "cache/moneyline_bets.csv")]
+        moneyline_csv: String,
+
+        /// Path to spread bets CSV file
+        #[arg(long, default_value = "cache/spread_bets.csv")]
+        spread_csv: String,
+
+        /// Year of the games (defaults to current year)
+        #[arg(long)]
+        year: Option<u32>,
+
+        /// Week of the games (defaults to current week)
+        #[arg(long)]
+        week: Option<u8>,
     },
     /// Run the full betting analysis (default)
     Analyze,
@@ -63,6 +86,144 @@ async fn main() -> Result<()> {
                 let cfb_client = GameResultsApiClient::new(cfb_api_key);
                 println!("Checking College Football Data API usage...\n");
                 cfb_client.check_usage().await?;
+            }
+
+            return Ok(());
+        }
+        Some(Commands::CompareBets {
+            moneyline_csv,
+            spread_csv,
+            year,
+            week,
+        }) => {
+            println!("Comparing bet recommendations with game results...\n");
+
+            // Get year and week (default to current if not specified)
+            let now = Local::now();
+            let year = year.unwrap_or(now.year() as u32);
+            let week = week.unwrap_or(now.iso_week().week() as u8);
+
+            println!("Fetching game results for week {} of {}...\n", week, year);
+
+            // Fetch game results
+            let cfb_api_key = std::env::var("COLLEGE_FOOTBALL_DATA_API_KEY")
+                .expect("COLLEGE_FOOTBALL_DATA_API_KEY not set in .env file");
+            let cfb_client = GameResultsApiClient::new(cfb_api_key);
+            let game_results = cfb_client
+                .fetch_cfb_game_results(year, week)
+                .await
+                .context("Failed to fetch CFB game results")?;
+
+            println!("Fetched {} completed games\n", game_results.len());
+
+            // Load bets from CSV files
+            let moneyline_bets = if Path::new(&moneyline_csv).exists() {
+                println!("Loading moneyline bets from {}...", moneyline_csv);
+                load_moneyline_bets_from_csv(&moneyline_csv)?
+            } else {
+                println!(
+                    "Moneyline CSV file not found: {}. Skipping moneyline comparison.",
+                    moneyline_csv
+                );
+                Vec::new()
+            };
+
+            let spread_bets = if Path::new(&spread_csv).exists() {
+                println!("Loading spread bets from {}...", spread_csv);
+                load_spread_bets_from_csv(&spread_csv)?
+            } else {
+                println!(
+                    "Spread CSV file not found: {}. Skipping spread comparison.",
+                    spread_csv
+                );
+                Vec::new()
+            };
+
+            // Compare bets with results
+            if !moneyline_bets.is_empty() {
+                println!("\n=== MONEYLINE BET RESULTS ===\n");
+                let bet_results = compare_ev_bets_to_results(&moneyline_bets, &game_results);
+
+                let mut total_wins = 0;
+                let mut total_losses = 0;
+                let mut total_payout = 0.0;
+                let mut total_bet = 0.0;
+
+                for (i, result) in bet_results.iter().enumerate() {
+                    println!("{}. {}", i + 1, result.format());
+
+                    if let (Some(won), Some(payout)) = (result.bet_won, result.actual_payout) {
+                        if won {
+                            total_wins += 1;
+                            total_payout += payout;
+                        } else {
+                            total_losses += 1;
+                        }
+                        total_bet += 1.0;
+                    }
+                }
+
+                if total_bet > 0.0 {
+                    let net_profit = total_payout - total_losses as f64;
+                    let roi = (net_profit / total_bet) * 100.0;
+                    println!("\n--- Moneyline Summary ---");
+                    println!("Total Bets Resolved: {}", total_bet as i32);
+                    println!(
+                        "Wins: {} ({:.1}%)",
+                        total_wins,
+                        (total_wins as f64 / total_bet) * 100.0
+                    );
+                    println!(
+                        "Losses: {} ({:.1}%)",
+                        total_losses,
+                        (total_losses as f64 / total_bet) * 100.0
+                    );
+                    println!("Net Profit: ${:.2}", net_profit);
+                    println!("ROI: {:.2}%", roi);
+                }
+            }
+
+            if !spread_bets.is_empty() {
+                println!("\n=== SPREAD BET RESULTS ===\n");
+                let spread_results = compare_spread_ev_bets_to_results(&spread_bets, &game_results);
+
+                let mut total_wins = 0;
+                let mut total_losses = 0;
+                let mut total_payout = 0.0;
+                let mut total_bet = 0.0;
+
+                for (i, result) in spread_results.iter().enumerate() {
+                    println!("{}. {}", i + 1, result.format());
+
+                    if let (Some(won), Some(payout)) = (result.bet_won, result.actual_payout) {
+                        if won {
+                            total_wins += 1;
+                            total_payout += payout;
+                        } else {
+                            total_losses += 1;
+                        }
+                        total_bet += 1.0;
+                    }
+                }
+
+                if total_bet > 0.0 {
+                    let net_profit = total_payout - total_losses as f64;
+                    let roi = (net_profit / total_bet) * 100.0;
+                    println!("\n--- Spread Summary ---");
+                    println!("Total Bets Resolved: {}", total_bet as i32);
+                    println!(
+                        "Wins: {} ({:.1}%)",
+                        total_wins,
+                        (total_wins as f64 / total_bet) * 100.0
+                    );
+                    println!(
+                        "Losses: {} ({:.1}%)",
+                        total_losses,
+                        (total_losses as f64 / total_bet) * 100.0
+                    );
+                    println!("Net Profit: ${:.2}", net_profit);
+                    println!("ROI: {:.2}%", roi);
+                }
             }
 
             return Ok(());

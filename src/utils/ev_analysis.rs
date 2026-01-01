@@ -529,9 +529,30 @@ pub fn compare_spread_ev_bets_to_results(
                     let home_team_key = extract_school_name(&result.home_team);
                     let actual_margin = home_points - away_points;
 
+                    // Spread betting logic:
+                    // - If betting on home team: home needs to win by more than the spread
+                    //   e.g., Home -7.5 means home must win by > 7.5 points
+                    //   e.g., Home +3.5 means home can lose by < 3.5 points (or win)
+                    // - If betting on away team: away needs to beat the spread
+                    //   e.g., Away +7.5 means away can lose by < 7.5 points (or win)
+                    //   e.g., Away -3.5 means away must win by > 3.5 points
+                    //
+                    // In spread betting, the line is always from the perspective of the team being bet on.
+                    // The bet wins if: (team_score + spread) > opponent_score
+                    // Which is equivalent to: (team_score - opponent_score) > -spread
+
                     let bet_won = if bet_team_key == home_team_key {
-                        (actual_margin as f64) > bet.spread_line
+                        // Betting on home team
+                        // Home covers if: home_points + (-spread) > away_points
+                        // Which is: (home_points - away_points) > -spread
+                        // Or: actual_margin > -spread_line
+                        (actual_margin as f64) > -bet.spread_line
                     } else {
+                        // Betting on away team
+                        // Away covers if: away_points + (-spread) > home_points
+                        // Which is: (away_points - home_points) > -spread
+                        // Or: -actual_margin > -spread_line
+                        // Or: actual_margin < spread_line
                         (actual_margin as f64) < bet.spread_line
                     };
 
