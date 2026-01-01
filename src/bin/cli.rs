@@ -9,7 +9,10 @@ use cfb_betting_ev::ev_analysis::{
     compare_ev_bets_to_results, compare_spread_ev_bets_to_results, find_top_ev_bets,
     find_top_spread_ev_bets,
 };
-use cfb_betting_ev::{GameResultsApiClient, OddsApiClient, PredictionTrackerScraper, Sport};
+use cfb_betting_ev::{
+    BettingOdds, Game, GameResultsApiClient, KalshiClient, OddsApiClient, PredictionTrackerScraper,
+    Sport,
+};
 use chrono::{Datelike, Local};
 use clap::{Parser, Subcommand};
 use std::path::Path;
@@ -54,6 +57,46 @@ enum Commands {
     },
     /// Run the full betting analysis (default)
     Analyze,
+}
+
+/// Merge Kalshi odds into existing games
+/// For each Kalshi game, find a matching game in the existing list and append Kalshi odds
+/// If no match is found, add the Kalshi game as a new entry
+fn merge_kalshi_odds(
+    existing_games: &mut Vec<(Game, Vec<BettingOdds>)>,
+    kalshi_games: Vec<(Game, Vec<BettingOdds>)>,
+) {
+    use cfb_betting_ev::kalshi_api::normalize_team_name;
+
+    for (kalshi_game, kalshi_odds_list) in kalshi_games {
+        // Try to find a matching game in the existing list
+        let kalshi_home_normalized = normalize_team_name(&kalshi_game.home_team);
+        let kalshi_away_normalized = normalize_team_name(&kalshi_game.away_team);
+
+        let mut found_match = false;
+        for (existing_game, existing_odds_list) in existing_games.iter_mut() {
+            let existing_home_normalized = normalize_team_name(&existing_game.home_team);
+            let existing_away_normalized = normalize_team_name(&existing_game.away_team);
+
+            // Check if teams match (in either order)
+            let teams_match = (kalshi_home_normalized == existing_home_normalized
+                && kalshi_away_normalized == existing_away_normalized)
+                || (kalshi_home_normalized == existing_away_normalized
+                    && kalshi_away_normalized == existing_home_normalized);
+
+            if teams_match {
+                // Merge Kalshi odds into this game
+                existing_odds_list.extend(kalshi_odds_list.clone());
+                found_match = true;
+                break;
+            }
+        }
+
+        if !found_match {
+            // No matching game found, add as new entry
+            existing_games.push((kalshi_game, kalshi_odds_list));
+        }
+    }
 }
 
 #[tokio::main]
@@ -243,6 +286,15 @@ async fn main() -> Result<()> {
     let odds_client = OddsApiClient::new(api_key);
     let prediction_scraper = PredictionTrackerScraper::new();
 
+    // Optionally create Kalshi client if API key is available
+    let kalshi_client = std::env::var("KALSHI_API_KEY")
+        .ok()
+        .map(|key| KalshiClient::new(key));
+
+    if kalshi_client.is_some() {
+        println!("Kalshi integration enabled\n");
+    }
+
     // Check if we should use cached data
     let odds_cache_file = "cache/odds_cache.json";
     let predictions_cache_file = "cache/predictions_cache.json";
@@ -269,7 +321,7 @@ async fn main() -> Result<()> {
         predictions
     };
     // Fetch college football odds
-    let cfb_games_with_odds = if use_cache && Path::new(odds_cache_file).exists() {
+    let mut cfb_games_with_odds = if use_cache && Path::new(odds_cache_file).exists() {
         println!("Loading odds from cache file: {}\n", odds_cache_file);
         load_from_cache(odds_cache_file)?
     } else {
@@ -286,9 +338,44 @@ async fn main() -> Result<()> {
         games_with_odds
     };
 
+    // Fetch and merge Kalshi odds for CFB if available
+    if let Some(ref kalshi) = kalshi_client {
+        let kalshi_cfb_cache = "cache/kalshi_cfb_cache.json";
+        let kalshi_cfb_games = if use_cache && Path::new(kalshi_cfb_cache).exists() {
+            println!(
+                "Loading Kalshi CFB odds from cache file: {}\n",
+                kalshi_cfb_cache
+            );
+            load_from_cache(kalshi_cfb_cache)?
+        } else {
+            match kalshi.fetch_games(Sport::CollegeFootball).await {
+                Ok(games) => {
+                    save_to_cache(&games, kalshi_cfb_cache)?;
+                    println!(
+                        "Saved Kalshi CFB odds to cache file: {}\n",
+                        kalshi_cfb_cache
+                    );
+                    games
+                }
+                Err(e) => {
+                    eprintln!("Warning: Failed to fetch Kalshi CFB odds: {}\n", e);
+                    Vec::new()
+                }
+            }
+        };
+
+        if !kalshi_cfb_games.is_empty() {
+            println!(
+                "Merging {} Kalshi CFB games with existing odds\n",
+                kalshi_cfb_games.len()
+            );
+            merge_kalshi_odds(&mut cfb_games_with_odds, kalshi_cfb_games);
+        }
+    }
+
     // Fetch college basketball odds
     let cbb_cache_file = "cache/cbb_odds_cache.json";
-    let cbb_games_with_odds = if use_cache && Path::new(cbb_cache_file).exists() {
+    let mut cbb_games_with_odds = if use_cache && Path::new(cbb_cache_file).exists() {
         println!("Loading CBB odds from cache file: {}\n", cbb_cache_file);
         load_from_cache(cbb_cache_file)?
     } else {
@@ -304,6 +391,41 @@ async fn main() -> Result<()> {
 
         games_with_odds
     };
+
+    // Fetch and merge Kalshi odds for CBB if available
+    if let Some(ref kalshi) = kalshi_client {
+        let kalshi_cbb_cache = "cache/kalshi_cbb_cache.json";
+        let kalshi_cbb_games = if use_cache && Path::new(kalshi_cbb_cache).exists() {
+            println!(
+                "Loading Kalshi CBB odds from cache file: {}\n",
+                kalshi_cbb_cache
+            );
+            load_from_cache(kalshi_cbb_cache)?
+        } else {
+            match kalshi.fetch_games(Sport::CollegeBasketball).await {
+                Ok(games) => {
+                    save_to_cache(&games, kalshi_cbb_cache)?;
+                    println!(
+                        "Saved Kalshi CBB odds to cache file: {}\n",
+                        kalshi_cbb_cache
+                    );
+                    games
+                }
+                Err(e) => {
+                    eprintln!("Warning: Failed to fetch Kalshi CBB odds: {}\n", e);
+                    Vec::new()
+                }
+            }
+        };
+
+        if !kalshi_cbb_games.is_empty() {
+            println!(
+                "Merging {} Kalshi CBB games with existing odds\n",
+                kalshi_cbb_games.len()
+            );
+            merge_kalshi_odds(&mut cbb_games_with_odds, kalshi_cbb_games);
+        }
+    }
 
     // Find top moneyline EV bets (CFB only - requires predictions)
     println!("COLLEGE FOOTBALL\n");

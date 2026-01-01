@@ -10,6 +10,7 @@ pub use utils::*;
 
 use anyhow::{Context, Result};
 pub use api::game_results_api::{CbbGameResult, GameResult, GameResultsApiClient};
+pub use api::kalshi_api::KalshiClient;
 pub use api::odds_api::OddsApiClient;
 use chrono::prelude::*;
 pub use scrapers::prediction_tracker::PredictionTrackerScraper;

@@ -10,136 +10,98 @@
     [
       {
         "game_id": "9cc018d40a32673ecd1d80a809a0d250",
-        "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
-        "moneyline": [
-          {
-            "team": "Nicholls St Colonels",
-            "price": -290
-          },
-          {
-            "team": "UT Rio Grande Valley Vaqueros",
-            "price": 215
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Nicholls St Colonels",
-            "point": -3.5,
-            "price": -104
-          },
-          {
-            "team": "UT Rio Grande Valley Vaqueros",
-            "point": 3.5,
-            "price": -128
-          }
-        ]
-      },
-      {
-        "game_id": "9cc018d40a32673ecd1d80a809a0d250",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:38:20Z",
         "moneyline": [
           {
             "team": "Nicholls St Colonels",
-            "price": -270
+            "price": -1050
           },
           {
             "team": "UT Rio Grande Valley Vaqueros",
-            "price": 200
+            "price": 600
           }
         ],
         "spreads": [
           {
             "team": "Nicholls St Colonels",
-            "point": -3.5,
-            "price": -125
+            "point": -4.5,
+            "price": 105
           },
           {
             "team": "UT Rio Grande Valley Vaqueros",
-            "point": 3.5,
-            "price": -105
+            "point": 4.5,
+            "price": -135
           }
         ]
       },
       {
         "game_id": "9cc018d40a32673ecd1d80a809a0d250",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:47:35Z",
         "moneyline": [
           {
             "team": "Nicholls St Colonels",
-            "price": -285
+            "price": -1600
           },
           {
             "team": "UT Rio Grande Valley Vaqueros",
-            "price": 210
+            "price": 750
           }
         ],
         "spreads": [
           {
             "team": "Nicholls St Colonels",
-            "point": -3.5,
-            "price": -130
+            "point": -2.5,
+            "price": 110
           },
           {
             "team": "UT Rio Grande Valley Vaqueros",
-            "point": 3.5,
-            "price": 100
+            "point": 2.5,
+            "price": -145
           }
         ]
       },
       {
         "game_id": "9cc018d40a32673ecd1d80a809a0d250",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:39:08Z",
         "moneyline": [
           {
             "team": "Nicholls St Colonels",
-            "price": -278
+            "price": -835
           },
           {
             "team": "UT Rio Grande Valley Vaqueros",
-            "price": 185
+            "price": 410
           }
         ],
-        "spreads": [
-          {
-            "team": "Nicholls St Colonels",
-            "point": -3.5,
-            "price": -121
-          },
-          {
-            "team": "UT Rio Grande Valley Vaqueros",
-            "point": 3.5,
-            "price": -121
-          }
-        ]
+        "spreads": []
       },
       {
         "game_id": "9cc018d40a32673ecd1d80a809a0d250",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:10Z",
+        "last_update": "2026-01-01T00:48:14Z",
         "moneyline": [
           {
             "team": "Nicholls St Colonels",
-            "price": -105
+            "price": -1000
           },
           {
             "team": "UT Rio Grande Valley Vaqueros",
-            "price": -125
+            "price": 550
           }
         ],
         "spreads": [
           {
             "team": "Nicholls St Colonels",
-            "point": 1.5,
-            "price": -125
+            "point": -4.5,
+            "price": 105
           },
           {
             "team": "UT Rio Grande Valley Vaqueros",
-            "point": -1.5,
-            "price": -105
+            "point": 4.5,
+            "price": -135
           }
         ]
       }
@@ -157,80 +119,53 @@
       {
         "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "DePaul Blue Demons",
-            "price": 100
-          },
-          {
-            "team": "Villanova Wildcats",
             "price": -130
+          },
+          {
+            "team": "Villanova Wildcats",
+            "price": 100
           }
         ],
         "spreads": [
           {
             "team": "DePaul Blue Demons",
-            "point": 1.5,
-            "price": -115
-          },
-          {
-            "team": "Villanova Wildcats",
             "point": -1.5,
             "price": -115
-          }
-        ]
-      },
-      {
-        "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
-        "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
-        "moneyline": [
-          {
-            "team": "DePaul Blue Demons",
-            "price": -106
           },
           {
             "team": "Villanova Wildcats",
-            "price": -120
-          }
-        ],
-        "spreads": [
-          {
-            "team": "DePaul Blue Demons",
             "point": 1.5,
-            "price": -114
-          },
-          {
-            "team": "Villanova Wildcats",
-            "point": -1.5,
-            "price": -118
+            "price": -115
           }
         ]
       },
       {
         "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:10Z",
+        "last_update": "2026-01-01T00:48:14Z",
         "moneyline": [
           {
             "team": "DePaul Blue Demons",
-            "price": 220
+            "price": -240
           },
           {
             "team": "Villanova Wildcats",
-            "price": -300
+            "price": 180
           }
         ],
         "spreads": [
           {
             "team": "DePaul Blue Demons",
-            "point": 5.0,
+            "point": -3.5,
             "price": -115
           },
           {
             "team": "Villanova Wildcats",
-            "point": -5.0,
+            "point": 3.5,
             "price": -115
           }
         ]
@@ -238,54 +173,54 @@
       {
         "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "DePaul Blue Demons",
-            "price": 105
+            "price": -130
           },
           {
             "team": "Villanova Wildcats",
-            "price": -135
+            "price": 100
           }
         ],
         "spreads": [
           {
             "team": "DePaul Blue Demons",
-            "point": 1.5,
-            "price": -125
+            "point": -1.5,
+            "price": 105
           },
           {
             "team": "Villanova Wildcats",
-            "point": -1.5,
-            "price": -105
+            "point": 1.5,
+            "price": -140
           }
         ]
       },
       {
         "game_id": "81014deeedb536bf1dfe6bb0a10b5635",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "DePaul Blue Demons",
-            "price": 105
+            "price": -155
           },
           {
             "team": "Villanova Wildcats",
-            "price": -148
+            "price": 112
           }
         ],
         "spreads": [
           {
             "team": "DePaul Blue Demons",
-            "point": 1.5,
-            "price": -115
+            "point": -1.5,
+            "price": -122
           },
           {
             "team": "Villanova Wildcats",
-            "point": -1.5,
-            "price": -124
+            "point": 1.5,
+            "price": -117
           }
         ]
       }
@@ -303,80 +238,80 @@
       {
         "game_id": "75f5866a019b86e7264f355bd306321b",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Drexel Dragons",
-            "price": 500
+            "price": 830
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "price": -850
+            "price": -2000
           }
         ],
         "spreads": [
           {
             "team": "Drexel Dragons",
-            "point": 9.5,
-            "price": -108
+            "point": 11.5,
+            "price": -114
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "point": -9.5,
-            "price": -122
+            "point": -11.5,
+            "price": -114
           }
         ]
       },
       {
         "game_id": "75f5866a019b86e7264f355bd306321b",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Drexel Dragons",
-            "price": 360
+            "price": 750
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "price": -540
+            "price": -1450
           }
         ],
         "spreads": [
           {
             "team": "Drexel Dragons",
-            "point": 10.5,
-            "price": -125
+            "point": 12.5,
+            "price": -115
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "point": -10.5,
-            "price": -105
+            "point": -12.5,
+            "price": -115
           }
         ]
       },
       {
         "game_id": "75f5866a019b86e7264f355bd306321b",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Drexel Dragons",
-            "price": 350
+            "price": 775
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "price": -525
+            "price": -1600
           }
         ],
         "spreads": [
           {
             "team": "Drexel Dragons",
-            "point": 8.5,
+            "point": 12.5,
             "price": -115
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "point": -8.5,
+            "point": -12.5,
             "price": -115
           }
         ]
@@ -384,53 +319,53 @@
       {
         "game_id": "75f5866a019b86e7264f355bd306321b",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:10Z",
+        "last_update": "2026-01-01T00:48:14Z",
         "moneyline": [
           {
             "team": "Drexel Dragons",
-            "price": 500
+            "price": 1000
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "price": -900
+            "price": -2500
           }
         ],
         "spreads": [
           {
             "team": "Drexel Dragons",
-            "point": 12.5,
-            "price": -120
+            "point": 14.5,
+            "price": -115
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "point": -12.5,
-            "price": -110
+            "point": -14.5,
+            "price": -115
           }
         ]
       },
       {
         "game_id": "75f5866a019b86e7264f355bd306321b",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Drexel Dragons",
-            "price": 325
+            "price": 750
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "price": -910
+            "price": -10000
           }
         ],
         "spreads": [
           {
             "team": "Drexel Dragons",
-            "point": 9.5,
+            "point": 11.5,
             "price": -118
           },
           {
             "team": "UNC Wilmington Seahawks",
-            "point": -9.5,
+            "point": -11.5,
             "price": -127
           }
         ]
@@ -449,7 +384,7 @@
       {
         "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Georgetown Hoyas",
@@ -457,7 +392,7 @@
           },
           {
             "team": "St. John's Red Storm",
-            "price": -350
+            "price": -365
           }
         ],
         "spreads": [
@@ -476,7 +411,7 @@
       {
         "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Georgetown Hoyas",
@@ -491,73 +426,73 @@
           {
             "team": "Georgetown Hoyas",
             "point": 7.5,
-            "price": -108
+            "price": -102
           },
           {
             "team": "St. John's Red Storm",
             "point": -7.5,
-            "price": -112
+            "price": -118
           }
         ]
       },
       {
         "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:22:12Z",
+        "last_update": "2026-01-01T00:47:56Z",
         "moneyline": [
           {
             "team": "Georgetown Hoyas",
-            "price": 306
+            "price": 303
           },
           {
             "team": "St. John's Red Storm",
-            "price": -385
+            "price": -380
           }
         ],
         "spreads": [
           {
             "team": "Georgetown Hoyas",
             "point": 8.0,
-            "price": -107
+            "price": -113
           },
           {
             "team": "St. John's Red Storm",
             "point": -8.0,
-            "price": -113
+            "price": -107
           }
         ]
       },
       {
         "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "LowVig.ag",
-        "last_update": "2026-01-01T00:21:56Z",
+        "last_update": "2026-01-01T00:47:37Z",
         "moneyline": [
           {
             "team": "Georgetown Hoyas",
-            "price": 306
+            "price": 303
           },
           {
             "team": "St. John's Red Storm",
-            "price": -385
+            "price": -380
           }
         ],
         "spreads": [
           {
             "team": "Georgetown Hoyas",
             "point": 8.0,
-            "price": -103
+            "price": -109
           },
           {
             "team": "St. John's Red Storm",
             "point": -8.0,
-            "price": -109
+            "price": -103
           }
         ]
       },
       {
         "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Georgetown Hoyas",
@@ -573,7 +508,7 @@
       {
         "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Georgetown Hoyas",
@@ -600,7 +535,7 @@
       {
         "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:21:56Z",
+        "last_update": "2026-01-01T00:48:13Z",
         "moneyline": [
           {
             "team": "Georgetown Hoyas",
@@ -614,12 +549,12 @@
         "spreads": [
           {
             "team": "Georgetown Hoyas",
-            "point": 7.5,
+            "point": 8.0,
             "price": -110
           },
           {
             "team": "St. John's Red Storm",
-            "point": -7.5,
+            "point": -8.0,
             "price": -110
           }
         ]
@@ -627,27 +562,27 @@
       {
         "game_id": "5d2a78e6a7b982c2915030b09fa717be",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:10Z",
+        "last_update": "2026-01-01T00:48:14Z",
         "moneyline": [
           {
             "team": "Georgetown Hoyas",
-            "price": 275
+            "price": 300
           },
           {
             "team": "St. John's Red Storm",
-            "price": -350
+            "price": -400
           }
         ],
         "spreads": [
           {
             "team": "Georgetown Hoyas",
-            "point": 7.5,
-            "price": -115
+            "point": 8.0,
+            "price": -110
           },
           {
             "team": "St. John's Red Storm",
-            "point": -7.5,
-            "price": -105
+            "point": -8.0,
+            "price": -110
           }
         ]
       }
@@ -665,34 +600,7 @@
       {
         "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
-        "moneyline": [
-          {
-            "team": "Coastal Carolina Chanticleers",
-            "price": -130
-          },
-          {
-            "team": "Georgia Southern Eagles",
-            "price": 110
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Coastal Carolina Chanticleers",
-            "point": -1.5,
-            "price": -118
-          },
-          {
-            "team": "Georgia Southern Eagles",
-            "point": 1.5,
-            "price": -102
-          }
-        ]
-      },
-      {
-        "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
-        "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Coastal Carolina Chanticleers",
@@ -700,26 +608,53 @@
           },
           {
             "team": "Georgia Southern Eagles",
-            "price": 110
+            "price": 114
           }
         ],
         "spreads": [
           {
             "team": "Coastal Carolina Chanticleers",
             "point": -2.5,
-            "price": -102
+            "price": -105
           },
           {
             "team": "Georgia Southern Eagles",
             "point": 2.5,
-            "price": -118
+            "price": -115
+          }
+        ]
+      },
+      {
+        "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
+        "bookmaker": "BetMGM",
+        "last_update": "2026-01-01T00:48:24Z",
+        "moneyline": [
+          {
+            "team": "Coastal Carolina Chanticleers",
+            "price": -140
+          },
+          {
+            "team": "Georgia Southern Eagles",
+            "price": 115
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Coastal Carolina Chanticleers",
+            "point": -1.5,
+            "price": -115
+          },
+          {
+            "team": "Georgia Southern Eagles",
+            "point": 1.5,
+            "price": -105
           }
         ]
       },
       {
         "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Coastal Carolina Chanticleers",
@@ -746,7 +681,7 @@
       {
         "game_id": "f1a92cb4fe82c07c00392e1196fe92b6",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Coastal Carolina Chanticleers",
@@ -784,7 +719,7 @@
       {
         "game_id": "d570f00169500235337ba35bf3525587",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "North Alabama Lions",
@@ -811,7 +746,7 @@
       {
         "game_id": "d570f00169500235337ba35bf3525587",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "North Alabama Lions",
@@ -849,61 +784,61 @@
       {
         "game_id": "64ecafd31204cd582817cc0de3e79e12",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Oakland Golden Grizzlies",
-            "price": -105
+            "price": 102
           },
           {
             "team": "Youngstown St Penguins",
-            "price": -115
+            "price": -122
           }
         ],
         "spreads": [
           {
             "team": "Oakland Golden Grizzlies",
             "point": 1.5,
-            "price": -118
+            "price": -110
           },
           {
             "team": "Youngstown St Penguins",
             "point": -1.5,
-            "price": -102
+            "price": -110
           }
         ]
       },
       {
         "game_id": "64ecafd31204cd582817cc0de3e79e12",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Oakland Golden Grizzlies",
-            "price": -110
+            "price": 100
           },
           {
             "team": "Youngstown St Penguins",
-            "price": -110
+            "price": -120
           }
         ],
         "spreads": [
           {
             "team": "Oakland Golden Grizzlies",
-            "point": -1.5,
-            "price": 100
+            "point": 1.5,
+            "price": -110
           },
           {
             "team": "Youngstown St Penguins",
-            "point": 1.5,
-            "price": -120
+            "point": -1.5,
+            "price": -110
           }
         ]
       },
       {
         "game_id": "64ecafd31204cd582817cc0de3e79e12",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Oakland Golden Grizzlies",
@@ -930,7 +865,7 @@
       {
         "game_id": "64ecafd31204cd582817cc0de3e79e12",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Oakland Golden Grizzlies",
@@ -968,7 +903,7 @@
       {
         "game_id": "95b5bff18a22905aa149317711407b59",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Samford Bulldogs",
@@ -995,7 +930,7 @@
       {
         "game_id": "95b5bff18a22905aa149317711407b59",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Samford Bulldogs",
@@ -1022,7 +957,7 @@
       {
         "game_id": "95b5bff18a22905aa149317711407b59",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Samford Bulldogs",
@@ -1049,7 +984,7 @@
       {
         "game_id": "95b5bff18a22905aa149317711407b59",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Samford Bulldogs",
@@ -1087,7 +1022,7 @@
       {
         "game_id": "454f52567c6b33f5097a33d7ec221346",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Central Arkansas Bears",
@@ -1125,7 +1060,7 @@
       {
         "game_id": "eff20371c60c1096a4f6e848d79ba0e3",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Fort Wayne Mastodons",
@@ -1163,7 +1098,7 @@
       {
         "game_id": "9a20ad576e1ffb6d9ed79f71e40827ca",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "IUPUI Jaguars",
@@ -1201,7 +1136,7 @@
       {
         "game_id": "a69e4eadb6175ba9739853cd0f7e6140",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Jacksonville Dolphins",
@@ -1224,6 +1159,33 @@
             "price": -118
           }
         ]
+      },
+      {
+        "game_id": "a69e4eadb6175ba9739853cd0f7e6140",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:48:25Z",
+        "moneyline": [
+          {
+            "team": "Jacksonville Dolphins",
+            "price": 570
+          },
+          {
+            "team": "Lipscomb Bisons",
+            "price": -850
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Jacksonville Dolphins",
+            "point": 11.5,
+            "price": -106
+          },
+          {
+            "team": "Lipscomb Bisons",
+            "point": -11.5,
+            "price": -114
+          }
+        ]
       }
     ]
   ],
@@ -1239,15 +1201,42 @@
       {
         "game_id": "bb437f5af9d1e2e9eda3c362e3aa591e",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Milwaukee Panthers",
-            "price": 190
+            "price": 200
           },
           {
             "team": "Wright St Raiders",
-            "price": -235
+            "price": -250
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Milwaukee Panthers",
+            "point": 6.5,
+            "price": -118
+          },
+          {
+            "team": "Wright St Raiders",
+            "point": -6.5,
+            "price": -102
+          }
+        ]
+      },
+      {
+        "game_id": "bb437f5af9d1e2e9eda3c362e3aa591e",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:48:25Z",
+        "moneyline": [
+          {
+            "team": "Milwaukee Panthers",
+            "price": 220
+          },
+          {
+            "team": "Wright St Raiders",
+            "price": -275
           }
         ],
         "spreads": [
@@ -1277,7 +1266,7 @@
       {
         "game_id": "78f1638a598dd5c2da1c463cf5511c3d",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "North Dakota Fighting Hawks",
@@ -1304,7 +1293,7 @@
       {
         "game_id": "78f1638a598dd5c2da1c463cf5511c3d",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "North Dakota Fighting Hawks",
@@ -1331,7 +1320,7 @@
       {
         "game_id": "78f1638a598dd5c2da1c463cf5511c3d",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "North Dakota Fighting Hawks",
@@ -1369,7 +1358,7 @@
       {
         "game_id": "33a1dcf3ea497d1217f7696e4436bcb7",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Cal Baptist Lancers",
@@ -1396,7 +1385,7 @@
       {
         "game_id": "33a1dcf3ea497d1217f7696e4436bcb7",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Cal Baptist Lancers",
@@ -1423,7 +1412,7 @@
       {
         "game_id": "33a1dcf3ea497d1217f7696e4436bcb7",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Cal Baptist Lancers",
@@ -1461,7 +1450,7 @@
       {
         "game_id": "2a1cb22fbdf06a270e9d429eefa3e6d8",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Evansville Purple Aces",
@@ -1499,7 +1488,7 @@
       {
         "game_id": "aa0e9b345aa7109c1c490f8ad2a4fb22",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Southern Illinois Salukis",
@@ -1537,7 +1526,7 @@
       {
         "game_id": "9fee1a532ae97ad4affb8e2effe8b1d9",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Chattanooga Mocs",
@@ -1564,7 +1553,7 @@
       {
         "game_id": "9fee1a532ae97ad4affb8e2effe8b1d9",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Chattanooga Mocs",
@@ -1591,7 +1580,7 @@
       {
         "game_id": "9fee1a532ae97ad4affb8e2effe8b1d9",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Chattanooga Mocs",
@@ -1629,7 +1618,7 @@
       {
         "game_id": "e6707873eea3b561499fc14ef9828239",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Portland St Vikings",
@@ -1656,7 +1645,7 @@
       {
         "game_id": "e6707873eea3b561499fc14ef9828239",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Portland St Vikings",
@@ -1683,7 +1672,7 @@
       {
         "game_id": "e6707873eea3b561499fc14ef9828239",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:08Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Portland St Vikings",
@@ -1721,7 +1710,7 @@
       {
         "game_id": "2e4ce15f70fb157a705f87b4a6394d29",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Lindenwood Lions",
@@ -1759,7 +1748,7 @@
       {
         "game_id": "67e91238d6571dfdc08214223a81c592",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "SIU-Edwardsville Cougars",
@@ -1797,7 +1786,7 @@
       {
         "game_id": "67060e3b509cc99d0d3a1d62a7dcbd71",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Tenn-Martin Skyhawks",
@@ -1835,34 +1824,34 @@
       {
         "game_id": "4629c97b05950ab418b6cb182dffbee1",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "CSU Bakersfield Roadrunners",
-            "price": 400
+            "price": 375
           },
           {
             "team": "UC Irvine Anteaters",
-            "price": -550
+            "price": -500
           }
         ],
         "spreads": [
           {
             "team": "CSU Bakersfield Roadrunners",
             "point": 10.5,
-            "price": -115
+            "price": -118
           },
           {
             "team": "UC Irvine Anteaters",
             "point": -10.5,
-            "price": -105
+            "price": -102
           }
         ]
       },
       {
         "game_id": "4629c97b05950ab418b6cb182dffbee1",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "CSU Bakersfield Roadrunners",
@@ -1900,7 +1889,7 @@
       {
         "game_id": "a8e6d9b5ccd524e26cbd93c62b144de7",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "CSU Northridge Matadors",
@@ -1927,7 +1916,7 @@
       {
         "game_id": "a8e6d9b5ccd524e26cbd93c62b144de7",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "CSU Northridge Matadors",
@@ -1950,6 +1939,33 @@
             "price": -118
           }
         ]
+      },
+      {
+        "game_id": "a8e6d9b5ccd524e26cbd93c62b144de7",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:48:25Z",
+        "moneyline": [
+          {
+            "team": "CSU Northridge Matadors",
+            "price": 168
+          },
+          {
+            "team": "UC Davis Aggies",
+            "price": -205
+          }
+        ],
+        "spreads": [
+          {
+            "team": "CSU Northridge Matadors",
+            "point": 3.5,
+            "price": -102
+          },
+          {
+            "team": "UC Davis Aggies",
+            "point": -3.5,
+            "price": -120
+          }
+        ]
       }
     ]
   ],
@@ -1965,7 +1981,7 @@
       {
         "game_id": "b42a1c0208946edcf9f0de89281b1cdf",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Southern Miss Golden Eagles",
@@ -1988,6 +2004,33 @@
             "price": -110
           }
         ]
+      },
+      {
+        "game_id": "b42a1c0208946edcf9f0de89281b1cdf",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:48:25Z",
+        "moneyline": [
+          {
+            "team": "Southern Miss Golden Eagles",
+            "price": -430
+          },
+          {
+            "team": "UL Monroe Warhawks",
+            "price": 330
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Southern Miss Golden Eagles",
+            "point": -8.5,
+            "price": -102
+          },
+          {
+            "team": "UL Monroe Warhawks",
+            "point": 8.5,
+            "price": -120
+          }
+        ]
       }
     ]
   ],
@@ -2003,7 +2046,7 @@
       {
         "game_id": "bf8e018abaa68d3c3586324cb1155759",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Omaha Mavericks",
@@ -2030,7 +2073,7 @@
       {
         "game_id": "bf8e018abaa68d3c3586324cb1155759",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Omaha Mavericks",
@@ -2068,7 +2111,7 @@
       {
         "game_id": "ec665baa6f6e1813ff65e44a0894e197",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Arkansas-Little Rock Trojans",
@@ -2095,7 +2138,7 @@
       {
         "game_id": "ec665baa6f6e1813ff65e44a0894e197",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Arkansas-Little Rock Trojans",
@@ -2122,7 +2165,7 @@
       {
         "game_id": "ec665baa6f6e1813ff65e44a0894e197",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Arkansas-Little Rock Trojans",
@@ -2160,7 +2203,7 @@
       {
         "game_id": "460ac5b24d2bb2d2e828e671913a0528",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Montana Grizzlies",
@@ -2187,7 +2230,7 @@
       {
         "game_id": "460ac5b24d2bb2d2e828e671913a0528",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Montana Grizzlies",
@@ -2235,7 +2278,7 @@
       {
         "game_id": "ddf162705cef4c1b517ea7768fbd0f76",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Belmont Bruins",
@@ -2262,7 +2305,7 @@
       {
         "game_id": "ddf162705cef4c1b517ea7768fbd0f76",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Belmont Bruins",
@@ -2310,7 +2353,7 @@
       {
         "game_id": "438f3f15505bba57b87aec263aa7f7aa",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Abilene Christian Wildcats",
@@ -2337,7 +2380,7 @@
       {
         "game_id": "438f3f15505bba57b87aec263aa7f7aa",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Abilene Christian Wildcats",
@@ -2375,7 +2418,7 @@
       {
         "game_id": "e42a5a463e04cbc1717616f3f97b7a26",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Austin Peay Governors",
@@ -2402,7 +2445,7 @@
       {
         "game_id": "e42a5a463e04cbc1717616f3f97b7a26",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Austin Peay Governors",
@@ -2440,7 +2483,7 @@
       {
         "game_id": "f252271606ab149e4630f110d72e2055",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Hawai'i Rainbow Warriors",
@@ -2467,7 +2510,7 @@
       {
         "game_id": "f252271606ab149e4630f110d72e2055",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Hawai'i Rainbow Warriors",
@@ -2505,7 +2548,7 @@
       {
         "game_id": "e343557fd64448ffbb6e8f34c27af1ae",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Indiana St Sycamores",
@@ -2532,7 +2575,7 @@
       {
         "game_id": "e343557fd64448ffbb6e8f34c27af1ae",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Indiana St Sycamores",
@@ -2570,7 +2613,7 @@
       {
         "game_id": "7f675d02d5c078ffd90a370781abcef9",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Tarleton State Texans",
@@ -2597,7 +2640,7 @@
       {
         "game_id": "7f675d02d5c078ffd90a370781abcef9",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Tarleton State Texans",
@@ -2624,7 +2667,7 @@
       {
         "game_id": "7f675d02d5c078ffd90a370781abcef9",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Tarleton State Texans",
@@ -2662,7 +2705,7 @@
       {
         "game_id": "1914aa724ac475d5403dfb00a16276da",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Eastern Illinois Panthers",
@@ -2700,7 +2743,7 @@
       {
         "game_id": "2281c87721e672f9c3da10bdcd217670",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Idaho State Bengals",
@@ -2727,7 +2770,7 @@
       {
         "game_id": "2281c87721e672f9c3da10bdcd217670",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Idaho State Bengals",
@@ -2765,7 +2808,7 @@
       {
         "game_id": "d64bca22f83017cf37cfd7390a3c972e",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:22Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Montana St Bobcats",
@@ -2792,7 +2835,7 @@
       {
         "game_id": "d64bca22f83017cf37cfd7390a3c972e",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Montana St Bobcats",
@@ -2819,7 +2862,7 @@
       {
         "game_id": "d64bca22f83017cf37cfd7390a3c972e",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Montana St Bobcats",
@@ -2857,7 +2900,7 @@
       {
         "game_id": "d4f8d1a673841993c013e26612c88271",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Murray St Racers",
@@ -2884,7 +2927,7 @@
       {
         "game_id": "d4f8d1a673841993c013e26612c88271",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "Murray St Racers",
@@ -2922,15 +2965,15 @@
       {
         "game_id": "b214bab106dfefad04366932bcc015a0",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "CSU Fullerton Titans",
-            "price": 155
+            "price": 165
           },
           {
             "team": "UC Santa Barbara Gauchos",
-            "price": -190
+            "price": -200
           }
         ],
         "spreads": [
@@ -2949,7 +2992,7 @@
       {
         "game_id": "b214bab106dfefad04366932bcc015a0",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:25Z",
         "moneyline": [
           {
             "team": "CSU Fullerton Titans",
@@ -2987,7 +3030,7 @@
       {
         "game_id": "947638afe5c7a210ac5d8a6d04e92fcd",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:22:21Z",
+        "last_update": "2026-01-01T00:48:24Z",
         "moneyline": [
           {
             "team": "Cal Poly Mustangs",

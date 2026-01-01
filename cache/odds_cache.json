@@ -4,99 +4,18 @@
       "id": "d05ae1f8060582994d6d724ccbb5e21a",
       "home_team": "Ohio State Buckeyes",
       "away_team": "Miami Hurricanes",
-      "commence_time": "2026-01-01T00:40:00Z",
+      "commence_time": "2026-01-01T00:41:09Z",
       "sport_title": "NCAAF"
     },
     [
       {
         "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:11Z",
+        "last_update": "2026-01-01T00:48:28Z",
         "moneyline": [
           {
             "team": "Miami Hurricanes",
-            "price": 260
-          },
-          {
-            "team": "Ohio State Buckeyes",
-            "price": -325
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Miami Hurricanes",
-            "point": 7.5,
-            "price": -108
-          },
-          {
-            "team": "Ohio State Buckeyes",
-            "point": -7.5,
-            "price": -112
-          }
-        ]
-      },
-      {
-        "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
-        "bookmaker": "LowVig.ag",
-        "last_update": "2026-01-01T00:22:13Z",
-        "moneyline": [
-          {
-            "team": "Miami Hurricanes",
-            "price": 274
-          },
-          {
-            "team": "Ohio State Buckeyes",
-            "price": -340
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Miami Hurricanes",
-            "point": 8.0,
-            "price": -107
-          },
-          {
-            "team": "Ohio State Buckeyes",
-            "point": -8.0,
-            "price": -105
-          }
-        ]
-      },
-      {
-        "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
-        "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:21:59Z",
-        "moneyline": [
-          {
-            "team": "Miami Hurricanes",
-            "price": 274
-          },
-          {
-            "team": "Ohio State Buckeyes",
-            "price": -340
-          }
-        ],
-        "spreads": [
-          {
-            "team": "Miami Hurricanes",
-            "point": 8.0,
-            "price": -111
-          },
-          {
-            "team": "Ohio State Buckeyes",
-            "point": -8.0,
-            "price": -109
-          }
-        ]
-      },
-      {
-        "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
-        "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
-        "moneyline": [
-          {
-            "team": "Miami Hurricanes",
-            "price": 265
+            "price": 240
           },
           {
             "team": "Ohio State Buckeyes",
@@ -107,54 +26,108 @@
           {
             "team": "Miami Hurricanes",
             "point": 7.5,
-            "price": -106
+            "price": -115
           },
           {
             "team": "Ohio State Buckeyes",
             "point": -7.5,
-            "price": -114
+            "price": -115
           }
         ]
       },
       {
         "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
-        "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:24Z",
+        "bookmaker": "LowVig.ag",
+        "last_update": "2026-01-01T00:42:38Z",
         "moneyline": [
           {
             "team": "Miami Hurricanes",
-            "price": 260
+            "price": 263
           },
           {
             "team": "Ohio State Buckeyes",
-            "price": -335
+            "price": -325
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Miami Hurricanes",
+            "point": 8.0,
+            "price": -106
+          },
+          {
+            "team": "Ohio State Buckeyes",
+            "point": -8.0,
+            "price": -106
+          }
+        ]
+      },
+      {
+        "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
+        "bookmaker": "BetOnline.ag",
+        "last_update": "2026-01-01T00:42:06Z",
+        "moneyline": [
+          {
+            "team": "Miami Hurricanes",
+            "price": 263
+          },
+          {
+            "team": "Ohio State Buckeyes",
+            "price": -325
+          }
+        ],
+        "spreads": [
+          {
+            "team": "Miami Hurricanes",
+            "point": 8.0,
+            "price": -110
+          },
+          {
+            "team": "Ohio State Buckeyes",
+            "point": -8.0,
+            "price": -110
+          }
+        ]
+      },
+      {
+        "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
+        "bookmaker": "FanDuel",
+        "last_update": "2026-01-01T00:47:22Z",
+        "moneyline": [
+          {
+            "team": "Miami Hurricanes",
+            "price": 230
+          },
+          {
+            "team": "Ohio State Buckeyes",
+            "price": -310
           }
         ],
         "spreads": [
           {
             "team": "Miami Hurricanes",
             "point": 7.5,
-            "price": -110
+            "price": -125
           },
           {
             "team": "Ohio State Buckeyes",
             "point": -7.5,
-            "price": -113
+            "price": -106
           }
         ]
       },
       {
         "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:22:26Z",
+        "last_update": "2026-01-01T00:40:14Z",
         "moneyline": [
           {
             "team": "Miami Hurricanes",
-            "price": 260
+            "price": 255
           },
           {
             "team": "Ohio State Buckeyes",
-            "price": -320
+            "price": -310
           }
         ],
         "spreads": [
@@ -173,54 +146,54 @@
       {
         "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:21:45Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Miami Hurricanes",
-            "price": 260
+            "price": 225
           },
           {
             "team": "Ohio State Buckeyes",
-            "price": -325
+            "price": -295
           }
         ],
         "spreads": [
           {
             "team": "Miami Hurricanes",
             "point": 7.5,
-            "price": -105
+            "price": -125
           },
           {
             "team": "Ohio State Buckeyes",
             "point": -7.5,
-            "price": -115
+            "price": -105
           }
         ]
       },
       {
         "game_id": "d05ae1f8060582994d6d724ccbb5e21a",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:17Z",
         "moneyline": [
           {
             "team": "Miami Hurricanes",
-            "price": 255
+            "price": 250
           },
           {
             "team": "Ohio State Buckeyes",
-            "price": -310
+            "price": -300
           }
         ],
         "spreads": [
           {
             "team": "Miami Hurricanes",
-            "point": 8.0,
-            "price": -110
+            "point": 7.5,
+            "price": -115
           },
           {
             "team": "Ohio State Buckeyes",
-            "point": -8.0,
-            "price": -110
+            "point": -7.5,
+            "price": -105
           }
         ]
       }
@@ -238,7 +211,7 @@
       {
         "game_id": "22c2cdc4f691ac3a9138cdf71231bb81",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:11Z",
+        "last_update": "2026-01-01T00:48:28Z",
         "moneyline": [
           {
             "team": "Oregon Ducks",
@@ -265,7 +238,7 @@
       {
         "game_id": "22c2cdc4f691ac3a9138cdf71231bb81",
         "bookmaker": "LowVig.ag",
-        "last_update": "2026-01-01T00:22:13Z",
+        "last_update": "2026-01-01T00:48:27Z",
         "moneyline": [
           {
             "team": "Oregon Ducks",
@@ -292,7 +265,7 @@
       {
         "game_id": "22c2cdc4f691ac3a9138cdf71231bb81",
         "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:21:59Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Oregon Ducks",
@@ -319,7 +292,7 @@
       {
         "game_id": "22c2cdc4f691ac3a9138cdf71231bb81",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
+        "last_update": "2026-01-01T00:47:22Z",
         "moneyline": [
           {
             "team": "Oregon Ducks",
@@ -346,7 +319,7 @@
       {
         "game_id": "22c2cdc4f691ac3a9138cdf71231bb81",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:21:45Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Oregon Ducks",
@@ -373,7 +346,7 @@
       {
         "game_id": "22c2cdc4f691ac3a9138cdf71231bb81",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:17Z",
         "moneyline": [
           {
             "team": "Oregon Ducks",
@@ -400,7 +373,7 @@
       {
         "game_id": "22c2cdc4f691ac3a9138cdf71231bb81",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:22:26Z",
+        "last_update": "2026-01-01T00:48:18Z",
         "moneyline": [
           {
             "team": "Oregon Ducks",
@@ -427,7 +400,7 @@
       {
         "game_id": "22c2cdc4f691ac3a9138cdf71231bb81",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:26Z",
         "moneyline": [
           {
             "team": "Oregon Ducks",
@@ -465,7 +438,7 @@
       {
         "game_id": "7678978564e7c8a1d1913f8c1d4463e5",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:11Z",
+        "last_update": "2026-01-01T00:48:28Z",
         "moneyline": [
           {
             "team": "Alabama Crimson Tide",
@@ -492,7 +465,7 @@
       {
         "game_id": "7678978564e7c8a1d1913f8c1d4463e5",
         "bookmaker": "LowVig.ag",
-        "last_update": "2026-01-01T00:22:13Z",
+        "last_update": "2026-01-01T00:48:27Z",
         "moneyline": [
           {
             "team": "Alabama Crimson Tide",
@@ -519,7 +492,7 @@
       {
         "game_id": "7678978564e7c8a1d1913f8c1d4463e5",
         "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:21:59Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Alabama Crimson Tide",
@@ -546,7 +519,7 @@
       {
         "game_id": "7678978564e7c8a1d1913f8c1d4463e5",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
+        "last_update": "2026-01-01T00:47:22Z",
         "moneyline": [
           {
             "team": "Alabama Crimson Tide",
@@ -573,7 +546,7 @@
       {
         "game_id": "7678978564e7c8a1d1913f8c1d4463e5",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:26Z",
         "moneyline": [
           {
             "team": "Alabama Crimson Tide",
@@ -600,7 +573,7 @@
       {
         "game_id": "7678978564e7c8a1d1913f8c1d4463e5",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:21:45Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Alabama Crimson Tide",
@@ -627,7 +600,7 @@
       {
         "game_id": "7678978564e7c8a1d1913f8c1d4463e5",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:17Z",
         "moneyline": [
           {
             "team": "Alabama Crimson Tide",
@@ -654,7 +627,7 @@
       {
         "game_id": "7678978564e7c8a1d1913f8c1d4463e5",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:22:26Z",
+        "last_update": "2026-01-01T00:48:18Z",
         "moneyline": [
           {
             "team": "Alabama Crimson Tide",
@@ -692,7 +665,7 @@
       {
         "game_id": "7203b3b2119a74b5e3506cbba10db3ef",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:11Z",
+        "last_update": "2026-01-01T00:48:28Z",
         "moneyline": [
           {
             "team": "Georgia Bulldogs",
@@ -719,7 +692,7 @@
       {
         "game_id": "7203b3b2119a74b5e3506cbba10db3ef",
         "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:21:59Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Georgia Bulldogs",
@@ -746,7 +719,7 @@
       {
         "game_id": "7203b3b2119a74b5e3506cbba10db3ef",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
+        "last_update": "2026-01-01T00:47:22Z",
         "moneyline": [
           {
             "team": "Georgia Bulldogs",
@@ -773,7 +746,7 @@
       {
         "game_id": "7203b3b2119a74b5e3506cbba10db3ef",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:22:26Z",
+        "last_update": "2026-01-01T00:48:18Z",
         "moneyline": [
           {
             "team": "Georgia Bulldogs",
@@ -800,7 +773,7 @@
       {
         "game_id": "7203b3b2119a74b5e3506cbba10db3ef",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:21:45Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Georgia Bulldogs",
@@ -827,7 +800,7 @@
       {
         "game_id": "7203b3b2119a74b5e3506cbba10db3ef",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:26Z",
         "moneyline": [
           {
             "team": "Georgia Bulldogs",
@@ -854,27 +827,27 @@
       {
         "game_id": "7203b3b2119a74b5e3506cbba10db3ef",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:17Z",
         "moneyline": [
           {
             "team": "Georgia Bulldogs",
-            "price": -250
+            "price": -245
           },
           {
             "team": "Ole Miss Rebels",
-            "price": 210
+            "price": 205
           }
         ],
         "spreads": [
           {
             "team": "Georgia Bulldogs",
             "point": -6.5,
-            "price": -115
+            "price": -110
           },
           {
             "team": "Ole Miss Rebels",
             "point": 6.5,
-            "price": -105
+            "price": -110
           }
         ]
       }
@@ -892,7 +865,7 @@
       {
         "game_id": "930671ccd2f2eb35afc046e27c999b03",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
+        "last_update": "2026-01-01T00:47:22Z",
         "moneyline": [
           {
             "team": "Rice Owls",
@@ -919,7 +892,7 @@
       {
         "game_id": "930671ccd2f2eb35afc046e27c999b03",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:11Z",
+        "last_update": "2026-01-01T00:48:28Z",
         "moneyline": [
           {
             "team": "Rice Owls",
@@ -946,7 +919,7 @@
       {
         "game_id": "930671ccd2f2eb35afc046e27c999b03",
         "bookmaker": "LowVig.ag",
-        "last_update": "2026-01-01T00:22:13Z",
+        "last_update": "2026-01-01T00:48:27Z",
         "moneyline": [
           {
             "team": "Rice Owls",
@@ -973,7 +946,7 @@
       {
         "game_id": "930671ccd2f2eb35afc046e27c999b03",
         "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:21:59Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Rice Owls",
@@ -1000,7 +973,7 @@
       {
         "game_id": "930671ccd2f2eb35afc046e27c999b03",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:21:45Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Rice Owls",
@@ -1027,7 +1000,7 @@
       {
         "game_id": "930671ccd2f2eb35afc046e27c999b03",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:22:26Z",
+        "last_update": "2026-01-01T00:48:18Z",
         "moneyline": [
           {
             "team": "Rice Owls",
@@ -1054,7 +1027,7 @@
       {
         "game_id": "930671ccd2f2eb35afc046e27c999b03",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:17Z",
         "moneyline": [
           {
             "team": "Rice Owls",
@@ -1081,7 +1054,7 @@
       {
         "game_id": "930671ccd2f2eb35afc046e27c999b03",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:26Z",
         "moneyline": [
           {
             "team": "Rice Owls",
@@ -1119,7 +1092,7 @@
       {
         "game_id": "5bb624eddcdb91f1604d15e869b67fe6",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:11Z",
+        "last_update": "2026-01-01T00:48:28Z",
         "moneyline": [
           {
             "team": "Cincinnati Bearcats",
@@ -1146,7 +1119,7 @@
       {
         "game_id": "5bb624eddcdb91f1604d15e869b67fe6",
         "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:21:59Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Cincinnati Bearcats",
@@ -1173,7 +1146,7 @@
       {
         "game_id": "5bb624eddcdb91f1604d15e869b67fe6",
         "bookmaker": "LowVig.ag",
-        "last_update": "2026-01-01T00:22:13Z",
+        "last_update": "2026-01-01T00:48:27Z",
         "moneyline": [
           {
             "team": "Cincinnati Bearcats",
@@ -1200,7 +1173,7 @@
       {
         "game_id": "5bb624eddcdb91f1604d15e869b67fe6",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
+        "last_update": "2026-01-01T00:47:22Z",
         "moneyline": [
           {
             "team": "Cincinnati Bearcats",
@@ -1227,7 +1200,7 @@
       {
         "game_id": "5bb624eddcdb91f1604d15e869b67fe6",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:22:26Z",
+        "last_update": "2026-01-01T00:48:18Z",
         "moneyline": [
           {
             "team": "Cincinnati Bearcats",
@@ -1254,7 +1227,7 @@
       {
         "game_id": "5bb624eddcdb91f1604d15e869b67fe6",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:21:45Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Cincinnati Bearcats",
@@ -1281,7 +1254,7 @@
       {
         "game_id": "5bb624eddcdb91f1604d15e869b67fe6",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:17Z",
         "moneyline": [
           {
             "team": "Cincinnati Bearcats",
@@ -1308,7 +1281,7 @@
       {
         "game_id": "5bb624eddcdb91f1604d15e869b67fe6",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:26Z",
         "moneyline": [
           {
             "team": "Cincinnati Bearcats",
@@ -1346,7 +1319,7 @@
       {
         "game_id": "485c875626910603ddd6d457d9f97e43",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
+        "last_update": "2026-01-01T00:47:22Z",
         "moneyline": [
           {
             "team": "Arizona Wildcats",
@@ -1373,7 +1346,7 @@
       {
         "game_id": "485c875626910603ddd6d457d9f97e43",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:11Z",
+        "last_update": "2026-01-01T00:48:28Z",
         "moneyline": [
           {
             "team": "Arizona Wildcats",
@@ -1400,7 +1373,7 @@
       {
         "game_id": "485c875626910603ddd6d457d9f97e43",
         "bookmaker": "LowVig.ag",
-        "last_update": "2026-01-01T00:22:13Z",
+        "last_update": "2026-01-01T00:48:27Z",
         "moneyline": [
           {
             "team": "Arizona Wildcats",
@@ -1427,7 +1400,7 @@
       {
         "game_id": "485c875626910603ddd6d457d9f97e43",
         "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:21:59Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Arizona Wildcats",
@@ -1454,7 +1427,7 @@
       {
         "game_id": "485c875626910603ddd6d457d9f97e43",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:21:45Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Arizona Wildcats",
@@ -1481,7 +1454,7 @@
       {
         "game_id": "485c875626910603ddd6d457d9f97e43",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:22:26Z",
+        "last_update": "2026-01-01T00:48:18Z",
         "moneyline": [
           {
             "team": "Arizona Wildcats",
@@ -1508,7 +1481,7 @@
       {
         "game_id": "485c875626910603ddd6d457d9f97e43",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:17Z",
         "moneyline": [
           {
             "team": "Arizona Wildcats",
@@ -1535,7 +1508,7 @@
       {
         "game_id": "485c875626910603ddd6d457d9f97e43",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:26Z",
         "moneyline": [
           {
             "team": "Arizona Wildcats",
@@ -1573,7 +1546,7 @@
       {
         "game_id": "bd6818aa5f43e7496cc108c90adf335d",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
+        "last_update": "2026-01-01T00:47:22Z",
         "moneyline": [
           {
             "team": "Mississippi State Bulldogs",
@@ -1600,7 +1573,7 @@
       {
         "game_id": "bd6818aa5f43e7496cc108c90adf335d",
         "bookmaker": "DraftKings",
-        "last_update": "2026-01-01T00:22:11Z",
+        "last_update": "2026-01-01T00:48:28Z",
         "moneyline": [
           {
             "team": "Mississippi State Bulldogs",
@@ -1627,7 +1600,7 @@
       {
         "game_id": "bd6818aa5f43e7496cc108c90adf335d",
         "bookmaker": "LowVig.ag",
-        "last_update": "2026-01-01T00:22:13Z",
+        "last_update": "2026-01-01T00:48:27Z",
         "moneyline": [
           {
             "team": "Mississippi State Bulldogs",
@@ -1642,19 +1615,19 @@
           {
             "team": "Mississippi State Bulldogs",
             "point": -3.0,
-            "price": -111
+            "price": -114
           },
           {
             "team": "Wake Forest Demon Deacons",
             "point": 3.0,
-            "price": -101
+            "price": 102
           }
         ]
       },
       {
         "game_id": "bd6818aa5f43e7496cc108c90adf335d",
         "bookmaker": "BetOnline.ag",
-        "last_update": "2026-01-01T00:21:59Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Mississippi State Bulldogs",
@@ -1669,19 +1642,19 @@
           {
             "team": "Mississippi State Bulldogs",
             "point": -3.0,
-            "price": -115
+            "price": -118
           },
           {
             "team": "Wake Forest Demon Deacons",
             "point": 3.0,
-            "price": -105
+            "price": -102
           }
         ]
       },
       {
         "game_id": "bd6818aa5f43e7496cc108c90adf335d",
         "bookmaker": "BetMGM",
-        "last_update": "2026-01-01T00:21:45Z",
+        "last_update": "2026-01-01T00:48:40Z",
         "moneyline": [
           {
             "team": "Mississippi State Bulldogs",
@@ -1708,7 +1681,7 @@
       {
         "game_id": "bd6818aa5f43e7496cc108c90adf335d",
         "bookmaker": "BetUS",
-        "last_update": "2026-01-01T00:22:26Z",
+        "last_update": "2026-01-01T00:48:18Z",
         "moneyline": [
           {
             "team": "Mississippi State Bulldogs",
@@ -1735,7 +1708,7 @@
       {
         "game_id": "bd6818aa5f43e7496cc108c90adf335d",
         "bookmaker": "Bovada",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:17Z",
         "moneyline": [
           {
             "team": "Mississippi State Bulldogs",
@@ -1762,7 +1735,7 @@
       {
         "game_id": "bd6818aa5f43e7496cc108c90adf335d",
         "bookmaker": "BetRivers",
-        "last_update": "2026-01-01T00:22:24Z",
+        "last_update": "2026-01-01T00:48:26Z",
         "moneyline": [
           {
             "team": "Mississippi State Bulldogs",
@@ -1800,7 +1773,7 @@
       {
         "game_id": "56504eac7bbc625f7316c6bad4354b93",
         "bookmaker": "FanDuel",
-        "last_update": "2026-01-01T00:22:17Z",
+        "last_update": "2026-01-01T00:47:22Z",
         "moneyline": [
           {
             "team": "Illinois State Redbirds",
